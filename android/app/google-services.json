@@ -1,0 +1,298 @@
+{
+  "project_info": {
+    "project_number": "873107432666",
+    "project_id": "react-native-terminal-20-4a235",
+    "storage_bucket": "react-native-terminal-20-4a235.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873107432666:android:5ec465f6c42f5d51ff71e3",
+        "android_client_info": {
+          "package_name": "com.ShreejiBullion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873107432666-kukiqt4q7iv77n7ifjarmk385cj8uuq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFkPKt6adO9vtbPdpY9hRH_swdBI_8xYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873107432666-kukiqt4q7iv77n7ifjarmk385cj8uuq3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "873107432666-1rkuuc6cp44c4915g39pudh0iuat6e3q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "StarLine.Vitrag"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873107432666:android:e762edaa11574131ff71e3",
+        "android_client_info": {
+          "package_name": "com.VitraagTrading"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873107432666-kukiqt4q7iv77n7ifjarmk385cj8uuq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFkPKt6adO9vtbPdpY9hRH_swdBI_8xYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873107432666-kukiqt4q7iv77n7ifjarmk385cj8uuq3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "873107432666-1rkuuc6cp44c4915g39pudh0iuat6e3q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "StarLine.Vitrag"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873107432666:android:dad82097a98251f0ff71e3",
+        "android_client_info": {
+          "package_name": "com.adinathjewellers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873107432666-kukiqt4q7iv77n7ifjarmk385cj8uuq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFkPKt6adO9vtbPdpY9hRH_swdBI_8xYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873107432666-kukiqt4q7iv77n7ifjarmk385cj8uuq3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "873107432666-1rkuuc6cp44c4915g39pudh0iuat6e3q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "StarLine.Vitrag"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873107432666:android:0d8e75de63434a17ff71e3",
+        "android_client_info": {
+          "package_name": "com.akpatelbullion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873107432666-kukiqt4q7iv77n7ifjarmk385cj8uuq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFkPKt6adO9vtbPdpY9hRH_swdBI_8xYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873107432666-kukiqt4q7iv77n7ifjarmk385cj8uuq3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "873107432666-1rkuuc6cp44c4915g39pudh0iuat6e3q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "StarLine.Vitrag"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873107432666:android:8453883a8fb92394ff71e3",
+        "android_client_info": {
+          "package_name": "com.ljplspot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873107432666-kukiqt4q7iv77n7ifjarmk385cj8uuq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFkPKt6adO9vtbPdpY9hRH_swdBI_8xYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873107432666-kukiqt4q7iv77n7ifjarmk385cj8uuq3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "873107432666-1rkuuc6cp44c4915g39pudh0iuat6e3q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "StarLine.Vitrag"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873107432666:android:76c6ef66c114abb9ff71e3",
+        "android_client_info": {
+          "package_name": "com.mahalxmibullion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873107432666-kukiqt4q7iv77n7ifjarmk385cj8uuq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFkPKt6adO9vtbPdpY9hRH_swdBI_8xYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873107432666-kukiqt4q7iv77n7ifjarmk385cj8uuq3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "873107432666-1rkuuc6cp44c4915g39pudh0iuat6e3q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "StarLine.Vitrag"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873107432666:android:7f0aa4954574704fff71e3",
+        "android_client_info": {
+          "package_name": "com.shivamgold"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873107432666-kukiqt4q7iv77n7ifjarmk385cj8uuq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFkPKt6adO9vtbPdpY9hRH_swdBI_8xYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873107432666-kukiqt4q7iv77n7ifjarmk385cj8uuq3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "873107432666-1rkuuc6cp44c4915g39pudh0iuat6e3q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "StarLine.Vitrag"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873107432666:android:772ffc1fd7a64ff2ff71e3",
+        "android_client_info": {
+          "package_name": "com.somnathtrading"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873107432666-kukiqt4q7iv77n7ifjarmk385cj8uuq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFkPKt6adO9vtbPdpY9hRH_swdBI_8xYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873107432666-kukiqt4q7iv77n7ifjarmk385cj8uuq3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "873107432666-1rkuuc6cp44c4915g39pudh0iuat6e3q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "StarLine.Vitrag"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

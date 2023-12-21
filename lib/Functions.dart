@@ -1,0 +1,107 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import 'package:terminal_demo/Constants/app_colors.dart';
+
+class Functions {
+  //check internet
+  static Future<bool> checkConnectivity() async {
+    var connectivityResult = await Connectivity().checkConnectivity();
+    if (connectivityResult == ConnectivityResult.mobile) {
+      return true;
+    } else if (connectivityResult == ConnectivityResult.wifi) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  static showToast(String message) {
+    Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_LONG,
+        timeInSecForIosWeb: 4,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: AppColors.primaryColor,
+        textColor: AppColors.defaultColor,
+        fontSize: 16.0);
+  }
+
+  static showSnackBar(BuildContext context, String content) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: AppColors.primaryColor,
+        duration: const Duration(seconds: 3),
+        content: Text(
+          content,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            color: AppColors.defaultColor,
+            fontWeight: FontWeight.bold,
+            fontSize: 16.0,
+          ),
+        ),
+      ),
+    );
+  }
+
+//email validation
+  static velidateEmail(String email) {
+    final bool emailValid = RegExp(
+            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+        .hasMatch(email);
+    return emailValid;
+  }
+
+//calender Style
+  static calenderStyle(BuildContext context) {
+    return Theme.of(context).copyWith(
+        colorScheme: const ColorScheme.light(
+          primary: AppColors.primaryColor,
+          onPrimary: AppColors.defaultColor,
+          onSurface: AppColors.textColor,
+        ),
+        textButtonTheme: TextButtonThemeData(
+            style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(AppColors.primaryColor),
+          textStyle: MaterialStateProperty.all(TextStyle(
+              fontWeight: FontWeight.bold,
+              fontFamily: GoogleFonts.poppins().fontFamily)),
+          shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
+          minimumSize: MaterialStateProperty.all(const Size(80, 40)),
+          foregroundColor: MaterialStateProperty.all(Colors.white),
+        ))
+        // textButtonTheme: TextButtonThemeData(
+        //   style: TextButton.styleFrom(
+        //     foregroundColor: AppColors.primaryColor, textStyle: GoogleFonts.poppins(),
+        //
+        //   ),
+        // ),
+        );
+  }
+
+  //format number
+  static String formatNum(int num) {
+    return  num==0?'0':NumberFormat('#,##,000').format(num);
+  }
+  //format dynamic
+ static bool isDecimal(String input) {
+    final RegExp decimalRegExp = RegExp(r'^\d+\.\d+$');
+    return decimalRegExp.hasMatch(input);
+  }
+  //format dynamic
+  static bool isNumeric(String s) {
+    if (s.isEmpty||s=='--'||s=='-') {
+      return false;
+    }
+    return true;
+  }
+  //replace alpha with number
+  static String alphaNum(String num) {
+    return  num.replaceAll(RegExp(r'[^0-9]'),'');
+  }
+}
