@@ -212,7 +212,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     });
     NotifySocketUpdate.controllerOrderDetails!.stream.listen((event) {
       setState(() {
-
         onItemTapped(1);
       });
     });
@@ -277,7 +276,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         // bool isAddVisible
         debugPrint('appLifeCycleState detached');
         break;
-      case AppLifecycleState.hidden:
+      // case AppLifecycleState.hidden:
       // TODO: Handle this case.
     }
   }
@@ -411,12 +410,34 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             height: 60,
             backgroundColor: AppColors.primaryColor,
             animationCurve: Curves.fastEaseInToSlowEaseOut,
-            items:  <Widget>[
-              Icon(Icons.home, size: 24,color: selectedIndex==0?AppColors.primaryColor:AppColors.textColor,),
-              Icon(Icons.area_chart, size: 24,color: selectedIndex==1?AppColors.primaryColor:AppColors.textColor),
-              Icon(Icons.notification_add_sharp, size: 24,color: selectedIndex==2?AppColors.primaryColor:AppColors.textColor),
-              Icon(Icons.home_work, size: 24,color: selectedIndex==3?AppColors.primaryColor:AppColors.textColor),
-              Icon(Icons.contact_phone, size: 24,color: selectedIndex==4?AppColors.primaryColor:AppColors.textColor),
+            items: <Widget>[
+              Icon(
+                Icons.home,
+                size: 24,
+                color: selectedIndex == 0
+                    ? AppColors.primaryColor
+                    : AppColors.textColor,
+              ),
+              Icon(Icons.area_chart,
+                  size: 24,
+                  color: selectedIndex == 1
+                      ? AppColors.primaryColor
+                      : AppColors.textColor),
+              Icon(Icons.notification_add_sharp,
+                  size: 24,
+                  color: selectedIndex == 2
+                      ? AppColors.primaryColor
+                      : AppColors.textColor),
+              Icon(Icons.home_work,
+                  size: 24,
+                  color: selectedIndex == 3
+                      ? AppColors.primaryColor
+                      : AppColors.textColor),
+              Icon(Icons.contact_phone,
+                  size: 24,
+                  color: selectedIndex == 4
+                      ? AppColors.primaryColor
+                      : AppColors.textColor),
             ],
             onTap: (index) {
               onItemTapped(index);
@@ -1720,7 +1741,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         arguments: const Login_Screen(
           isFromSplash: false,
         ),
-      ).then((_) {
+      )
+          .then((_) {
         checkIsLogin();
       });
       print("Triple click!");
