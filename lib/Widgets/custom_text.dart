@@ -31,6 +31,7 @@ class CustomText extends StatelessWidget {
         textAlign: align,
         overflow: TextOverflow.ellipsis,
         maxLines: 3,
+        textScaleFactor: 1.0,
       ),
     );
   }

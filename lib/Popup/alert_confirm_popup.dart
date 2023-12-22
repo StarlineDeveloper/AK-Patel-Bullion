@@ -41,6 +41,8 @@ class DialogUtil {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(title,
+                      textScaleFactor: 1.0,
+
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 15.0,
@@ -50,6 +52,8 @@ class DialogUtil {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(content,
+                    textScaleFactor: 1.0,
+
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 15.0,
@@ -66,6 +70,8 @@ class DialogUtil {
                     ),
                     alignment: Alignment.center,
                     child: Text(okBtnText,
+                        textScaleFactor: 1.0,
+
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 15.0,
@@ -116,6 +122,8 @@ class DialogUtil {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(title,
+                      textScaleFactor: 1.0,
+
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 15.0,
@@ -125,6 +133,8 @@ class DialogUtil {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(content,
+                    textScaleFactor: 1.0,
+
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 15.0,
@@ -149,6 +159,8 @@ class DialogUtil {
                             Visibility(
                               visible: !isVisible,
                               child: Text(okBtnText,
+                                  textScaleFactor: 1.0,
+
                                   style: TextStyle(
                                       fontWeight: FontWeight.normal,
                                       fontSize: 15.0,
@@ -183,6 +195,8 @@ class DialogUtil {
                           ),
                           alignment: Alignment.center,
                           child: Text(cancelBtnText,
+                              textScaleFactor: 1.0,
+
                               style: TextStyle(
                                   fontWeight: FontWeight.normal,
                                   fontSize: 15.0,

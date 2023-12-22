@@ -21,6 +21,7 @@ class Functions {
 
   static showToast(String message) {
     Fluttertoast.showToast(
+
         msg: message,
         toastLength: Toast.LENGTH_LONG,
         timeInSecForIosWeb: 4,
@@ -36,6 +37,8 @@ class Functions {
         backgroundColor: AppColors.primaryColor,
         duration: const Duration(seconds: 3),
         content: Text(
+          textScaleFactor: 1.0,
+
           content,
           textAlign: TextAlign.center,
           style: const TextStyle(

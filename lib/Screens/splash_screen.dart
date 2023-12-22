@@ -63,8 +63,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void callForIOS() async {
-    String objVariable =
-    json.encode({"ClientId": int.parse(Constants.clientId)});
+    String objVariable = json.encode({"ClientId": Constants.clientId});
 
     List<String> fieldList = [
       '<?xml version="1.0" encoding="utf-8"?>',
@@ -102,8 +101,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void callForAndroid() async {
-    String objVariable =
-    json.encode({"ClientId": int.parse(Constants.clientId)});
+    String objVariable = json.encode({"ClientId": Constants.clientId});
 
     List<String> fieldList = [
       '<?xml version="1.0" encoding="utf-8"?>',
@@ -132,7 +130,7 @@ class _SplashScreenState extends State<SplashScreen> {
     String chekis = parsedXml.text;
 
     var apiVersion = double.parse(chekis);
-    var deviceAppVersion = double.parse(appVersion);
+    var deviceAppVersion = double.parse('2.3');
     if (deviceAppVersion < apiVersion) {
       showUpdateDialog();
     } else {
@@ -256,7 +254,6 @@ class _SplashScreenState extends State<SplashScreen> {
     //Comment below line if without OTR
     Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
     //UnComment below line with OTR
-
 
     // shared.getIsFirstTimeRegister().then((isFirstTime) {
     //   if (!isFirstTime) {

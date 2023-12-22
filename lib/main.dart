@@ -64,6 +64,17 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: NotifierProvider.providers,
       child: MaterialApp(
+        builder: (context, child) {
+          const lowerLimit = 1.0;
+          const upperLimit = 1.0;
+          final mediaQueryData = MediaQuery.of(context);
+          final scale =
+              mediaQueryData.textScaleFactor.clamp(lowerLimit, upperLimit);
+          return MediaQuery(
+            child: child!,
+            data: MediaQuery.of(context).copyWith(textScaleFactor: scale),
+          );
+        },
         title: 'AK Patel',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

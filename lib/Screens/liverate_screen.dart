@@ -61,7 +61,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
   final TextEditingController _priceController = TextEditingController();
 
   // Lists and other variables
-  late List<Liverate> liveRatesDetailMaster;
+  late List<Liverate> liveRatesDetailMaster=[];
   late List<Liverate> liveRatesDetailGold;
   late List<Liverate> liveRatesDetailSilver;
   late List<ReferenceDataRate> liveRateReferenceDetail;
@@ -115,15 +115,348 @@ class _LiveRateScreenState extends State<LiveRateScreen>
   void _initializeControllers() {
     _tabController = TabController(length: 1, vsync: this);
     _tabGoldSilverController = TabController(length: 2, vsync: this);
+    NotifySocketUpdate.controllerHome = StreamController();
     NotifySocketUpdate.controllerMainData = StreamController();
     NotifySocketUpdate.dropDown = StreamController();
     streamController = StreamController<List<Liverate>>.broadcast();
   }
 
   void _initializeListeners() {
+    NotifySocketUpdate.controllerHome!.stream.asBroadcastStream().listen(
+      (event) {
+        liveRateReferenceDetail=[];
+        referenceData = _liverateProvider.getReferenceData();
+        // for (var item in event) {
+        //   liveRateReferenceDetail.add(ReferenceDataRate.fromJson(item));
+        // }
+
+        liveRateReferenceDetail = _liverateProvider.getReferenceDataRate();
+        liveRateReferenceDetailOld = liveRateReferenceDetail;
+
+        Functions.checkConnectivity().then((isConnected) {
+          List<ComexDataModel> comexData = [];
+          List<ComexDataModel> futureData = [];
+          List<ComexDataModel> nextData = [];
+          if (isConnected) {
+            setState(() {
+              referenceFutureData = _liverateProvider.getFutureData();
+              referenceComexData = _liverateProvider.getComexData();
+
+              // referenceNextData = liveDataProvider.getNextData();
+            });
+            // Set Future and Next list based on Liverates and Reference
+            for (var data in referenceData) {
+              for (var rate in liveRateReferenceDetail) {
+                if (rate.symbol.toLowerCase() == data.source!.toLowerCase()) {
+                  bid  = rate.bid.toString();
+                  ask  = rate.ask.toString();
+                  high = rate.high.toString();
+                  low  = rate.low.toString();
+                } // Set bid, ask, high and low which matches the symbol of rate and source of data.
+              }
+              if (data.isDisplay! &&
+                  (data.source == 'gold' || data.source == 'silver')) {
+                futureData.add(
+                  ComexDataModel(
+                    symbolName: data.symbolName,
+                    bid: bid.toString(),
+                    ask: ask.toString(),
+                    high: high.toString(),
+                    low: low.toString(),
+                    isDisplay: data.isDisplay,
+                  ),
+                );
+              }
+
+              else if(data.isDisplay! &&
+                  (data.source == 'XAGUSD' ||
+                      data.source == 'XAUUSD' ||
+                      data.source == 'INRSpot')){
+                comexData.add(
+                  ComexDataModel(
+                    symbolName: data.symbolName,
+                    bid: bid.toString(),
+                    ask: ask.toString(),
+                    high: high.toString(),
+                    low: low.toString(),
+                    isDisplay: data.isDisplay,
+                  ),
+                );
+              }
+            }
+            _liverateProvider.addFutureData(futureData);
+
+            _liverateProvider.addComexData(comexData);
+
+            // Set Comex list based on Liverates and Reference
+            // for (var data in referenceData) {
+            //   for (var rate in liveRateReferenceDetail) {
+            //     if (rate.symbol.toLowerCase() == data.source!.toLowerCase()) {
+            //       bid = rate.bid.toString();
+            //       ask = rate.ask.toString();
+            //       high = rate.high.toString();
+            //       low = rate.low.toString();
+            //     } // Set bid, ask, high and low which matches the symbol of rate and source of data.
+            //   }
+            //   if (data.isDisplay! &&
+            //       (data.source == 'XAGUSD' ||
+            //           data.source == 'XAUUSD' ||
+            //           data.source == 'INRSpot')) {
+            //     comexData.add(
+            //       ComexDataModel(
+            //         symbolName: data.symbolName,
+            //         bid: bid.toString(),
+            //         ask: ask.toString(),
+            //         high: high.toString(),
+            //         low: low.toString(),
+            //         isDisplay: data.isDisplay,
+            //       ),
+            //     );
+            //   }
+            // }
+            // _liverateProvider.addComexData(comexData);
+
+            // Set Next list based on Liverates and Reference
+            // for (var data in referenceData) {
+            //   for (var rate in liveRateReferenceDetail) {
+            //     if (rate.symbol.toLowerCase() == data.source!.toLowerCase()) {
+            //       bid = rate.bid;
+            //       ask = rate.ask;
+            //       high = rate.high;
+            //       low = rate.low;
+            //     } // Set bid, ask, high and low which matches the symbol of rate and source of data.
+            //   }
+            //   if (data.isDisplay! &&
+            //       (data.source == 'goldnext' || data.source == 'silvernext')) {
+            //     nextData.add(
+            //       ComexDataModel(
+            //         symbolName: data.symbolName,
+            //         bid: bid,
+            //         ask: ask,
+            //         high: high,
+            //         low: low,
+            //         isDisplay: data.isDisplay,
+            //       ),
+            //     );
+            //   }
+            // }
+            // _liverateProvider.addNextData(nextData);
+
+
+
+
+          } else {
+            setState(() {
+              referenceFutureData = _liverateProvider.getFutureData();
+              referenceComexData = _liverateProvider.getComexData();
+
+              // referenceNextData = liveDataProvider.getNextData();
+            });
+          }
+
+
+          // if (isConnected) {
+          //   setState(() {
+          //     referenceFutureData = _liverateProvider.getFutureData();
+          //     // referenceComexDataGold = [];
+          //     // referenceComexDataSilver = [];
+          //     referenceComexData = _liverateProvider.getComexData();
+          //
+          //
+          //   });
+          //   for (var data in referenceData) {
+          //     var rate = liveRateReferenceDetail.firstWhere((rate) =>
+          //         rate.symbol!.toLowerCase() == data.source!.toLowerCase());
+          //
+          //     if (rate != null) {
+          //       var bid = rate.bid!.toString();
+          //       var ask = rate.ask!.toString();
+          //       var high = rate.high!.toString();
+          //       var low = rate.low!.toString();
+          //
+          //       var comexModel = ComexDataModel(
+          //         symbolName: data.symbolName,
+          //         bid: bid,
+          //         ask: ask,
+          //         high: high,
+          //         low: low,
+          //         source: data.source,
+          //         isDisplay: data.isDisplay,
+          //       );
+          //
+          //       if (data.isDisplay! &&
+          //           (data.source == 'XAUUSD' ||
+          //               data.source == 'XAGUSD' ||
+          //               data.source == 'INRSpot')) {
+          //         comexData.add(comexModel);
+          //       }
+          //
+          //       if (data.isDisplay! &&
+          //           (data.source == 'gold' ||
+          //               data.source == 'silver' ||
+          //               data.source == 'silvernext' ||
+          //               data.source == 'goldnext')) {
+          //         futureData.add(comexModel);
+          //       }
+          //     }
+          //   }
+          //
+          //   _liverateProvider.addComexData(comexData);
+          //   _liverateProvider.addFutureData(futureData);
+          //   // for (var data in referenceData) {
+          //   //   for (var rate in liveRateReferenceDetail) {
+          //   //     if (rate.symbol!.toLowerCase() == data.source!.toLowerCase()) {
+          //   //       bid = rate.bid!.toString();
+          //   //       ask = rate.ask!.toString();
+          //   //       high = rate.high!.toString();
+          //   //       low = rate.low!.toString();
+          //   //     } // Set bid, ask, high and low which matches the symbol of rate and source of data.
+          //   //   }
+          //   //
+          //   //   if (data.isDisplay! &&
+          //   //       (data.source == 'XAUUSD' ||
+          //   //           data.source == 'XAGUSD' ||
+          //   //           // data.source == 'gold' ||
+          //   //           // data.source == 'silver' ||
+          //   //           // data.source == 'silvernext' ||
+          //   //           // data.source == 'goldnext' ||
+          //   //           data.source == 'INRSpot')) {
+          //   //     comexData.add(
+          //   //       ComexDataModel(
+          //   //         symbolName: data.symbolName,
+          //   //         bid: bid,
+          //   //         ask: ask,
+          //   //         high: high,
+          //   //         low: low,
+          //   //         source: data.source,
+          //   //         isDisplay: data.isDisplay,
+          //   //       ),
+          //   //     );
+          //   //   }
+          //   // }
+          //   // _liverateProvider.addComexData(comexData);
+          //   // for (var data in referenceData) {
+          //   //   for (var rate in liveRateReferenceDetail) {
+          //   //     if (rate.symbol!.toLowerCase() == data.source!.toLowerCase()) {
+          //   //       bid = rate.bid!.toString();
+          //   //       ask = rate.ask!.toString();
+          //   //       high = rate.high!.toString();
+          //   //       low = rate.low!.toString();
+          //   //     } // Set bid, ask, high and low which matches the symbol of rate and source of data.
+          //   //   }
+          //   //   if (data.isDisplay! &&
+          //   //       (data.source == 'gold' ||
+          //   //           data.source == 'silver' ||
+          //   //           data.source == 'silvernext' ||
+          //   //           data.source == 'goldnext')) {
+          //   //     futureData.add(
+          //   //       ComexDataModel(
+          //   //         symbolName: data.symbolName,
+          //   //         bid: bid,
+          //   //         ask: ask,
+          //   //         high: high,
+          //   //         low: low,
+          //   //         isDisplay: data.isDisplay,
+          //   //       ),
+          //   //     );
+          //   //   }
+          //   // }
+          //   // _liverateProvider.addFutureData(futureData);
+          //
+          //   // Set Future and Next list based on Liverates and Reference
+          //   // for (var data in referenceData) {
+          //   //   for (var rate in liveRateReferenceDetail) {
+          //   //     if (rate.symbol!.toLowerCase() == data.source!.toLowerCase()) {
+          //   //       bid = rate.bid!.toString();
+          //   //       ask = rate.ask!.toString();
+          //   //       high = rate.high!.toString();
+          //   //       low = rate.low!.toString();
+          //   //     } // Set bid, ask, high and low which matches the symbol of rate and source of data.
+          //   //   }
+          //   //   if (data.isDisplay! &&
+          //   //       (   data.source == 'gold' ||
+          //   //           data.source == 'silver' ||
+          //   //           data.source == 'silvernext' ||
+          //   //           data.source == 'goldnext')) {
+          //   //     futureData.add(
+          //   //       ComexDataModel(
+          //   //         symbolName: data.symbolName,
+          //   //         bid: bid,
+          //   //         ask: ask,
+          //   //         high: high,
+          //   //         low: low,
+          //   //         isDisplay: data.isDisplay,
+          //   //       ),
+          //   //     );
+          //   //   }
+          //   // }
+          //   // _liverateProvider.addFutureData(futureData);
+          //
+          //   // Set Next & Future list based on Liverates and Reference
+          //   // for (var data in referenceData) {
+          //   //   for (var rate in liveRateReferenceDetail) {
+          //   //     if (rate.symbol!.toLowerCase() == data.source!.toLowerCase()) {
+          //   //       bid = rate.bid!.toString();
+          //   //       ask = rate.ask!.toString();
+          //   //       high = rate.high!.toString();
+          //   //       low = rate.low!.toString();
+          //   //     } // Set bid, ask, high and low which matches the symbol of rate and source of data.
+          //   //   }
+          //   //   if (data.isDisplay! &&
+          //   //       (data.source == 'goldnext' || data.source == 'silvernext')) {
+          //   //     nextData.add(
+          //   //       ComexDataModel(
+          //   //         symbolName: data.symbolName,
+          //   //         bid: bid,
+          //   //         ask: ask,
+          //   //         high: high,
+          //   //         low: low,
+          //   //         isDisplay: data.isDisplay,
+          //   //       ),
+          //   //     );
+          //   //   }
+          //   // }
+          //   // _liverateProvider.addNextData(nextData);
+          // } else {
+          //   setState(() {
+          //     referenceComexData = _liverateProvider.getComexData();
+          //     referenceFutureData = _liverateProvider.getFutureData();
+          //   });
+          // }
+        });
+
+
+        clientHeadersDetail = _liverateProvider.getClientHeaderData();
+
+
+
+
+        // // Asign Live Rate to Live Rate Old
+        // liveRatesDetailOldMaster = liveRatesDetailMaster;
+        // liveRatesDetailOldTrade = liveRatesDetailTrade;
+
+
+
+
+
+        // loadData();
+      },
+    );
     NotifySocketUpdate.controllerMainData!.stream.asBroadcastStream().listen(
       (event) {
-        loadData();
+        Future.delayed(const Duration(seconds: 1), () {
+
+          liveRatesDetailMaster = _liverateProvider.getLiveRateData();
+
+          liveRatesDetailOldMaster = liveRatesDetailMaster;
+
+          if (!streamController.isClosed) {
+            streamController.sink.add(liveRatesDetailMaster);
+          }
+        });
+
+
+
       },
     );
     NotifySocketUpdate.dropDown!.stream.asBroadcastStream().listen(
@@ -140,6 +473,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
     _tabController.dispose();
     _tabGoldSilverController.dispose();
     streamController.close();
+    NotifySocketUpdate.controllerHome!.close();
     NotifySocketUpdate.controllerMainData!.close();
     NotifySocketUpdate.dropDown!.close();
     super.dispose();
@@ -158,256 +492,22 @@ class _LiveRateScreenState extends State<LiveRateScreen>
   }
 
   loadData() {
-    liveRatesDetailMaster = [];
-    liveRatesDetailGold = [];
-    liveRatesDetailSilver = [];
-    referenceComexDataGold = [];
-    referenceComexDataSilver = [];
-    liveRateReferenceDetail = [];
-    referenceInrData = [];
-    referenceData = [];
-    liveRatesDetailOldMaster = [];
-    liveRateReferenceDetailOld = [];
-    referenceComexDataOld = [];
-    referenceFutureDataOld = [];
+    // liveRatesDetailMaster = [];
+    // liveRatesDetailGold = [];
+    // liveRatesDetailSilver = [];
+    // referenceComexDataGold = [];
+    // referenceComexDataSilver = [];
+    // liveRateReferenceDetail = [];
+    // referenceInrData = [];
+    // referenceData = [];
+    // liveRatesDetailOldMaster = [];
+    // liveRateReferenceDetailOld = [];
+    // referenceComexDataOld = [];
+    // referenceFutureDataOld = [];
 
     // Get Data From Providers..
-    clientHeadersDetail = _liverateProvider.getClientHeaderData();
-    liveRatesDetailMaster = _liverateProvider.getLiveRateData();
-    // seperateGoldSilverListFromSource();
-    // for (int i = 0; i < liveRatesDetailMaster.length; i++) {
-    //   if (liveRatesDetailMaster[i].source?.toLowerCase() == 'gold') {
-    //     liveRatesDetailGold.add(liveRatesDetailMaster[i]);
-    //   } else {
-    //     liveRatesDetailSilver.add(liveRatesDetailMaster[i]);
-    //   }
-    // }
-    //
-    // liveRatesDetailMaster = isGoldSelected
-    //     ? List.from(liveRatesDetailGold)
-    //     : List.from(liveRatesDetailSilver);
-    liveRatesDetailOldMaster = liveRatesDetailMaster;
 
-    if (!streamController.isClosed) {
-      streamController.sink.add(liveRatesDetailMaster);
-    }
-    // _controller.sink.add(...);
 
-    liveRateReferenceDetail = _liverateProvider.getReferenceDataRate();
-    referenceData = _liverateProvider.getReferenceData();
-
-    // // Asign Live Rate to Live Rate Old
-    // liveRatesDetailOldMaster = liveRatesDetailMaster;
-    // liveRatesDetailOldTrade = liveRatesDetailTrade;
-    liveRateReferenceDetailOld = liveRateReferenceDetail;
-
-    Functions.checkConnectivity().then((isConnected) {
-      List<ComexDataModel> comexData = [];
-      List<ComexDataModel> futureData = [];
-      List<ComexDataModel> nextData = [];
-      if (isConnected) {
-        setState(() {
-          referenceFutureData = _liverateProvider.getFutureData();
-          // referenceComexDataGold = [];
-          // referenceComexDataSilver = [];
-          referenceComexData = _liverateProvider.getComexData();
-
-          // for (var data in referenceComexData) {
-          //   switch (data.source?.toLowerCase()) {
-          //     case 'gold':
-          //     case 'goldnext':
-          //     case 'xauusd':
-          //       // case 'inrspot':
-          //       referenceComexDataGold.add(data);
-          //       break;
-          //     case 'silver':
-          //     case 'silvernext':
-          //     case 'xagusd':
-          //       // case 'inrspot':
-          //       referenceComexDataSilver.add(data);
-          //       break;
-          //     case 'inrspot':
-          //       referenceComexDataSilver.add(data);
-          //       referenceComexDataGold.add(data);
-          //       break;
-          //   }
-          // }
-          // for (var data in referenceComexData) {
-          //   switch (data.source?.toLowerCase()) {
-          //     case 'inrspot':
-          //       referenceInrData.add(data);
-          //       break;
-          //   }
-          // }
-          // if (isGoldSelected) {
-          //   referenceComexData = [];
-          //   referenceComexData.addAll(referenceComexDataGold);
-          // } else {
-          //   referenceComexData = [];
-          //   referenceComexData.addAll(referenceComexDataSilver);
-          // }
-
-          // referenceFutureData = _liverateProvider.getFutureData();
-        });
-        for (var data in referenceData) {
-          var rate = liveRateReferenceDetail.firstWhere((rate) => rate.symbol!.toLowerCase() == data.source!.toLowerCase());
-
-          if (rate != null) {
-            var bid = rate.bid!.toString();
-            var ask = rate.ask!.toString();
-            var high = rate.high!.toString();
-            var low = rate.low!.toString();
-
-            var comexModel = ComexDataModel(
-              symbolName: data.symbolName,
-              bid: bid,
-              ask: ask,
-              high: high,
-              low: low,
-              source: data.source,
-              isDisplay: data.isDisplay,
-            );
-
-            if (data.isDisplay! &&
-                (data.source == 'XAUUSD' ||
-                    data.source == 'XAGUSD' ||
-                    data.source == 'INRSpot')) {
-              comexData.add(comexModel);
-            }
-
-            if (data.isDisplay! &&
-                (data.source == 'gold' ||
-                    data.source == 'silver' ||
-                    data.source == 'silvernext' ||
-                    data.source == 'goldnext')) {
-              futureData.add(comexModel);
-            }
-          }
-        }
-
-        _liverateProvider.addComexData(comexData);
-        _liverateProvider.addFutureData(futureData);
-        // for (var data in referenceData) {
-        //   for (var rate in liveRateReferenceDetail) {
-        //     if (rate.symbol!.toLowerCase() == data.source!.toLowerCase()) {
-        //       bid = rate.bid!.toString();
-        //       ask = rate.ask!.toString();
-        //       high = rate.high!.toString();
-        //       low = rate.low!.toString();
-        //     } // Set bid, ask, high and low which matches the symbol of rate and source of data.
-        //   }
-        //
-        //   if (data.isDisplay! &&
-        //       (data.source == 'XAUUSD' ||
-        //           data.source == 'XAGUSD' ||
-        //           // data.source == 'gold' ||
-        //           // data.source == 'silver' ||
-        //           // data.source == 'silvernext' ||
-        //           // data.source == 'goldnext' ||
-        //           data.source == 'INRSpot')) {
-        //     comexData.add(
-        //       ComexDataModel(
-        //         symbolName: data.symbolName,
-        //         bid: bid,
-        //         ask: ask,
-        //         high: high,
-        //         low: low,
-        //         source: data.source,
-        //         isDisplay: data.isDisplay,
-        //       ),
-        //     );
-        //   }
-        // }
-        // _liverateProvider.addComexData(comexData);
-        // for (var data in referenceData) {
-        //   for (var rate in liveRateReferenceDetail) {
-        //     if (rate.symbol!.toLowerCase() == data.source!.toLowerCase()) {
-        //       bid = rate.bid!.toString();
-        //       ask = rate.ask!.toString();
-        //       high = rate.high!.toString();
-        //       low = rate.low!.toString();
-        //     } // Set bid, ask, high and low which matches the symbol of rate and source of data.
-        //   }
-        //   if (data.isDisplay! &&
-        //       (data.source == 'gold' ||
-        //           data.source == 'silver' ||
-        //           data.source == 'silvernext' ||
-        //           data.source == 'goldnext')) {
-        //     futureData.add(
-        //       ComexDataModel(
-        //         symbolName: data.symbolName,
-        //         bid: bid,
-        //         ask: ask,
-        //         high: high,
-        //         low: low,
-        //         isDisplay: data.isDisplay,
-        //       ),
-        //     );
-        //   }
-        // }
-        // _liverateProvider.addFutureData(futureData);
-
-        // Set Future and Next list based on Liverates and Reference
-        // for (var data in referenceData) {
-        //   for (var rate in liveRateReferenceDetail) {
-        //     if (rate.symbol!.toLowerCase() == data.source!.toLowerCase()) {
-        //       bid = rate.bid!.toString();
-        //       ask = rate.ask!.toString();
-        //       high = rate.high!.toString();
-        //       low = rate.low!.toString();
-        //     } // Set bid, ask, high and low which matches the symbol of rate and source of data.
-        //   }
-        //   if (data.isDisplay! &&
-        //       (   data.source == 'gold' ||
-        //           data.source == 'silver' ||
-        //           data.source == 'silvernext' ||
-        //           data.source == 'goldnext')) {
-        //     futureData.add(
-        //       ComexDataModel(
-        //         symbolName: data.symbolName,
-        //         bid: bid,
-        //         ask: ask,
-        //         high: high,
-        //         low: low,
-        //         isDisplay: data.isDisplay,
-        //       ),
-        //     );
-        //   }
-        // }
-        // _liverateProvider.addFutureData(futureData);
-
-        // Set Next & Future list based on Liverates and Reference
-        // for (var data in referenceData) {
-        //   for (var rate in liveRateReferenceDetail) {
-        //     if (rate.symbol!.toLowerCase() == data.source!.toLowerCase()) {
-        //       bid = rate.bid!.toString();
-        //       ask = rate.ask!.toString();
-        //       high = rate.high!.toString();
-        //       low = rate.low!.toString();
-        //     } // Set bid, ask, high and low which matches the symbol of rate and source of data.
-        //   }
-        //   if (data.isDisplay! &&
-        //       (data.source == 'goldnext' || data.source == 'silvernext')) {
-        //     nextData.add(
-        //       ComexDataModel(
-        //         symbolName: data.symbolName,
-        //         bid: bid,
-        //         ask: ask,
-        //         high: high,
-        //         low: low,
-        //         isDisplay: data.isDisplay,
-        //       ),
-        //     );
-        //   }
-        // }
-        // _liverateProvider.addNextData(nextData);
-      } else {
-        setState(() {
-          referenceComexData = _liverateProvider.getComexData();
-          referenceFutureData = _liverateProvider.getFutureData();
-        });
-      }
-    });
   }
 
   @override
@@ -682,7 +782,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             ? 0.0
             : double.parse(referenceFutureData[index].ask!);
 
-        setLabelColors(oldAskRate, newAskRate, referenceFutureData[index]);
+        setFutureAskLableColor(oldAskRate, newAskRate, referenceFutureData[index]);
 
         var oldBidRate = referenceFutureDataOldChange[index].bid!.isEmpty
             ? 0.0
@@ -691,7 +791,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             ? 0.0
             : double.parse(referenceFutureData[index].bid!);
 
-        setLabelColors(oldBidRate, newBidRate, referenceFutureData[index]);
+        setFutureBidLableColor(oldBidRate, newBidRate, referenceFutureData[index]);
       }
     }
     if (referenceFutureData.length - 1 == index) {
@@ -700,61 +800,51 @@ class _LiveRateScreenState extends State<LiveRateScreen>
 
     return referenceFutureData.isEmpty
         ? Container()
-        : Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5.0),
-              color: AppColors.defaultColor,
-              border: Border.all(color: AppColors.primaryColor, width: .5),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  height: size.height * .035,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: AppColors.hintColor,
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(5.0),
-                      topRight: Radius.circular(5.0),
-                    ),
-                    // gradient: LinearGradient(
-                    //   stops: const [0.2, 0.9],
-                    //   colors: AppColors.primaryGradientColor,
-                    // ),
-                  ),
-                  alignment: Alignment.center,
-                  child: Text(
-                    referenceFutureData[index].symbolName ?? '',
-                    style: const TextStyle(
-                      color: AppColors.textColor,
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.start,
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                // height: size.height * .035,
+                // width: double.infinity,
+                decoration: BoxDecoration(
+                  color: AppColors.hintColor,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(5.0),
+                    topRight: Radius.circular(5.0),
                   ),
                 ),
-                Expanded(
-                  child: Container(
+                alignment: Alignment.center,
+                child: Text(
+                  textScaleFactor: 1.0,
+                  referenceFutureData[index].symbolName ?? '',
+                  style: const TextStyle(
+                    color: AppColors.textColor,
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.start,
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
                     color: AppColors.primaryColor,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(right: 20.0),
-                              child: Text(
-                                'Sell',
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.secondaryTextColor,
-                                ),
-                              ),
-                            ),
-                            Text(
+                    borderRadius: const BorderRadius.only(
+                      bottomRight: Radius.circular(5.0),
+                      bottomLeft: Radius.circular(5.0),
+                    ),
+                  ),
+                  // color: AppColors.primaryColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: const [
+                          Padding(
+                            padding: EdgeInsets.only(right: 20.0),
+                            child: Text(
+                              textScaleFactor: 1.0,
                               'Buy',
                               style: TextStyle(
                                 fontSize: 16.0,
@@ -762,85 +852,98 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                 color: AppColors.secondaryTextColor,
                               ),
                             ),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 2.0, right: 2.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                height: 30.0,
-                                width: size.width / 4.5,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: referenceFutureData[index].bidBGColor,
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(7),
-                                  ),
-                                ),
-                                child: Text(
-                                  referenceFutureData[index].bid ?? '',
-                                  style: TextStyle(
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.bold,
-                                    color:
-                                        referenceFutureData[index].bidTextColor,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                height: 30.0,
-                                width: size.width / 4.5,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: referenceFutureData[index].askBGColor,
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(7),
-                                  ),
-                                ),
-                                child: Text(
-                                  referenceFutureData[index].ask ?? '',
-                                  style: TextStyle(
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.bold,
-                                    color:
-                                        referenceFutureData[index].askTextColor,
-                                  ),
-                                ),
-                              ),
-                            ],
                           ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'L: ${referenceFutureData[index].low!.isEmpty ? '' : referenceFutureData[index].low!}',
-                              style: const TextStyle(
-                                fontSize: 8.0,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.secondaryTextColor,
-                              ),
-                              textAlign: TextAlign.start,
+                          Text(
+                            textScaleFactor: 1.0,
+                            'Sell',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.secondaryTextColor,
                             ),
-                            Text(
-                              '/ H: ${referenceFutureData[index].high!.isEmpty ? '' : referenceFutureData[index].high!} ',
-                              style: const TextStyle(
-                                fontSize: 8.0,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.secondaryTextColor,
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 2.0, right: 2.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 30.0,
+                              width: size.width / 4.5,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: referenceFutureData[index].bidBGColor,
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(7),
+                                ),
                               ),
-                              textAlign: TextAlign.start,
+                              child: Text(
+                                textScaleFactor: 1.0,
+                                referenceFutureData[index].bid ?? '',
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.bold,
+                                  color:
+                                      referenceFutureData[index].bidTextColor,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 30.0,
+                              width: size.width / 4.5,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: referenceFutureData[index].askBGColor,
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(7),
+                                ),
+                              ),
+                              child: Text(
+                                textScaleFactor: 1.0,
+                                referenceFutureData[index].ask ?? '',
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.bold,
+                                  color:
+                                      referenceFutureData[index].askTextColor,
+                                ),
+                              ),
                             ),
                           ],
                         ),
-                      ],
-                    ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            textScaleFactor: 1.0,
+                            'L: ${referenceFutureData[index].low!.isEmpty ? '' : referenceFutureData[index].low!}',
+                            style: const TextStyle(
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.secondaryTextColor,
+                            ),
+                            textAlign: TextAlign.start,
+                          ),
+                          Text(
+                            textScaleFactor: 1.0,
+                            ' / H: ${referenceFutureData[index].high!.isEmpty ? '' : referenceFutureData[index].high!} ',
+                            style: const TextStyle(
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.secondaryTextColor,
+                            ),
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           );
   }
 
@@ -854,7 +957,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             ? 0.0
             : double.parse(referenceComexData[index].ask!);
 
-        setLabelColors(oldAskRate, newAskRate, referenceComexData[index]);
+        setAskLableColor(oldAskRate, newAskRate, referenceComexData[index]);
 
         var oldBidRate = referenceComexDataOldChange[index].bid!.isEmpty
             ? 0.0
@@ -863,7 +966,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             ? 0.0
             : double.parse(referenceComexData[index].bid!);
 
-        setLabelColors(oldBidRate, newBidRate, referenceComexData[index]);
+        setBidLableColor(oldBidRate, newBidRate, referenceComexData[index]);
       }
     }
     if (referenceComexData.length - 1 == index) {
@@ -872,94 +975,97 @@ class _LiveRateScreenState extends State<LiveRateScreen>
 
     return referenceComexData.isEmpty
         ? Container()
-        : Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5.0),
-              color: AppColors.defaultColor,
-              border: Border.all(color: AppColors.primaryColor, width: .5),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  height: size.height * .035,
-                  width: double.infinity,
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                // height: size.height * .035,
+                // width: double.infinity,
+                decoration: BoxDecoration(
+                  color: AppColors.hintColor,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(5.0),
+                    topRight: Radius.circular(5.0),
+                  ),
+                  // gradient: LinearGradient(
+                  //   stops: const [0.2, 0.9],
+                  //   colors: AppColors.primaryGradientColor,
+                  // ),
+                ),
+                alignment: Alignment.center,
+                child: Text(
+                  textScaleFactor: 1.0,
+                  referenceComexData[index].symbolName ?? '',
+                  style: const TextStyle(
+                    color: AppColors.textColor,
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.start,
+                ),
+              ),
+              Expanded(
+                child: Container(
                   decoration: BoxDecoration(
-                    color: AppColors.hintColor,
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(5.0),
-                      topRight: Radius.circular(5.0),
-                    ),
-                    // gradient: LinearGradient(
-                    //   stops: const [0.2, 0.9],
-                    //   colors: AppColors.primaryGradientColor,
-                    // ),
-                  ),
-                  alignment: Alignment.center,
-                  child: Text(
-                    referenceComexData[index].symbolName ?? '',
-                    style: const TextStyle(
-                      color: AppColors.textColor,
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
-                ),
-                Expanded(
-                  child: Container(
                     color: AppColors.primaryColor,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(
-                          height: 30.0,
-                          width: size.width / 4.5,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: referenceComexData[index].askBGColor,
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(7),
-                            ),
-                          ),
-                          child: Text(
-                            referenceComexData[index].ask ?? '',
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold,
-                              color: referenceComexData[index].askTextColor,
-                            ),
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'L: ${referenceComexData[index].low!.isEmpty ? '' : referenceComexData[index].low!}',
-                              style: const TextStyle(
-                                fontSize: 8.0,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.secondaryTextColor,
-                              ),
-                              textAlign: TextAlign.start,
-                            ),
-                            Text(
-                              '/ H: ${referenceComexData[index].high!.isEmpty ? '' : referenceComexData[index].high!} ',
-                              style: const TextStyle(
-                                fontSize: 8.0,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.secondaryTextColor,
-                              ),
-                              textAlign: TextAlign.start,
-                            ),
-                          ],
-                        ),
-                      ],
+                    borderRadius: const BorderRadius.only(
+                      bottomRight: Radius.circular(5.0),
+                      bottomLeft: Radius.circular(5.0),
                     ),
                   ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        height: 30.0,
+                        width: size.width / 4.5,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: referenceComexData[index].askBGColor,
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(7),
+                          ),
+                        ),
+                        child: Text(
+                          textScaleFactor: 1.0,
+                          referenceComexData[index].ask ?? '',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                            color: referenceComexData[index].askTextColor,
+                          ),
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            textScaleFactor: 1.0,
+                            'L: ${referenceComexData[index].low!.isEmpty ? '' : referenceComexData[index].low!}',
+                            style: const TextStyle(
+                              fontSize: 11.0,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.secondaryTextColor,
+                            ),
+                            textAlign: TextAlign.start,
+                          ),
+                          Text(
+                            textScaleFactor: 1.0,
+                            ' / H: ${referenceComexData[index].high!.isEmpty ? '' : referenceComexData[index].high!} ',
+                            style: const TextStyle(
+                              fontSize: 11.0,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.secondaryTextColor,
+                            ),
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ],
-            ),
+              ),
+            ],
           );
   }
 
@@ -968,10 +1074,8 @@ class _LiveRateScreenState extends State<LiveRateScreen>
       if (liveRatesDetailOldChange.length == liveRatesDetailMaster.length) {
         if (liveRatesDetailOldChange[index].ask == '-' ||
             liveRatesDetailOldChange[index].ask == '--') {
-          // setLabelColorsMainProduct('--', '--', liveRatesDetailMaster[index]);
           liveRatesDetailOldChange[index].askBGColor = AppColors.primaryColor;
-          liveRatesDetailOldChange[index].askTextColor =
-              AppColors.secondaryTextColor;
+          liveRatesDetailOldChange[index].askTextColor = AppColors.secondaryTextColor;
         } else {
           dynamic oldAskRate = liveRatesDetailOldChange[index].ask!.isEmpty
               ? 0.0
@@ -980,8 +1084,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
               ? 0.0
               : double.parse(liveRatesDetailMaster[index].ask!);
 
-          setLabelColorsMainProduct(
-              oldAskRate, newAskRate, liveRatesDetailMaster[index]);
+          setLabelColorsAskMainProduct(oldAskRate, newAskRate, liveRatesDetailMaster[index]);
         }
 
         if (liveRatesDetailOldChange[index].bid == '-' ||
@@ -998,7 +1101,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
               ? 0.0
               : double.parse(liveRatesDetailMaster[index].bid!);
 
-          setLabelColorsMainProduct(
+          setLabelColorsBidMainProduct(
               oldBidRate, newBidRate, liveRatesDetailMaster[index]);
         }
       }
@@ -1358,7 +1461,8 @@ class _LiveRateScreenState extends State<LiveRateScreen>
               );
   }
 
-  Widget buildSellTradeContainer(Size size, int index, AsyncSnapshot<List<Liverate>> snapshot) {
+  Widget buildSellTradeContainer(
+      Size size, int index, AsyncSnapshot<List<Liverate>> snapshot) {
     if (liveRatesDetailOldChange.isNotEmpty) {
       if (liveRatesDetailOldChange.length == liveRatesDetailMaster.length) {
         if (liveRatesDetailOldChange[index].bid == '-' ||
@@ -1428,7 +1532,8 @@ class _LiveRateScreenState extends State<LiveRateScreen>
     );
   }
 
-  Widget buildBuyTradeContainer(Size size, int index, AsyncSnapshot<List<Liverate>> snapshot) {
+  Widget buildBuyTradeContainer(
+      Size size, int index, AsyncSnapshot<List<Liverate>> snapshot) {
     if (liveRatesDetailOldChange.isNotEmpty) {
       if (liveRatesDetailOldChange.length == liveRatesDetailMaster.length) {
         if (liveRatesDetailOldChange[index].ask == '-' ||
@@ -1583,6 +1688,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                       tabs: const [
                                         Tab(
                                           child: Text(
+                                            textScaleFactor: 1.0,
                                             'Market',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
@@ -1909,70 +2015,169 @@ class _LiveRateScreenState extends State<LiveRateScreen>
     return streamController.stream;
   }
 
-  void setLabelColors(double oldRate, double newRate, model) {
+  setAskLableColor(double oldRate, double newRate, model) {
     if (oldRate < newRate) {
       model.askBGColor = AppColors.green;
       model.askTextColor = AppColors.defaultColor;
-      model.bidBGColor = AppColors.green;
-      model.bidTextColor = AppColors.defaultColor;
     } else if (oldRate > newRate) {
       model.askBGColor = AppColors.red;
       model.askTextColor = AppColors.defaultColor;
-      model.bidBGColor = AppColors.red;
-      model.bidTextColor = AppColors.defaultColor;
-    } /*else if (oldRate == newRate) {
-      model.askBGColor = AppColors.primaryColor;
-      model.askTextColor = AppColors.defaultColor;
-      model.bidBGColor = AppColors.primaryColor;
-      model.bidTextColor = AppColors.defaultColor;
-    } */
+    }
+    /*else if (oldRate == newRate) {
+      model.askBGColor = AppColors.defaultBackgroundColor;
+      model.askTextColor = AppColors.defaultTextColor;
+    }*/
     else {
       model.askBGColor = AppColors.primaryColor;
       model.askTextColor = AppColors.defaultColor;
-      model.bidBGColor = AppColors.primaryColor;
-      model.bidTextColor = AppColors.defaultColor;
     }
   }
 
-  void setLabelFutureColors(dynamic oldRate, dynamic newRate, model) {
+  setFutureAskLableColor(double oldRate, double newRate, model) {
     if (oldRate < newRate) {
       model.askBGColor = AppColors.green;
       model.askTextColor = AppColors.defaultColor;
-      model.bidBGColor = AppColors.green;
-      model.bidTextColor = AppColors.defaultColor;
     } else if (oldRate > newRate) {
       model.askBGColor = AppColors.red;
       model.askTextColor = AppColors.defaultColor;
+    }
+    /*else if (oldRate == newRate) {
+      model.askBGColor = AppColors.defaultBackgroundColor;
+      model.askTextColor = AppColors.defaultTextColor;
+    }*/
+    else {
+      model.askBGColor = AppColors.primaryColor;
+      model.askTextColor = AppColors.defaultColor;
+    }
+  }
+
+
+  setBidLableColor(double oldRate, double newRate, model) {
+    if (oldRate < newRate) {
+      model.bidBGColor = AppColors.green;
+      model.bidTextColor = AppColors.defaultColor;
+    } else if (oldRate > newRate) {
       model.bidBGColor = AppColors.red;
       model.bidTextColor = AppColors.defaultColor;
     }
     /*else if (oldRate == newRate) {
-      model.askBGColor = AppColors.primaryColor;
-      model.askTextColor = AppColors.defaultColor;
-      model.bidBGColor = AppColors.primaryColor;
-      model.bidTextColor = AppColors.defaultColor;
-    } */
+      model.askBGColor = AppColors.defaultBackgroundColor;
+      model.askTextColor = AppColors.defaultTextColor;
+    }*/
     else {
-      model.askBGColor = AppColors.primaryColor;
-      model.askTextColor = AppColors.defaultColor;
       model.bidBGColor = AppColors.primaryColor;
       model.bidTextColor = AppColors.defaultColor;
     }
   }
 
-  void setLabelColorsMainProduct(dynamic oldRate, dynamic newRate, model) {
+  setFutureBidLableColor(double oldRate, double newRate, model) {
     if (oldRate < newRate) {
-      model.askBGColor = AppColors.green;
-      model.askTextColor = AppColors.defaultColor;
       model.bidBGColor = AppColors.green;
       model.bidTextColor = AppColors.defaultColor;
     } else if (oldRate > newRate) {
-      model.askBGColor = AppColors.red;
-      model.askTextColor = AppColors.defaultColor;
       model.bidBGColor = AppColors.red;
       model.bidTextColor = AppColors.defaultColor;
     }
-  /*  else if (oldRate == newRate) {
+    /*else if (oldRate == newRate) {
+      model.askBGColor = AppColors.defaultBackgroundColor;
+      model.askTextColor = AppColors.defaultTextColor;
+    }*/
+    else {
+      model.bidBGColor = AppColors.primaryColor;
+      model.bidTextColor = AppColors.defaultColor;
+    }
+  }
+
+  // void setLabelColors(double oldRate, double newRate, model) {
+  //   if (oldRate < newRate) {
+  //     model.askBGColor = AppColors.green;
+  //     model.askTextColor = AppColors.defaultColor;
+  //     model.bidBGColor = AppColors.green;
+  //     model.bidTextColor = AppColors.defaultColor;
+  //   } else if (oldRate > newRate) {
+  //     model.askBGColor = AppColors.red;
+  //     model.askTextColor = AppColors.defaultColor;
+  //     model.bidBGColor = AppColors.red;
+  //     model.bidTextColor = AppColors.defaultColor;
+  //   }
+  //   /*else if (oldRate == newRate) {
+  //     model.askBGColor = AppColors.primaryColor;
+  //     model.askTextColor = AppColors.defaultColor;
+  //     model.bidBGColor = AppColors.primaryColor;
+  //     model.bidTextColor = AppColors.defaultColor;
+  //   } */
+  //   else {
+  //     model.askBGColor = AppColors.primaryColor;
+  //     model.askTextColor = AppColors.defaultColor;
+  //     model.bidBGColor = AppColors.primaryColor;
+  //     model.bidTextColor = AppColors.defaultColor;
+  //   }
+  // }
+  //
+  // void setLabelFutureColors(dynamic oldRate, dynamic newRate, model) {
+  //   if (oldRate < newRate) {
+  //     model.askBGColor = AppColors.green;
+  //     model.askTextColor = AppColors.defaultColor;
+  //     model.bidBGColor = AppColors.green;
+  //     model.bidTextColor = AppColors.defaultColor;
+  //   } else if (oldRate > newRate) {
+  //     model.askBGColor = AppColors.red;
+  //     model.askTextColor = AppColors.defaultColor;
+  //     model.bidBGColor = AppColors.red;
+  //     model.bidTextColor = AppColors.defaultColor;
+  //   }
+  //   /*else if (oldRate == newRate) {
+  //     model.askBGColor = AppColors.primaryColor;
+  //     model.askTextColor = AppColors.defaultColor;
+  //     model.bidBGColor = AppColors.primaryColor;
+  //     model.bidTextColor = AppColors.defaultColor;
+  //   } */
+  //   else {
+  //     model.askBGColor = AppColors.primaryColor;
+  //     model.askTextColor = AppColors.defaultColor;
+  //     model.bidBGColor = AppColors.primaryColor;
+  //     model.bidTextColor = AppColors.defaultColor;
+  //   }
+  // }
+
+  void setLabelColorsBidMainProduct(dynamic oldRate, dynamic newRate, model) {
+    if (oldRate < newRate) {
+      // model.askBGColor = AppColors.green;
+      // model.askTextColor = AppColors.defaultColor;
+      model.bidBGColor = AppColors.green;
+      model.bidTextColor = AppColors.defaultColor;
+    } else if (oldRate > newRate) {
+      // model.askBGColor = AppColors.red;
+      // model.askTextColor = AppColors.defaultColor;
+      model.bidBGColor = AppColors.red;
+      model.bidTextColor = AppColors.defaultColor;
+    }
+    /*  else if (oldRate == newRate) {
+      model.askBGColor = AppColors.primaryColor;
+      model.askTextColor = AppColors.secondaryTextColor;
+      model.bidBGColor = AppColors.primaryColor;
+      model.bidTextColor = AppColors.secondaryTextColor;
+    } */
+    else {
+      // model.askBGColor = AppColors.primaryColor;
+      // model.askTextColor = AppColors.secondaryTextColor;
+      model.bidBGColor = AppColors.primaryColor;
+      model.bidTextColor = AppColors.secondaryTextColor;
+    }
+  }
+  void setLabelColorsAskMainProduct(dynamic oldRate, dynamic newRate, model) {
+    if (oldRate < newRate) {
+      model.askBGColor = AppColors.green;
+      model.askTextColor = AppColors.defaultColor;
+      // model.bidBGColor = AppColors.green;
+      // model.bidTextColor = AppColors.defaultColor;
+    } else if (oldRate > newRate) {
+      model.askBGColor = AppColors.red;
+      model.askTextColor = AppColors.defaultColor;
+      // model.bidBGColor = AppColors.red;
+      // model.bidTextColor = AppColors.defaultColor;
+    }
+    /*  else if (oldRate == newRate) {
       model.askBGColor = AppColors.primaryColor;
       model.askTextColor = AppColors.secondaryTextColor;
       model.bidBGColor = AppColors.primaryColor;
@@ -1981,8 +2186,8 @@ class _LiveRateScreenState extends State<LiveRateScreen>
     else {
       model.askBGColor = AppColors.primaryColor;
       model.askTextColor = AppColors.secondaryTextColor;
-      model.bidBGColor = AppColors.primaryColor;
-      model.bidTextColor = AppColors.secondaryTextColor;
+      // model.bidBGColor = AppColors.primaryColor;
+      // model.bidTextColor = AppColors.secondaryTextColor;
     }
   }
 
@@ -2104,7 +2309,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             setState(() {
               isBuyLoading = false;
               isSellLoading = false;
-             Constants.tradeType = isMarketSelected && isBuySellSelected
+              Constants.tradeType = isMarketSelected && isBuySellSelected
                   ? '1'
                   : isMarketSelected && !isBuySellSelected
                       ? '2'

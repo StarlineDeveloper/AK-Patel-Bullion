@@ -76,13 +76,19 @@ class SocketService {
     });
 
     socket.on('Liverate', (liverateResponse) {
+      // List<Map<String, dynamic>> rawData=liverateResponse;
       List<ReferenceDataRate> referenceDataRate = [];
+      // List<dynamic> refList = [];
+      // refList=liverateResponse.map((data) => ReferenceDataRate.fromJson(data)).toList();
+      // // referenceDataRate=liverateResponse.map((data) => ReferenceDataRate.fromJson(data)).toList();
+      //
+      // referenceDataRate.addAll(refList as Iterable<ReferenceDataRate>);
+
       for (var item in liverateResponse) {
         referenceDataRate.add(ReferenceDataRate.fromJson(item));
       }
       provider.addReferenceDataRate(referenceDataRate);
-      _addToControllerIfNotClosed(
-          referenceDataRate, NotifySocketUpdate.controllerHome);
+      _addToControllerIfNotClosed(liverateResponse, NotifySocketUpdate.controllerHome);
     });
 
     socket.on('message', (messageResponse) async {
@@ -241,8 +247,7 @@ class SocketService {
         }
         provider.addLiveRateData(liveRate);
       }
-      _addToControllerIfNotClosed(
-          liveRate, NotifySocketUpdate.controllerMainData);
+      _addToControllerIfNotClosed(liveRate, NotifySocketUpdate.controllerMainData);
     });
 
     socket.on('Accountdetails', (accountdetails) {
@@ -323,12 +328,10 @@ class SocketService {
     });
   }
 
-  static void _addToControllerIfNotClosed<T>(
-      T data, StreamController<T>? controller) {
+  static void _addToControllerIfNotClosed<T>(T data, StreamController<T>? controller) {
     if (controller != null && !controller.isClosed) {
       controller.sink.add(data);
     }
   }
 
-  void addToList(dynamic item) {}
 }

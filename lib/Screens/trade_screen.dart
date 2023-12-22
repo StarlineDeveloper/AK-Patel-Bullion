@@ -197,6 +197,8 @@ class _Trade_ScreenState extends State<Trade_Screen> with SingleTickerProviderSt
                         border: Border.all(color: AppColors.primaryColor)),
                     alignment: Alignment.center,
                     child: Text(
+                      textScaleFactor: 1.0,
+
                       _selectedFromDate,
                       style: const TextStyle(
                           color: AppColors.textColor, fontSize: 13.0),
@@ -244,6 +246,8 @@ class _Trade_ScreenState extends State<Trade_Screen> with SingleTickerProviderSt
                         border: Border.all(color: AppColors.primaryColor)),
                     alignment: Alignment.center,
                     child: Text(
+                      textScaleFactor: 1.0,
+
                       _selectedToDate,
                       style: const TextStyle(
                           color: AppColors.textColor, fontSize: 13.0),

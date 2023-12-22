@@ -89,6 +89,7 @@ class _Update_ScreenState extends State<Update_Screen> {
                           border: Border.all(color: AppColors.primaryColor)),
                       alignment: Alignment.center,
                       child: Text(
+                        textScaleFactor: 1.0,
                         selectedFromDate,
                         style: const TextStyle(
                             color: AppColors.textColor, fontSize: 13.0),
@@ -132,6 +133,7 @@ class _Update_ScreenState extends State<Update_Screen> {
                           border: Border.all(color: AppColors.primaryColor)),
                       alignment: Alignment.center,
                       child: Text(
+                        textScaleFactor: 1.0,
                         selectedToDate,
                         style: const TextStyle(
                             color: AppColors.textColor, fontSize: 13.0),

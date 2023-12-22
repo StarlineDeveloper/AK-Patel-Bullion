@@ -387,6 +387,7 @@ class _ContactUs_ScreenState extends State<ContactUs_Screen> {
                       child: Align(
                         alignment: Alignment.center,
                         child: const Text(
+                          textScaleFactor: 1.0,
                           'FEEDBACK FROM',
                           style: TextStyle(
                               color: AppColors.defaultColor,
@@ -399,6 +400,7 @@ class _ContactUs_ScreenState extends State<ContactUs_Screen> {
                       height: 7.0,
                     ),
                     Text(
+                      textScaleFactor: 1.0,
                       'Name*',
                       style: TextStyle(
                           color: AppColors.textColor,
@@ -419,6 +421,7 @@ class _ContactUs_ScreenState extends State<ContactUs_Screen> {
                       height: 7.0,
                     ),
                     Text(
+                      textScaleFactor: 1.0,
                       'Email*',
                       style: TextStyle(
                           color: AppColors.textColor,
@@ -439,6 +442,7 @@ class _ContactUs_ScreenState extends State<ContactUs_Screen> {
                       height: 7.0,
                     ),
                     Text(
+                      textScaleFactor: 1.0,
                       'Phone*',
                       style: TextStyle(
                           color: AppColors.textColor,
@@ -463,6 +467,7 @@ class _ContactUs_ScreenState extends State<ContactUs_Screen> {
                       height: 7.0,
                     ),
                     Text(
+                      textScaleFactor: 1.0,
                       'Subject*',
                       style: TextStyle(
                           color: AppColors.textColor,
@@ -483,6 +488,7 @@ class _ContactUs_ScreenState extends State<ContactUs_Screen> {
                       height: 7.0,
                     ),
                     Text(
+                      textScaleFactor: 1.0,
                       'Message*',
                       style: TextStyle(
                           color: AppColors.textColor,
@@ -535,6 +541,7 @@ class _ContactUs_ScreenState extends State<ContactUs_Screen> {
                             Visibility(
                               visible: !isLoading,
                               child: const Text(
+                                textScaleFactor: 1.0,
                                 'SEND MESSAGE',
                                 style: TextStyle(
                                   color: AppColors.defaultColor,
@@ -729,6 +736,7 @@ class AddressContainer extends StatelessWidget {
               fontWeight: titleFontWeight,
             ),
             Text(
+              textScaleFactor: 1.0,
               descriptionText,
               textAlign: TextAlign.center,
               style: TextStyle(

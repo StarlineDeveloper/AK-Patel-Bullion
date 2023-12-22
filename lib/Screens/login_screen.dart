@@ -18,17 +18,17 @@ import 'home_screen.dart';
 class Login_Screen extends StatefulWidget {
   static const String routeName = PageRoutes.Login_Screen;
 
-  const Login_Screen({super.key,required this.isFromSplash});
-  final bool isFromSplash;
+  const Login_Screen({super.key, required this.isFromSplash});
 
+  final bool isFromSplash;
 
   @override
   State<Login_Screen> createState() => _Login_ScreenState();
 }
 
 class _Login_ScreenState extends State<Login_Screen> {
-   GlobalKey<FormState> _loginFormKey = GlobalKey();
-   GlobalKey<FormState> _registerFormKey = GlobalKey();
+  GlobalKey<FormState> _loginFormKey = GlobalKey();
+  GlobalKey<FormState> _registerFormKey = GlobalKey();
 
   final Shared shared = Shared();
 
@@ -58,9 +58,9 @@ class _Login_ScreenState extends State<Login_Screen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    if(widget.isFromSplash){
+    if (widget.isFromSplash) {
       setState(() {
-        isLoginSelected=false;
+        isLoginSelected = false;
         headerName = 'Register';
       });
     }
@@ -133,6 +133,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                                 height: size.height * 0.02,
                               ),
                               Text(
+                                textScaleFactor: 1.0,
                                 'USER ID :',
                                 style: TextStyle(
                                     color: AppColors.defaultColor,
@@ -143,13 +144,16 @@ class _Login_ScreenState extends State<Login_Screen> {
                                 height: size.height * 0.01,
                               ),
                               TextFormField(
+                                style: TextStyle(
+                                  fontSize: 16 /
+                                      MediaQuery.of(context).textScaleFactor,
+                                ),
                                 controller: _usernameController,
                                 autovalidateMode: isUsernameValidate
                                     ? AutovalidateMode.always
                                     : AutovalidateMode.disabled,
                                 decoration: getInputBoxDecoration(
                                     'USER ID', Icons.person),
-
                                 inputFormatters: [
                                   LengthLimitingTextInputFormatter(10),
                                   FilteringTextInputFormatter.digitsOnly,
@@ -181,6 +185,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                                 height: size.height * 0.01,
                               ),
                               Text(
+                                textScaleFactor: 1.0,
                                 'PASSWORD :',
                                 style: TextStyle(
                                     color: AppColors.defaultColor,
@@ -283,8 +288,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                                     borderRadius: BorderRadius.circular(3.5),
                                   ),
                                   alignment: Alignment.center,
-                                  child:
-                                  Stack(
+                                  child: Stack(
                                     children: [
                                       Visibility(
                                         visible: !isLoadingLogin,
@@ -485,6 +489,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                                       });
                                     },
                                     child: const Text('Already Register?Login',
+                                        textScaleFactor: 1.0,
                                         style: TextStyle(
                                           color: AppColors.defaultColor,
                                           fontWeight: FontWeight.bold,
@@ -577,7 +582,8 @@ class _Login_ScreenState extends State<Login_Screen> {
                     isLoadingRegister = false;
                     // isLoginSelected = true;
                     // shared.setIsFirstTimeRegister(true);
-                    Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+                    Navigator.of(context)
+                        .pushReplacementNamed(HomeScreen.routeName);
                     clearFields();
                   });
                 } else {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:terminal_demo/Screens/economic_calender_scree.dart';
+import 'package:terminal_demo/Screens/economiccalender_scree.dart';
 import 'package:terminal_demo/Screens/home_screen.dart';
 import 'package:terminal_demo/Screens/login_screen.dart';
 import '../Screens/error_screen.dart';
