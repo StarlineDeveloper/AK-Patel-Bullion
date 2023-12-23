@@ -48,11 +48,11 @@ class _SplashScreenState extends State<SplashScreen> {
       if (isConnected) {
         if (Platform.isIOS) {
           PackageInfo info = await PackageInfo.fromPlatform();
-          appVersion = info.buildNumber;
+          appVersion = info.version;
           callForIOS();
         } else if (Platform.isAndroid) {
           PackageInfo info = await PackageInfo.fromPlatform();
-          appVersion = info.buildNumber;
+          appVersion = info.version;
           callForAndroid();
         }
       } else {

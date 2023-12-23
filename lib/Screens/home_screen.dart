@@ -148,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       debugPrint('${message.data}');
       debugPrint('${message.senderId}');
-      if(message.data['bit']=='1'){
+      if (message.data['bit'] == '1') {
         showNotificationAlertDialog(
           message.data['title'],
           message.data['body'],
@@ -209,7 +209,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     });
     NotifySocketUpdate.controllerOrderDetails!.stream.listen((event) {
       setState(() {
-
         onItemTapped(1);
       });
     });
@@ -274,7 +273,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         // bool isAddVisible
         debugPrint('appLifeCycleState detached');
         break;
-      case AppLifecycleState.hidden:
+      // case AppLifecycleState.hidden:
       // TODO: Handle this case.
     }
   }
@@ -283,7 +282,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     setState(() {
       clientHeaderData = _liverateProvider.getClientHeaderData();
     });
-
 
     _liverateProvider.bannerImage!.isNotEmpty
         ? isAddVisible
@@ -396,12 +394,34 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             height: 60,
             backgroundColor: AppColors.primaryColor,
             animationCurve: Curves.fastEaseInToSlowEaseOut,
-            items:  <Widget>[
-              Icon(Icons.home, size: 24,color: selectedIndex==0?AppColors.primaryColor:AppColors.textColor,),
-              Icon(Icons.area_chart, size: 24,color: selectedIndex==1?AppColors.primaryColor:AppColors.textColor),
-              Icon(Icons.notification_add_sharp, size: 24,color: selectedIndex==2?AppColors.primaryColor:AppColors.textColor),
-              Icon(Icons.home_work, size: 24,color: selectedIndex==3?AppColors.primaryColor:AppColors.textColor),
-              Icon(Icons.contact_phone, size: 24,color: selectedIndex==4?AppColors.primaryColor:AppColors.textColor),
+            items: <Widget>[
+              Icon(
+                Icons.home,
+                size: 24,
+                color: selectedIndex == 0
+                    ? AppColors.primaryColor
+                    : AppColors.textColor,
+              ),
+              Icon(Icons.area_chart,
+                  size: 24,
+                  color: selectedIndex == 1
+                      ? AppColors.primaryColor
+                      : AppColors.textColor),
+              Icon(Icons.notification_add_sharp,
+                  size: 24,
+                  color: selectedIndex == 2
+                      ? AppColors.primaryColor
+                      : AppColors.textColor),
+              Icon(Icons.home_work,
+                  size: 24,
+                  color: selectedIndex == 3
+                      ? AppColors.primaryColor
+                      : AppColors.textColor),
+              Icon(Icons.contact_phone,
+                  size: 24,
+                  color: selectedIndex == 4
+                      ? AppColors.primaryColor
+                      : AppColors.textColor),
             ],
             onTap: (index) {
               onItemTapped(index);
@@ -432,7 +452,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         child: ElevatedButton(
                           child: const Text(
                             textScaleFactor: 1.0,
-
                             "SKIP",
                             style: TextStyle(fontSize: 16),
                           ),
@@ -696,7 +715,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // ),
                     title: const Text(
                       textScaleFactor: 1.0,
-
                       'Live Rate',
                       style: TextStyle(
                         color: AppColors.primaryColor,
@@ -727,7 +745,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // ),
                     title: const Text(
                       textScaleFactor: 1.0,
-
                       'Trade',
                       style: TextStyle(
                         color: AppColors.primaryColor,
@@ -758,7 +775,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // ),
                     title: const Text(
                       textScaleFactor: 1.0,
-
                       'Updates',
                       style: TextStyle(
                         color: AppColors.primaryColor,
@@ -788,7 +804,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // ),
                     title: const Text(
                       textScaleFactor: 1.0,
-
                       'Bank Detail',
                       style: TextStyle(
                         color: AppColors.primaryColor,
@@ -818,7 +833,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // ),
                     title: const Text(
                       textScaleFactor: 1.0,
-
                       'Contact Us',
                       style: TextStyle(
                         color: AppColors.primaryColor,
@@ -847,7 +861,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // ),
                     title: const Text(
                       textScaleFactor: 1.0,
-
                       'Economic Calendar',
                       style: TextStyle(
                         color: AppColors.primaryColor,
@@ -870,7 +883,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       ),
                       title: const Text(
                         textScaleFactor: 1.0,
-
                         'Profile',
                         style: TextStyle(
                           color: AppColors.primaryColor,
@@ -904,7 +916,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // ),
                     title: const Text(
                       textScaleFactor: 1.0,
-
                       'Share',
                       style: TextStyle(
                         color: AppColors.primaryColor,
@@ -939,7 +950,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // ),
                     title: const Text(
                       textScaleFactor: 1.0,
-
                       'Rate App',
                       style: TextStyle(
                         color: AppColors.primaryColor,
@@ -978,7 +988,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       // ),
                       title: const Text(
                         textScaleFactor: 1.0,
-
                         'Logout',
                         style: TextStyle(
                           color: AppColors.primaryColor,
@@ -1018,7 +1027,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       // ),
                       title: const Text(
                         textScaleFactor: 1.0,
-
                         'Login',
                         style: TextStyle(
                           color: AppColors.primaryColor,
@@ -1098,7 +1106,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               color: AppColors.primaryColor,
               child: Marquee(
                 textScaleFactor: 1.0,
-
                 text: clientHeaderData.marquee == null
                     ? 'No Marquee Found'
                     : clientHeaderData.marquee!,
@@ -1127,7 +1134,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               color: AppColors.primaryColor,
               child: Marquee(
                 textScaleFactor: 1.0,
-
                 text: clientHeaderData.marquee != null
                     ? clientHeaderData.marquee2!
                     : 'No Marquee Found',
@@ -1744,7 +1750,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         arguments: const Login_Screen(
           isFromSplash: false,
         ),
-      ).then((_) {
+      )
+          .then((_) {
         checkIsLogin();
       });
       print("Triple click!");
