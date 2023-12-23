@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:upgrader/upgrader.dart';
 
 import 'Routes/app_route.dart';
 import 'Screens/splash_screen.dart';
@@ -40,7 +41,7 @@ void main() async {
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
+  await Upgrader.clearSavedSettings();
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   runApp(const MyApp());
@@ -63,7 +64,8 @@ class MyApp extends StatelessWidget {
     );
     return MultiProvider(
       providers: NotifierProvider.providers,
-      child: MaterialApp(
+      child:
+      MaterialApp(
         builder: (context, child) {
           const lowerLimit = 1.0;
           const upperLimit = 1.0;

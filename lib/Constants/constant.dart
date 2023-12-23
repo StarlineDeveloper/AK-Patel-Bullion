@@ -12,11 +12,11 @@ class Constants {
   static const String androidAppRateAndUpdate = "com.akpatelbullion";
 
   //Add ios app id from app store(while creating app)
-  static const String iOSAppId = "6473781401";
+  static const String iOSAppId = "1458478000";
 
   //Replace ios app id at the end of url(while creating app)
   static const String iOSAppRedirect =
-      "https://apps.apple.com/in/app/vicky-jewellery-works/id6473781401";
+      "https://apps.apple.com/in/app/a-k-patel/id1458478000";
 
   //Add prjName from web(custom.js)
   static const String projectName = 'akpatel';

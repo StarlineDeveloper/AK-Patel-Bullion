@@ -148,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       debugPrint('${message.data}');
       debugPrint('${message.senderId}');
-      if (message.data['bit'] == '1') {
+      if(message.data['bit']=='1'){
         showNotificationAlertDialog(
           message.data['title'],
           message.data['body'],
@@ -209,6 +209,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     });
     NotifySocketUpdate.controllerOrderDetails!.stream.listen((event) {
       setState(() {
+
         onItemTapped(1);
       });
     });
@@ -273,7 +274,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         // bool isAddVisible
         debugPrint('appLifeCycleState detached');
         break;
-      // case AppLifecycleState.hidden:
+      case AppLifecycleState.hidden:
       // TODO: Handle this case.
     }
   }
@@ -282,6 +283,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     setState(() {
       clientHeaderData = _liverateProvider.getClientHeaderData();
     });
+
 
     _liverateProvider.bannerImage!.isNotEmpty
         ? isAddVisible
@@ -390,38 +392,17 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             child: buildBody(size),
           ),
           bottomNavigationBar: CurvedNavigationBar(
+
             index: selectedIndex,
             height: 60,
-            backgroundColor: AppColors.primaryColor,
+            backgroundColor: AppColors.defaultColor,
             animationCurve: Curves.fastEaseInToSlowEaseOut,
-            items: <Widget>[
-              Icon(
-                Icons.home,
-                size: 24,
-                color: selectedIndex == 0
-                    ? AppColors.primaryColor
-                    : AppColors.textColor,
-              ),
-              Icon(Icons.area_chart,
-                  size: 24,
-                  color: selectedIndex == 1
-                      ? AppColors.primaryColor
-                      : AppColors.textColor),
-              Icon(Icons.notification_add_sharp,
-                  size: 24,
-                  color: selectedIndex == 2
-                      ? AppColors.primaryColor
-                      : AppColors.textColor),
-              Icon(Icons.home_work,
-                  size: 24,
-                  color: selectedIndex == 3
-                      ? AppColors.primaryColor
-                      : AppColors.textColor),
-              Icon(Icons.contact_phone,
-                  size: 24,
-                  color: selectedIndex == 4
-                      ? AppColors.primaryColor
-                      : AppColors.textColor),
+            items:  <Widget>[
+              Icon(Icons.home, size: 24,color: selectedIndex==0?AppColors.primaryColor:AppColors.textColor,),
+              Icon(Icons.area_chart, size: 24,color: selectedIndex==1?AppColors.primaryColor:AppColors.textColor),
+              Icon(Icons.notification_add_sharp, size: 24,color: selectedIndex==2?AppColors.primaryColor:AppColors.textColor),
+              Icon(Icons.home_work, size: 24,color: selectedIndex==3?AppColors.primaryColor:AppColors.textColor),
+              Icon(Icons.contact_phone, size: 24,color: selectedIndex==4?AppColors.primaryColor:AppColors.textColor),
             ],
             onTap: (index) {
               onItemTapped(index);
@@ -470,16 +451,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               ),
             ),
           ),
-
-          // FullBannerScreen(
-          //   bannerImage: _liverateProvider.bannerImage,
-          //   onSkip: () {
-          //     value.setIsBannerSkip(true);
-          //     setState(() {
-          //       isBannerVisible = false;
-          //     });
-          //   },
-          // ),
         ),
         Positioned(
           left: left,
@@ -508,61 +479,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               ),
             ),
           ),
-          // DescribedFeatureOverlay(
-          //   featureId: 'feature2',
-          //   targetColor: AppColors.defaultColor,
-          //   textColor: AppColors.defaultColor,
-          //   backgroundColor: const Color(0xFF141414).withOpacity(0.4),
-          //   contentLocation: ContentLocation.below,
-          //   title: const CustomText(
-          //     text: 'Touch to Call',
-          //     size: 20.0,
-          //     fontWeight: FontWeight.bold,
-          //     textColor: AppColors.defaultColor,
-          //   ),
-          //   pulseDuration: const Duration(seconds: 1),
-          //   enablePulsingAnimation: true,
-          //   barrierDismissible: false,
-          //   onComplete: () async {
-          //     debugPrint('Tapped tap target of.');
-          //     return true;
-          //   },
-          //   onOpen: () async {
-          //     debugPrint('Tab here to open list of Booking Numbers.');
-          //
-          //     return isDiscoveredOverlay;
-          //   },
-          //   overflowMode: OverflowMode.extendBackground,
-          //   openDuration: const Duration(seconds: 1),
-          //   description:
-          //   const Text('Tab here to open list of Booking Number\'s.'),
-          //   tapTarget: const Icon(Icons.call),
-          //   child:
-          //   GestureDetector(
-          //     onTap: () {
-          //       showCallDialog();
-          //     },
-          //     onPanUpdate: (dragDetails) {
-          //       setState(() {
-          //         left += dragDetails.delta.dx;
-          //         bottom1 -= dragDetails.delta.dy;
-          //       });
-          //     },
-          //     child: Container(
-          //       // heroTag: 'call1',
-          //       padding: const EdgeInsets.all(10.0),
-          //       decoration: const BoxDecoration(
-          //         shape: BoxShape.circle,
-          //         color: AppColors.textColor,
-          //       ),
-          //       child: const Icon(
-          //         Icons.call,
-          //         color: AppColors.defaultColor,
-          //         size: 30.0,
-          //       ),
-          //     ),
-          //   ),
-          // ),
         ),
         Positioned(
           right: right,
@@ -715,6 +631,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // ),
                     title: const Text(
                       textScaleFactor: 1.0,
+
                       'Live Rate',
                       style: TextStyle(
                         color: AppColors.primaryColor,
@@ -745,6 +662,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // ),
                     title: const Text(
                       textScaleFactor: 1.0,
+
                       'Trade',
                       style: TextStyle(
                         color: AppColors.primaryColor,
@@ -775,6 +693,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // ),
                     title: const Text(
                       textScaleFactor: 1.0,
+
                       'Updates',
                       style: TextStyle(
                         color: AppColors.primaryColor,
@@ -804,6 +723,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // ),
                     title: const Text(
                       textScaleFactor: 1.0,
+
                       'Bank Detail',
                       style: TextStyle(
                         color: AppColors.primaryColor,
@@ -833,6 +753,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // ),
                     title: const Text(
                       textScaleFactor: 1.0,
+
                       'Contact Us',
                       style: TextStyle(
                         color: AppColors.primaryColor,
@@ -861,6 +782,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // ),
                     title: const Text(
                       textScaleFactor: 1.0,
+
                       'Economic Calendar',
                       style: TextStyle(
                         color: AppColors.primaryColor,
@@ -883,6 +805,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       ),
                       title: const Text(
                         textScaleFactor: 1.0,
+
                         'Profile',
                         style: TextStyle(
                           color: AppColors.primaryColor,
@@ -894,7 +817,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   ListTile(
                     onTap: () async {
                       Platform.isIOS
-                          ? '/* iOS specific code */ '
+                          ? Share.share(Constants.iOSAppRedirect)
                           : Share.share(Constants.androidAppStoreRedirect);
                     },
                     leading: Icon(
@@ -916,6 +839,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // ),
                     title: const Text(
                       textScaleFactor: 1.0,
+
                       'Share',
                       style: TextStyle(
                         color: AppColors.primaryColor,
@@ -950,6 +874,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     // ),
                     title: const Text(
                       textScaleFactor: 1.0,
+
                       'Rate App',
                       style: TextStyle(
                         color: AppColors.primaryColor,
@@ -988,6 +913,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       // ),
                       title: const Text(
                         textScaleFactor: 1.0,
+
                         'Logout',
                         style: TextStyle(
                           color: AppColors.primaryColor,
@@ -1027,6 +953,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       // ),
                       title: const Text(
                         textScaleFactor: 1.0,
+
                         'Login',
                         style: TextStyle(
                           color: AppColors.primaryColor,
@@ -1106,6 +1033,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               color: AppColors.primaryColor,
               child: Marquee(
                 textScaleFactor: 1.0,
+
                 text: clientHeaderData.marquee == null
                     ? 'No Marquee Found'
                     : clientHeaderData.marquee!,
@@ -1134,6 +1062,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               color: AppColors.primaryColor,
               child: Marquee(
                 textScaleFactor: 1.0,
+
                 text: clientHeaderData.marquee != null
                     ? clientHeaderData.marquee2!
                     : 'No Marquee Found',
@@ -1750,8 +1679,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         arguments: const Login_Screen(
           isFromSplash: false,
         ),
-      )
-          .then((_) {
+      ).then((_) {
         checkIsLogin();
       });
       print("Triple click!");

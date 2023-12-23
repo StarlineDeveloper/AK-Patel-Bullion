@@ -167,7 +167,6 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                   ),
                 );
               }
-
               else if(data.isDisplay! &&
                   (data.source == 'XAGUSD' ||
                       data.source == 'XAUUSD' ||
@@ -241,9 +240,6 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             //   }
             // }
             // _liverateProvider.addNextData(nextData);
-
-
-
 
           } else {
             setState(() {
@@ -428,16 +424,9 @@ class _LiveRateScreenState extends State<LiveRateScreen>
 
         clientHeadersDetail = _liverateProvider.getClientHeaderData();
 
-
-
-
         // // Asign Live Rate to Live Rate Old
         // liveRatesDetailOldMaster = liveRatesDetailMaster;
         // liveRatesDetailOldTrade = liveRatesDetailTrade;
-
-
-
-
 
         // loadData();
       },
