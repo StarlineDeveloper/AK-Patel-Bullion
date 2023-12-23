@@ -39,8 +39,8 @@ class _SplashScreenState extends State<SplashScreen> {
     final notificationService = NotificationService();
     listenToNotificationStream(notificationService);
     notificationService.getFCMToken();
-    getVersion();
-    // startTimer();
+    // getVersion();
+    startTimer();
   }
 
   void getVersion() {
@@ -130,7 +130,7 @@ class _SplashScreenState extends State<SplashScreen> {
     String chekis = parsedXml.text;
 
     var apiVersion = double.parse(chekis);
-    var deviceAppVersion = double.parse('2.3');
+    var deviceAppVersion = double.parse(appVersion);
     if (deviceAppVersion < apiVersion) {
       showUpdateDialog();
     } else {
