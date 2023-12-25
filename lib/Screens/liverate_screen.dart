@@ -68,6 +68,9 @@ class _LiveRateScreenState extends State<LiveRateScreen>
   List<ReferenceData> referenceData = [];
   List<ReferenceDataRate> rateReferenceData = [];
   List<ComexDataModel> referenceComexData = [];
+  List<ComexDataModel> referenceNextData = [];
+  List<ComexDataModel> referenceNextDataOld = [];
+  List<ComexDataModel> referenceNextDataOldChange = [];
   List<ComexDataModel> referenceComexDataGold = [];
   List<ComexDataModel> referenceComexDataSilver = [];
   List<ComexDataModel> referenceFutureData = [];
@@ -147,8 +150,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             setState(() {
               referenceFutureData = _liverateProvider.getFutureData();
               referenceComexData = _liverateProvider.getComexData();
-
-              // referenceNextData = liveDataProvider.getNextData();
+              referenceNextData = _liverateProvider.getNextData();
             });
             // Set Future and Next list based on Liverates and Reference
             for (var data in referenceData) {
@@ -160,8 +162,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                   low = rate.low.toString();
                 } // Set bid, ask, high and low which matches the symbol of rate and source of data.
               }
-              if (data.isDisplay! &&
-                  (data.source == 'gold' || data.source == 'silver')) {
+              if (data.isDisplay! && (data.source == 'gold' || data.source == 'silver')) {
                 futureData.add(
                   ComexDataModel(
                     symbolName: data.symbolName,
@@ -172,11 +173,19 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                     isDisplay: data.isDisplay,
                   ),
                 );
-              } else if (data.isDisplay! &&
-                  (data.source == 'XAGUSD' ||
-                      data.source == 'XAUUSD' ||
-                      data.source == 'INRSpot')) {
+              } else if (data.isDisplay! && (data.source == 'XAGUSD' || data.source == 'XAUUSD' || data.source == 'INRSpot')) {
                 comexData.add(
+                  ComexDataModel(
+                    symbolName: data.symbolName,
+                    bid: bid.toString(),
+                    ask: ask.toString(),
+                    high: high.toString(),
+                    low: low.toString(),
+                    isDisplay: data.isDisplay,
+                  ),
+                );
+              } else  if (data.isDisplay! && (data.source == 'goldnext' || data.source == 'silvernext')) {
+                nextData.add(
                   ComexDataModel(
                     symbolName: data.symbolName,
                     bid: bid.toString(),
@@ -189,8 +198,8 @@ class _LiveRateScreenState extends State<LiveRateScreen>
               }
             }
             _liverateProvider.addFutureData(futureData);
-
             _liverateProvider.addComexData(comexData);
+            _liverateProvider.addNextData(nextData);
 
             // Set Comex list based on Liverates and Reference
             // for (var data in referenceData) {
@@ -249,8 +258,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             setState(() {
               referenceFutureData = _liverateProvider.getFutureData();
               referenceComexData = _liverateProvider.getComexData();
-
-              // referenceNextData = liveDataProvider.getNextData();
+              referenceNextData = _liverateProvider.getNextData();
             });
           }
 
@@ -526,6 +534,27 @@ class _LiveRateScreenState extends State<LiveRateScreen>
               SizedBox(
                 height: size.height * .01,
               ),
+              Flexible(
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: referenceNextData.isEmpty ||
+                        referenceNextData.length > 3
+                        ? 3
+                        : referenceNextData.length,
+                    crossAxisSpacing: size.width * .01,
+                    mainAxisExtent: size.height * .12,
+                  ),
+                  itemBuilder: (builder, index) {
+                    return buildNextContainers(size, index);
+                  },
+                  itemCount: referenceNextData.length,
+                ),
+              ),
+              SizedBox(
+                height: size.height * .01,
+              ),
               Constants.isLogin
                   ? Container(
                       height: 35.0,
@@ -545,66 +574,69 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                             ),
                           ),
                           Expanded(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Visibility(
-                                  visible:
-                                      clientHeadersDetail.buyRate != null &&
-                                          clientHeadersDetail.buyRate!,
-                                  child: SizedBox(
-                                    width: size.width / 6,
-                                    child: const CustomText(
-                                      text: 'BUY',
-                                      size: 15.0,
-                                      fontWeight: FontWeight.bold,
-                                      textColor: AppColors.textColor,
-                                      align: TextAlign.center,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 15.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Visibility(
+                                    visible:
+                                        clientHeadersDetail.buyRate != null &&
+                                            clientHeadersDetail.buyRate!,
+                                    child: SizedBox(
+                                      width: size.width / 6,
+                                      child: const CustomText(
+                                        text: 'BUY',
+                                        size: 15.0,
+                                        fontWeight: FontWeight.bold,
+                                        textColor: AppColors.textColor,
+                                        align: TextAlign.center,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Visibility(
-                                  visible:
-                                      clientHeadersDetail.sellRate != null &&
-                                          clientHeadersDetail.sellRate!,
-                                  child: SizedBox(
-                                    width: size.width / 6,
-                                    child: const CustomText(
-                                      text: 'SELL',
-                                      size: 15.0,
-                                      fontWeight: FontWeight.bold,
-                                      textColor: AppColors.textColor,
-                                      align: TextAlign.center,
+                                  Visibility(
+                                    visible:
+                                        clientHeadersDetail.sellRate != null &&
+                                            clientHeadersDetail.sellRate!,
+                                    child: SizedBox(
+                                      width: size.width / 6,
+                                      child: const CustomText(
+                                        text: 'SELL',
+                                        size: 15.0,
+                                        fontWeight: FontWeight.bold,
+                                        textColor: AppColors.textColor,
+                                        align: TextAlign.center,
+                                      ),
                                     ),
                                   ),
-                                ),
 
-                                // Visibility(
-                                //   visible: isRateVisible,
-                                //   child: SizedBox(
-                                //     width: size.width / 7.5,
-                                //     child: const CustomText(
-                                //       text: 'RATE',
-                                //       size: 12.0,
-                                //       fontWeight: FontWeight.bold,
-                                //       textColor: AppColors.defaultColor,
-                                //     ),
-                                //   ),
-                                // ),
-                                // Visibility(
-                                //   visible: isDiffVisible,
-                                //   child: SizedBox(
-                                //     width: size.width / 6,
-                                //     child: const CustomText(
-                                //       text: 'DIFF',
-                                //       size: 12.0,
-                                //       fontWeight: FontWeight.bold,
-                                //       textColor: AppColors.defaultColor,
-                                //       align: TextAlign.center,
-                                //     ),
-                                //   ),
-                                // ),
-                              ],
+                                  // Visibility(
+                                  //   visible: isRateVisible,
+                                  //   child: SizedBox(
+                                  //     width: size.width / 7.5,
+                                  //     child: const CustomText(
+                                  //       text: 'RATE',
+                                  //       size: 12.0,
+                                  //       fontWeight: FontWeight.bold,
+                                  //       textColor: AppColors.defaultColor,
+                                  //     ),
+                                  //   ),
+                                  // ),
+                                  // Visibility(
+                                  //   visible: isDiffVisible,
+                                  //   child: SizedBox(
+                                  //     width: size.width / 6,
+                                  //     child: const CustomText(
+                                  //       text: 'DIFF',
+                                  //       size: 12.0,
+                                  //       fontWeight: FontWeight.bold,
+                                  //       textColor: AppColors.defaultColor,
+                                  //       align: TextAlign.center,
+                                  //     ),
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
                             ),
                           )
                         ],
@@ -634,69 +666,72 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                       ),
                                     ),
                                     Expanded(
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Visibility(
-                                            visible: clientHeadersDetail
-                                                        .buyRate !=
-                                                    null &&
-                                                clientHeadersDetail.buyRate!,
-                                            child: SizedBox(
-                                              width: size.width / 6,
-                                              child: const CustomText(
-                                                text: 'BUY',
-                                                size: 15.0,
-                                                fontWeight: FontWeight.bold,
-                                                textColor: AppColors.textColor,
-                                                align: TextAlign.center,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left: 15.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Visibility(
+                                              visible: clientHeadersDetail
+                                                          .buyRate !=
+                                                      null &&
+                                                  clientHeadersDetail.buyRate!,
+                                              child: SizedBox(
+                                                width: size.width / 6,
+                                                child: const CustomText(
+                                                  text: 'BUY',
+                                                  size: 15.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  textColor: AppColors.textColor,
+                                                  align: TextAlign.center,
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          Visibility(
-                                            visible: clientHeadersDetail
-                                                        .sellRate !=
-                                                    null &&
-                                                clientHeadersDetail.sellRate!,
-                                            child: SizedBox(
-                                              width: size.width / 6,
-                                              child: const CustomText(
-                                                text: 'SELL',
-                                                size: 15.0,
-                                                fontWeight: FontWeight.bold,
-                                                textColor: AppColors.textColor,
-                                                align: TextAlign.center,
+                                            Visibility(
+                                              visible: clientHeadersDetail
+                                                          .sellRate !=
+                                                      null &&
+                                                  clientHeadersDetail.sellRate!,
+                                              child: SizedBox(
+                                                width: size.width / 6,
+                                                child: const CustomText(
+                                                  text: 'SELL',
+                                                  size: 15.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  textColor: AppColors.textColor,
+                                                  align: TextAlign.center,
+                                                ),
                                               ),
                                             ),
-                                          ),
 
-                                          // Visibility(
-                                          //   visible: isRateVisible,
-                                          //   child: SizedBox(
-                                          //     width: size.width / 7.5,
-                                          //     child: const CustomText(
-                                          //       text: 'RATE',
-                                          //       size: 12.0,
-                                          //       fontWeight: FontWeight.bold,
-                                          //       textColor: AppColors.defaultColor,
-                                          //     ),
-                                          //   ),
-                                          // ),
-                                          // Visibility(
-                                          //   visible: isDiffVisible,
-                                          //   child: SizedBox(
-                                          //     width: size.width / 6,
-                                          //     child: const CustomText(
-                                          //       text: 'DIFF',
-                                          //       size: 12.0,
-                                          //       fontWeight: FontWeight.bold,
-                                          //       textColor: AppColors.defaultColor,
-                                          //       align: TextAlign.center,
-                                          //     ),
-                                          //   ),
-                                          // ),
-                                        ],
+                                            // Visibility(
+                                            //   visible: isRateVisible,
+                                            //   child: SizedBox(
+                                            //     width: size.width / 7.5,
+                                            //     child: const CustomText(
+                                            //       text: 'RATE',
+                                            //       size: 12.0,
+                                            //       fontWeight: FontWeight.bold,
+                                            //       textColor: AppColors.defaultColor,
+                                            //     ),
+                                            //   ),
+                                            // ),
+                                            // Visibility(
+                                            //   visible: isDiffVisible,
+                                            //   child: SizedBox(
+                                            //     width: size.width / 6,
+                                            //     child: const CustomText(
+                                            //       text: 'DIFF',
+                                            //       size: 12.0,
+                                            //       fontWeight: FontWeight.bold,
+                                            //       textColor: AppColors.defaultColor,
+                                            //       align: TextAlign.center,
+                                            //     ),
+                                            //   ),
+                                            // ),
+                                          ],
+                                        ),
                                       ),
                                     )
                                   ],
@@ -792,7 +827,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             children: [
               Container(
                 // height: size.height * .035,
-                // width: double.infinity,
+                width: double.infinity,
                 decoration: BoxDecoration(
                   color: AppColors.hintColor,
                   borderRadius: const BorderRadius.only(
@@ -825,31 +860,35 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: const [
-                          Padding(
-                            padding: EdgeInsets.only(right: 20.0),
-                            child: Text(
+                      Padding(
+                        padding: const EdgeInsets.only(left: 25.0,right: 25),
+
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                            Padding(
+                              padding: EdgeInsets.only(right: 20.0),
+                              child: Text(
+                                textScaleFactor: 1.0,
+                                'Buy',
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.secondaryTextColor,
+                                ),
+                              ),
+                            ),
+                            Text(
                               textScaleFactor: 1.0,
-                              'Buy',
+                              'Sell',
                               style: TextStyle(
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.secondaryTextColor,
                               ),
                             ),
-                          ),
-                          Text(
-                            textScaleFactor: 1.0,
-                            'Sell',
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.secondaryTextColor,
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 2.0, right: 2.0),
@@ -932,6 +971,183 @@ class _LiveRateScreenState extends State<LiveRateScreen>
               ),
             ],
           );
+  }
+
+  Widget buildNextContainers(Size size, int index) {
+    if (referenceNextDataOldChange.isNotEmpty) {
+      if (referenceNextDataOldChange.length == referenceNextData.length) {
+        var oldAskRate = referenceNextDataOldChange[index].ask!.isEmpty
+            ? 0.0
+            : double.parse(referenceNextDataOldChange[index].ask!);
+        var newAskRate = referenceNextData[index].ask!.isEmpty
+            ? 0.0
+            : double.parse(referenceNextData[index].ask!);
+
+        setFutureAskLableColor(
+            oldAskRate, newAskRate, referenceNextData[index]);
+
+        var oldBidRate = referenceNextDataOldChange[index].bid!.isEmpty
+            ? 0.0
+            : double.parse(referenceNextDataOldChange[index].bid!);
+        var newBidRate = referenceNextData[index].bid!.isEmpty
+            ? 0.0
+            : double.parse(referenceNextData[index].bid!);
+
+        setFutureBidLableColor(
+            oldBidRate, newBidRate, referenceNextData[index]);
+      }
+    }
+    if (referenceNextData.length - 1 == index) {
+      referenceNextDataOldChange = referenceNextData;
+    }
+
+    return referenceNextData.isEmpty
+        ? Container()
+        : Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          // height: size.height * .035,
+          // width: double.infinity,
+          decoration: BoxDecoration(
+            color: AppColors.hintColor,
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(5.0),
+              topRight: Radius.circular(5.0),
+            ),
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            textScaleFactor: 1.0,
+            referenceNextData[index].symbolName ?? '',
+            style: const TextStyle(
+              color: AppColors.textColor,
+              fontSize: 15.0,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.start,
+          ),
+        ),
+        Expanded(
+          child: Container(
+            decoration: BoxDecoration(
+              color: AppColors.primaryColor,
+              borderRadius: const BorderRadius.only(
+                bottomRight: Radius.circular(5.0),
+                bottomLeft: Radius.circular(5.0),
+              ),
+            ),
+            // color: AppColors.primaryColor,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 25.0,right: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        textScaleFactor: 1.0,
+                        'Buy',
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.secondaryTextColor,
+                        ),
+                      ),
+                      Text(
+                        textScaleFactor: 1.0,
+                        'Sell',
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.secondaryTextColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 2.0, right: 2.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        height: 30.0,
+                        width: size.width / 4.5,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: referenceNextData[index].bidBGColor,
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(7),
+                          ),
+                        ),
+                        child: Text(
+                          textScaleFactor: 1.0,
+                          referenceNextData[index].bid ?? '',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                            color:
+                            referenceNextData[index].bidTextColor,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 30.0,
+                        width: size.width / 4.5,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: referenceNextData[index].askBGColor,
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(7),
+                          ),
+                        ),
+                        child: Text(
+                          textScaleFactor: 1.0,
+                          referenceNextData[index].ask ?? '',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                            color:
+                            referenceNextData[index].askTextColor,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      textScaleFactor: 1.0,
+                      'L: ${referenceNextData[index].low!.isEmpty ? '' : referenceNextData[index].low!}',
+                      style: const TextStyle(
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.secondaryTextColor,
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                    Text(
+                      textScaleFactor: 1.0,
+                      ' / H: ${referenceNextData[index].high!.isEmpty ? '' : referenceNextData[index].high!} ',
+                      style: const TextStyle(
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.secondaryTextColor,
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
   }
 
   Widget buildComexContainers(Size size, int index) {

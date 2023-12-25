@@ -93,6 +93,7 @@ MERGED from [:shared_preferences_android] /Users/rohit/Desktop/Dhruv_Projects/AK
 MERGED from [:share_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-37:12
 MERGED from [:package_info_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/package_info_plus/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-9:12
 MERGED from [:fluttertoast] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/fluttertoast/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-9:12
+MERGED from [:device_info_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/device_info_plus/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-analytics-ktx:21.3.0] /Users/rohit/.gradle/caches/transforms-3/0ea85b99a798b95213d2ffb4988fd4b4/transformed/jetified-firebase-analytics-ktx-21.3.0/AndroidManifest.xml:2:1-17:12
 MERGED from [com.google.firebase:firebase-common-ktx:20.3.3] /Users/rohit/.gradle/caches/transforms-3/f8c6dbd7258a0e84828989ab0f9c5bd3/transformed/jetified-firebase-common-ktx-20.3.3/AndroidManifest.xml:2:1-20:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/rohit/.gradle/caches/transforms-3/3c0e35d493ccd3f2bb8b07f96b013b9c/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
@@ -301,6 +302,8 @@ MERGED from [:package_info_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/bu
 MERGED from [:package_info_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/package_info_plus/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-7:41
 MERGED from [:fluttertoast] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/fluttertoast/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-7:41
 MERGED from [:fluttertoast] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/fluttertoast/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-7:41
+MERGED from [:device_info_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/device_info_plus/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-7:41
+MERGED from [:device_info_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/device_info_plus/intermediates/merged_manifest/release/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-analytics-ktx:21.3.0] /Users/rohit/.gradle/caches/transforms-3/0ea85b99a798b95213d2ffb4988fd4b4/transformed/jetified-firebase-analytics-ktx-21.3.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics-ktx:21.3.0] /Users/rohit/.gradle/caches/transforms-3/0ea85b99a798b95213d2ffb4988fd4b4/transformed/jetified-firebase-analytics-ktx-21.3.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-common-ktx:20.3.3] /Users/rohit/.gradle/caches/transforms-3/f8c6dbd7258a0e84828989ab0f9c5bd3/transformed/jetified-firebase-common-ktx-20.3.3/AndroidManifest.xml:5:5-7:41

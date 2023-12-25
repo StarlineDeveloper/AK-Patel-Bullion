@@ -7228,6 +7228,18 @@ dev.fluttercommunity.plus.connectivity.R$string
 dev.fluttercommunity.plus.connectivity.R$style
 dev.fluttercommunity.plus.connectivity.R$styleable
 dev.fluttercommunity.plus.connectivity.R
+dev.fluttercommunity.plus.device_info.BuildConfig
+dev.fluttercommunity.plus.device_info.R$attr
+dev.fluttercommunity.plus.device_info.R$color
+dev.fluttercommunity.plus.device_info.R$dimen
+dev.fluttercommunity.plus.device_info.R$drawable
+dev.fluttercommunity.plus.device_info.R$id
+dev.fluttercommunity.plus.device_info.R$integer
+dev.fluttercommunity.plus.device_info.R$layout
+dev.fluttercommunity.plus.device_info.R$string
+dev.fluttercommunity.plus.device_info.R$style
+dev.fluttercommunity.plus.device_info.R$styleable
+dev.fluttercommunity.plus.device_info.R
 dev.fluttercommunity.plus.packageinfo.BuildConfig
 dev.fluttercommunity.plus.packageinfo.PackageInfoPlugin:
     private static final java.lang.String CHANNEL_NAME

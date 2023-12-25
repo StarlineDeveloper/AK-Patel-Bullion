@@ -273,7 +273,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         // bool isAddVisible
         debugPrint('appLifeCycleState detached');
         break;
-      // case AppLifecycleState.hidden:
+      case AppLifecycleState.hidden:
       // TODO: Handle this case.
     }
   }
@@ -420,8 +420,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               Icon(Icons.contact_phone,
                   size: 24,
                   color: selectedIndex == 4
-                      ? AppColors.primaryColor
-                      : AppColors.textColor),
+                         ? AppColors.primaryColor
+                         : AppColors.textColor),
             ],
             onTap: (index) {
               onItemTapped(index);
@@ -441,6 +441,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     child: Image.network(
                       _liverateProvider.bannerImage!,
                       height: size.height * .7,
+                        fit: BoxFit.contain,
                     ),
                   ),
                   SafeArea(
@@ -627,179 +628,210 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             SingleChildScrollView(
               child: Column(
                 children: [
-                  ListTile(
-                    onTap: () {
-                      setState(() {
-                        selectedIndex = 0;
-                      });
-                      Navigator.of(context).pop();
-                    },
-                    leading: Icon(
-                      Icons.home,
-                      color: selectedIndex == 0
-                          ? AppColors.primaryColor
-                          : AppColors.primaryColor,
-                      size: 24,
-                    ),
+                  Container(
+                    color: selectedIndex == 0
+                           ? AppColors.primaryColor:AppColors.defaultColor,
+                    child: ListTile(
 
-                    // SvgPicture.asset(
-                    //   AppImagePath.liveImage,
-                    //   height: 24,
-                    //   width: 24,
-                    //   color: AppColors.primaryColor,
-                    // ),
-                    title: const Text(
-                      textScaleFactor: 1.0,
-                      'Live Rate',
-                      style: TextStyle(
-                        color: AppColors.primaryColor,
-                        fontSize: 16.0,
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = 0;
+                        });
+                        Navigator.of(context).pop();
+                      },
+                      leading: Icon(
+                        Icons.home,
+                        color: selectedIndex == 0
+                            ? AppColors.defaultColor
+                            : AppColors.primaryColor,
+                        size: 24,
                       ),
-                    ),
-                  ),
-                  ListTile(
-                    onTap: () {
-                      setState(() {
-                        selectedIndex = 1;
-                      });
-                      Navigator.of(context).pop();
-                    },
-                    leading: Icon(
-                      Icons.area_chart,
-                      color: selectedIndex == 1
-                          ? AppColors.primaryColor
-                          : AppColors.primaryColor,
-                      size: 24,
-                    ),
 
-                    // SvgPicture.asset(
-                    //   AppImagePath.liveImage,
-                    //   height: 24,
-                    //   width: 24,
-                    //   color: AppColors.primaryColor,
-                    // ),
-                    title: const Text(
-                      textScaleFactor: 1.0,
-                      'Trade',
-                      style: TextStyle(
-                        color: AppColors.primaryColor,
-                        fontSize: 16.0,
+                      // SvgPicture.asset(
+                      //   AppImagePath.liveImage,
+                      //   height: 24,
+                      //   width: 24,
+                      //   color: AppColors.primaryColor,
+                      // ),
+                      title:  Text(
+                        textScaleFactor: 1.0,
+                        'Live Rate',
+                        style: TextStyle(
+                          color: selectedIndex == 0
+                              ? AppColors.defaultColor:AppColors.primaryColor,
+                          fontSize: 16.0,
+                        ),
                       ),
                     ),
                   ),
-                  ListTile(
-                    onTap: () {
-                      setState(() {
-                        selectedIndex = 2;
-                      });
-                      Navigator.of(context).pop();
-                    },
-                    leading: Icon(
-                      Icons.notification_add_sharp,
-                      color: selectedIndex == 2
-                          ? AppColors.primaryColor
-                          : AppColors.primaryColor,
-                      size: 24,
-                    ),
+                  Container(
+                    color: selectedIndex == 1
+                           ? AppColors.primaryColor:AppColors.defaultColor,
+                    child: ListTile(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = 1;
+                        });
+                        Navigator.of(context).pop();
+                      },
+                      leading: Icon(
+                        Icons.area_chart,
+                        color: selectedIndex == 1
+                            ? AppColors.defaultColor
+                            : AppColors.primaryColor,
+                        size: 24,
+                      ),
 
-                    // SvgPicture.asset(
-                    //   AppImagePath.updateImage,
-                    //   height: 24,
-                    //   width: 24,
-                    //   color: AppColors.primaryColor,
-                    // ),
-                    title: const Text(
-                      textScaleFactor: 1.0,
-                      'Updates',
-                      style: TextStyle(
-                        color: AppColors.primaryColor,
-                        fontSize: 16.0,
+                      // SvgPicture.asset(
+                      //   AppImagePath.liveImage,
+                      //   height: 24,
+                      //   width: 24,
+                      //   color: AppColors.primaryColor,
+                      // ),
+                      title:  Text(
+                        textScaleFactor: 1.0,
+                        'Trade',
+                        style: TextStyle(
+                          color:  selectedIndex == 1?
+                          AppColors.defaultColor:AppColors.primaryColor,
+                          fontSize: 16.0,
+                        ),
                       ),
                     ),
                   ),
-                  ListTile(
-                    onTap: () {
-                      setState(() {
-                        selectedIndex = 3;
-                      });
-                      Navigator.of(context).pop();
-                    },
-                    leading: Icon(
-                      Icons.home_work,
-                      color: selectedIndex == 2
-                          ? AppColors.primaryColor
-                          : AppColors.primaryColor,
-                      size: 24,
-                    ),
-                    // SvgPicture.asset(
-                    //   AppImagePath.bankImage,
-                    //   height: 24,
-                    //   width: 24,
-                    //   color: AppColors.primaryColor,
-                    // ),
-                    title: const Text(
-                      textScaleFactor: 1.0,
-                      'Bank Detail',
-                      style: TextStyle(
-                        color: AppColors.primaryColor,
-                        fontSize: 16.0,
+                  Container(
+                     color: selectedIndex == 2
+                          ? AppColors.primaryColor:AppColors.defaultColor,
+                    child: ListTile(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = 2;
+                        });
+                        Navigator.of(context).pop();
+                      },
+                      leading: Icon(
+                        Icons.notification_add_sharp,
+                        color: selectedIndex == 2
+                            ? AppColors.defaultColor
+                            : AppColors.primaryColor,
+                        size: 24,
+                      ),
+
+                      // SvgPicture.asset(
+                      //   AppImagePath.updateImage,
+                      //   height: 24,
+                      //   width: 24,
+                      //   color: AppColors.primaryColor,
+                      // ),
+                      title:  Text(
+                        textScaleFactor: 1.0,
+                        'Updates',
+                        style: TextStyle(
+                          color: selectedIndex == 2
+                              ? AppColors.defaultColor:AppColors.primaryColor,
+                          fontSize: 16.0,
+                        ),
                       ),
                     ),
                   ),
-                  ListTile(
-                    onTap: () {
-                      setState(() {
-                        selectedIndex = 4;
-                      });
-                      Navigator.of(context).pop();
-                    },
-                    leading: Icon(
-                      Icons.contact_phone,
-                      color: selectedIndex == 2
-                          ? AppColors.primaryColor
-                          : AppColors.primaryColor,
-                      size: 24,
-                    ),
-                    // SvgPicture.asset(
-                    //   AppImagePath.contactImage,
-                    //   height: 24,
-                    //   width: 24,
-                    //   color: AppColors.primaryColor,
-                    // ),
-                    title: const Text(
-                      textScaleFactor: 1.0,
-                      'Contact Us',
-                      style: TextStyle(
-                        color: AppColors.primaryColor,
-                        fontSize: 16.0,
+                  Container(
+                    color: selectedIndex == 3
+                        ? AppColors.primaryColor:AppColors.defaultColor,
+                    child: ListTile(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = 3;
+                        });
+                        Navigator.of(context).pop();
+                      },
+                      leading: Icon(
+                        Icons.home_work,
+                        color: selectedIndex == 3
+                            ? AppColors.defaultColor
+                            : AppColors.primaryColor,
+                        size: 24,
+                      ),
+                      // SvgPicture.asset(
+                      //   AppImagePath.bankImage,
+                      //   height: 24,
+                      //   width: 24,
+                      //   color: AppColors.primaryColor,
+                      // ),
+                      title:  Text(
+                        textScaleFactor: 1.0,
+                        'Bank Detail',
+                        style: TextStyle(
+                          color: selectedIndex == 3
+                              ? AppColors.defaultColor:AppColors.primaryColor,
+                          fontSize: 16.0,
+                        ),
                       ),
                     ),
                   ),
-                  ListTile(
-                    onTap: () {
-                      Navigator.of(context).pop();
-                      Navigator.of(context)
-                          .pushNamed(EconomicCalenderScreen.routeName);
-                    },
-                    leading: Icon(
-                      Icons.calendar_month_sharp,
-                      color: selectedIndex == 2
-                          ? AppColors.primaryColor
-                          : AppColors.primaryColor,
-                      size: 24,
+                  Container(
+                    color: selectedIndex == 4
+                        ? AppColors.primaryColor:AppColors.defaultColor,
+                    child: ListTile(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = 4;
+                        });
+                        Navigator.of(context).pop();
+                      },
+                      leading: Icon(
+                        Icons.contact_phone,
+                        color: selectedIndex == 4
+                            ? AppColors.defaultColor
+                            : AppColors.primaryColor,
+                        size: 24,
+                      ),
+                      // SvgPicture.asset(
+                      //   AppImagePath.contactImage,
+                      //   height: 24,
+                      //   width: 24,
+                      //   color: AppColors.primaryColor,
+                      // ),
+                      title:  Text(
+                        textScaleFactor: 1.0,
+                        'Contact Us',
+                        style: TextStyle(
+                          color: selectedIndex == 4
+                              ? AppColors.defaultColor:AppColors.primaryColor,
+                          fontSize: 16.0,
+                        ),
+                      ),
                     ),
-                    // const Image(
-                    //   image: AssetImage(AppImagePath.economicImage),
-                    //   height: 24,
-                    //   width: 24,
-                    //   color: AppColors.primaryColor,
-                    // ),
-                    title: const Text(
-                      textScaleFactor: 1.0,
-                      'Economic Calendar',
-                      style: TextStyle(
-                        color: AppColors.primaryColor,
-                        fontSize: 16.0,
+                  ),
+                  Container(
+                    color: selectedIndex == 5
+                           ? AppColors.primaryColor:AppColors.defaultColor,
+                    child: ListTile(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context)
+                            .pushNamed(EconomicCalenderScreen.routeName);
+                      },
+                      leading: Icon(
+                        Icons.calendar_month_sharp,
+                        color: selectedIndex == 5
+                            ? AppColors.defaultColor
+                            : AppColors.primaryColor,
+                        size: 24,
+                      ),
+                      // const Image(
+                      //   image: AssetImage(AppImagePath.economicImage),
+                      //   height: 24,
+                      //   width: 24,
+                      //   color: AppColors.primaryColor,
+                      // ),
+                      title:  Text(
+                        textScaleFactor: 1.0,
+                        'Economic Calendar',
+                        style: TextStyle(
+                          color: selectedIndex == 5
+                              ? AppColors.defaultColor:AppColors.primaryColor,
+                          fontSize: 16.0,
+                        ),
                       ),
                     ),
                   ),

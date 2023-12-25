@@ -230,6 +230,7 @@ class LiverateProvider extends ChangeNotifier {
   List<ReferenceDataRate> referenceDataRate = [];
   List<ComexDataModel> comexData = [];
   List<ComexDataModel> futureData = [];
+  List<ComexDataModel> nextData = [];
   List<Liverate> liveRates = [];
   List<Liverate> liveRatesTerminal = [];
   List<OpenOrderElement> openOrder = [];
@@ -330,6 +331,14 @@ class LiverateProvider extends ChangeNotifier {
 
   List<ComexDataModel> getFutureData() {
     return getDataFromList(futureData);
+  }
+  // Add and get Next data
+  void addNextData(List<ComexDataModel> data) {
+    addDataToList(nextData, data);
+  }
+
+  List<ComexDataModel> getNextData() {
+    return getDataFromList(nextData);
   }
 
   // Add and get open order data

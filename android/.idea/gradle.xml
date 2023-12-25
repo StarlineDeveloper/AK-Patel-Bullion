@@ -9,6 +9,7 @@
         <option name="modules">
           <set>
             <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/connectivity_plus-3.0.6/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/device_info_plus-9.1.1/android" />
             <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/firebase_core-2.16.0/android" />
             <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/firebase_messaging-14.6.8/android" />
             <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_local_notifications-13.0.0/android" />

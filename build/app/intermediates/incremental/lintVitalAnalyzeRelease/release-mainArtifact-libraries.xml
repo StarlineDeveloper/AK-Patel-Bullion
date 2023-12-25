@@ -186,6 +186,19 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name="/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android@@:device_info_plus::release"
+      jars="/Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/device_info_plus/.transforms/fe041c5187a7c51721e7c91028cab34f/transformed/out/jars/classes.jar:/Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/device_info_plus/.transforms/fe041c5187a7c51721e7c91028cab34f/transformed/out/jars/libs/R.jar"
+      resolved="dev.fluttercommunity.plus.device_info:device_info_plus:unspecified"
+      folder="/Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/device_info_plus/.transforms/fe041c5187a7c51721e7c91028cab34f/transformed/out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name="com.google.firebase:firebase-analytics-ktx:21.3.0@aar"
       jars="/Users/rohit/.gradle/caches/transforms-3/0ea85b99a798b95213d2ffb4988fd4b4/transformed/jetified-firebase-analytics-ktx-21.3.0/jars/classes.jar"
       resolved="com.google.firebase:firebase-analytics-ktx:21.3.0"
