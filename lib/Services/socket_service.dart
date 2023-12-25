@@ -61,6 +61,8 @@ class SocketService {
         provider.addClientHeaderData(listData);
         _addToControllerIfNotClosed(
             listData, NotifySocketUpdate.controllerClientData);
+        _addToControllerIfNotClosed(
+            listData, NotifySocketUpdate.controllerHome);
       }
     });
 
@@ -88,7 +90,8 @@ class SocketService {
         referenceDataRate.add(ReferenceDataRate.fromJson(item));
       }
       provider.addReferenceDataRate(referenceDataRate);
-      _addToControllerIfNotClosed(liverateResponse, NotifySocketUpdate.controllerHome);
+      _addToControllerIfNotClosed(
+          liverateResponse, NotifySocketUpdate.controllerRefrence);
     });
 
     socket.on('message', (messageResponse) async {
@@ -247,7 +250,8 @@ class SocketService {
         }
         provider.addLiveRateData(liveRate);
       }
-      _addToControllerIfNotClosed(liveRate, NotifySocketUpdate.controllerMainData);
+      _addToControllerIfNotClosed(
+          liveRate, NotifySocketUpdate.controllerMainData);
     });
 
     socket.on('Accountdetails', (accountdetails) {
@@ -284,7 +288,8 @@ class SocketService {
             dropDown.add(GroupDetailsDropDown.fromJson(item));
           }
 
-          socket.emit("GroupDetails", "${Constants.projectName}_${premiumData[0].groupName!}");
+          socket.emit("GroupDetails",
+              "${Constants.projectName}_${premiumData[0].groupName!}");
 
           provider.addPremiumData(premiumData);
           provider.addDropDownData(dropDown);
@@ -296,8 +301,6 @@ class SocketService {
           debugPrint('Map');
         }
       }
-
-
 
       debugPrint(
           "GroupDetails-----------------------------------$groupDetails");
@@ -328,10 +331,10 @@ class SocketService {
     });
   }
 
-  static void _addToControllerIfNotClosed<T>(T data, StreamController<T>? controller) {
+  static void _addToControllerIfNotClosed<T>(
+      T data, StreamController<T>? controller) {
     if (controller != null && !controller.isClosed) {
       controller.sink.add(data);
     }
   }
-
 }

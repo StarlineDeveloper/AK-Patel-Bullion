@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:terminal_demo/Constants/constant.dart';
@@ -15,7 +16,8 @@ import '../Models/api_response.dart';
 class LoginService {
   Shared shared = Shared();
 
-  Future<APIResponse<String>> loginUser(String login,BuildContext context) async {
+  Future<APIResponse<String>> loginUser(
+      String login, BuildContext context) async {
     List<String> fieldList = [
       '<?xml version="1.0" encoding="utf-8"?>',
       '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">',
@@ -42,16 +44,20 @@ class LoginService {
         String jsonData = parsedXml.text;
         Map<String, dynamic> data = jsonDecode(jsonData);
         if (data['ReturnCode'] == '200') {
-          var logData =LoginData.fromJson(data);
+          var logData = LoginData.fromJson(data);
           String user = json.encode(logData);
           shared.setLoginData('');
           shared.setLoginData(user);
-          Constants.isLogin=true;
+          Constants.isLogin = true;
           shared.setIsLogin(true);
           SocketService.getLiveRateData(context);
           return APIResponse<String>(data: data['ReturnCode']);
         }
-        Functions.showToast(data['ReturnMsg']);
+        Platform.isIOS
+            ? Functions.showSnackBar(context, data['ReturnMsg'])
+            : Functions.showToast(data['ReturnMsg']);
+        // Functions.showToast(data['ReturnMsg']);
+
         return APIResponse<String>(data: data['ReturnCode']);
       } else {
         return APIResponse<String>(

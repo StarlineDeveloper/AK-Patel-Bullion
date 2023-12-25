@@ -23,10 +23,9 @@ class ComexDataModel {
     this.low,
     this.source,
     this.isDisplay,
-    this.askBGColor = AppColors.defaultColor,
-    this.askTextColor = AppColors.textColor,
-    this.bidBGColor = AppColors.defaultColor,
-    this.bidTextColor = AppColors.textColor,
-
+    this.askBGColor = AppColors.primaryColor,
+    this.askTextColor = AppColors.defaultColor,
+    this.bidBGColor = AppColors.primaryColor,
+    this.bidTextColor = AppColors.defaultColor,
   });
 }

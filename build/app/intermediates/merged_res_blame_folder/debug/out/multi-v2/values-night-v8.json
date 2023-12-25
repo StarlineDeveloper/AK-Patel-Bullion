@@ -4,7 +4,7 @@
             "outputFile": "com.akpatelbullion.app-mergeDebugResources-19:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

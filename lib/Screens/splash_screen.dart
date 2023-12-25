@@ -39,8 +39,8 @@ class _SplashScreenState extends State<SplashScreen> {
     final notificationService = NotificationService();
     listenToNotificationStream(notificationService);
     notificationService.getFCMToken();
-    // getVersion();
-    startTimer();
+    getVersion();
+    // startTimer();
   }
 
   void getVersion() {
@@ -215,7 +215,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   onTap: () {
                     StoreRedirect.redirect(
                       androidAppId: Constants.androidAppRateAndUpdate,
-                      iOSAppId: Constants.iOSAppRedirect,
+                      iOSAppId: Constants.iOSAppId,
                     );
                   },
                 ),

@@ -61,7 +61,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
   final TextEditingController _priceController = TextEditingController();
 
   // Lists and other variables
-  late List<Liverate> liveRatesDetailMaster=[];
+  late List<Liverate> liveRatesDetailMaster = [];
   late List<Liverate> liveRatesDetailGold;
   late List<Liverate> liveRatesDetailSilver;
   late List<ReferenceDataRate> liveRateReferenceDetail;
@@ -110,21 +110,27 @@ class _LiveRateScreenState extends State<LiveRateScreen>
     loadData();
     dropDown = _liverateProvider.getDropDownData();
     _initializeListeners();
+    if (!mounted) {
+      return;
+    }
   }
 
   void _initializeControllers() {
     _tabController = TabController(length: 1, vsync: this);
     _tabGoldSilverController = TabController(length: 2, vsync: this);
-    NotifySocketUpdate.controllerHome = StreamController();
+    NotifySocketUpdate.controllerRefrence = StreamController();
     NotifySocketUpdate.controllerMainData = StreamController();
     NotifySocketUpdate.dropDown = StreamController();
     streamController = StreamController<List<Liverate>>.broadcast();
+    if (!mounted) {
+      return;
+    }
   }
 
   void _initializeListeners() {
-    NotifySocketUpdate.controllerHome!.stream.asBroadcastStream().listen(
+    NotifySocketUpdate.controllerRefrence!.stream.asBroadcastStream().listen(
       (event) {
-        liveRateReferenceDetail=[];
+        liveRateReferenceDetail = [];
         referenceData = _liverateProvider.getReferenceData();
         // for (var item in event) {
         //   liveRateReferenceDetail.add(ReferenceDataRate.fromJson(item));
@@ -148,10 +154,10 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             for (var data in referenceData) {
               for (var rate in liveRateReferenceDetail) {
                 if (rate.symbol.toLowerCase() == data.source!.toLowerCase()) {
-                  bid  = rate.bid.toString();
-                  ask  = rate.ask.toString();
+                  bid = rate.bid.toString();
+                  ask = rate.ask.toString();
                   high = rate.high.toString();
-                  low  = rate.low.toString();
+                  low = rate.low.toString();
                 } // Set bid, ask, high and low which matches the symbol of rate and source of data.
               }
               if (data.isDisplay! &&
@@ -166,11 +172,10 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                     isDisplay: data.isDisplay,
                   ),
                 );
-              }
-              else if(data.isDisplay! &&
+              } else if (data.isDisplay! &&
                   (data.source == 'XAGUSD' ||
                       data.source == 'XAUUSD' ||
-                      data.source == 'INRSpot')){
+                      data.source == 'INRSpot')) {
                 comexData.add(
                   ComexDataModel(
                     symbolName: data.symbolName,
@@ -240,7 +245,6 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             //   }
             // }
             // _liverateProvider.addNextData(nextData);
-
           } else {
             setState(() {
               referenceFutureData = _liverateProvider.getFutureData();
@@ -249,7 +253,6 @@ class _LiveRateScreenState extends State<LiveRateScreen>
               // referenceNextData = liveDataProvider.getNextData();
             });
           }
-
 
           // if (isConnected) {
           //   setState(() {
@@ -421,7 +424,6 @@ class _LiveRateScreenState extends State<LiveRateScreen>
           // }
         });
 
-
         clientHeadersDetail = _liverateProvider.getClientHeaderData();
 
         // // Asign Live Rate to Live Rate Old
@@ -434,7 +436,6 @@ class _LiveRateScreenState extends State<LiveRateScreen>
     NotifySocketUpdate.controllerMainData!.stream.asBroadcastStream().listen(
       (event) {
         Future.delayed(const Duration(seconds: 1), () {
-
           liveRatesDetailMaster = _liverateProvider.getLiveRateData();
 
           liveRatesDetailOldMaster = liveRatesDetailMaster;
@@ -443,9 +444,6 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             streamController.sink.add(liveRatesDetailMaster);
           }
         });
-
-
-
       },
     );
     NotifySocketUpdate.dropDown!.stream.asBroadcastStream().listen(
@@ -462,7 +460,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
     _tabController.dispose();
     _tabGoldSilverController.dispose();
     streamController.close();
-    NotifySocketUpdate.controllerHome!.close();
+    NotifySocketUpdate.controllerRefrence!.close();
     NotifySocketUpdate.controllerMainData!.close();
     NotifySocketUpdate.dropDown!.close();
     super.dispose();
@@ -495,8 +493,6 @@ class _LiveRateScreenState extends State<LiveRateScreen>
     // referenceFutureDataOld = [];
 
     // Get Data From Providers..
-
-
   }
 
   @override
@@ -771,7 +767,8 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             ? 0.0
             : double.parse(referenceFutureData[index].ask!);
 
-        setFutureAskLableColor(oldAskRate, newAskRate, referenceFutureData[index]);
+        setFutureAskLableColor(
+            oldAskRate, newAskRate, referenceFutureData[index]);
 
         var oldBidRate = referenceFutureDataOldChange[index].bid!.isEmpty
             ? 0.0
@@ -780,7 +777,8 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             ? 0.0
             : double.parse(referenceFutureData[index].bid!);
 
-        setFutureBidLableColor(oldBidRate, newBidRate, referenceFutureData[index]);
+        setFutureBidLableColor(
+            oldBidRate, newBidRate, referenceFutureData[index]);
       }
     }
     if (referenceFutureData.length - 1 == index) {
@@ -1064,7 +1062,8 @@ class _LiveRateScreenState extends State<LiveRateScreen>
         if (liveRatesDetailOldChange[index].ask == '-' ||
             liveRatesDetailOldChange[index].ask == '--') {
           liveRatesDetailOldChange[index].askBGColor = AppColors.primaryColor;
-          liveRatesDetailOldChange[index].askTextColor = AppColors.secondaryTextColor;
+          liveRatesDetailOldChange[index].askTextColor =
+              AppColors.secondaryTextColor;
         } else {
           dynamic oldAskRate = liveRatesDetailOldChange[index].ask!.isEmpty
               ? 0.0
@@ -1073,7 +1072,8 @@ class _LiveRateScreenState extends State<LiveRateScreen>
               ? 0.0
               : double.parse(liveRatesDetailMaster[index].ask!);
 
-          setLabelColorsAskMainProduct(oldAskRate, newAskRate, liveRatesDetailMaster[index]);
+          setLabelColorsAskMainProduct(
+              oldAskRate, newAskRate, liveRatesDetailMaster[index]);
         }
 
         if (liveRatesDetailOldChange[index].bid == '-' ||
@@ -1901,6 +1901,17 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                               validateTrade(
                                                   liveRatesDetailMaster[index]
                                                       .symbolId!);
+                                            } else if (quantity.isEmpty ||
+                                                items.isEmpty) {
+                                              return DialogUtil.showAlertDialog(
+                                                context,
+                                                title:
+                                                    Constants.alertAndCnfTitle,
+                                                content:
+                                                    'This symbol quantity is not available',
+                                                okBtnText: 'Ok',
+                                                cancelBtnText: 'Cancel',
+                                              );
                                             } else {
                                               setState(() {
                                                 isBuySellSelected = false;
@@ -1962,6 +1973,17 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                               validateTrade(
                                                   liveRatesDetailMaster[index]
                                                       .symbolId!);
+                                            } else if (quantity.isEmpty ||
+                                                items.isEmpty) {
+                                              return DialogUtil.showAlertDialog(
+                                                context,
+                                                title:
+                                                    Constants.alertAndCnfTitle,
+                                                content:
+                                                    'This symbol quantity is not available',
+                                                okBtnText: 'Ok',
+                                                cancelBtnText: 'Cancel',
+                                              );
                                             } else {
                                               setState(() {
                                                 isBuySellSelected = true;
@@ -2039,7 +2061,6 @@ class _LiveRateScreenState extends State<LiveRateScreen>
       model.askTextColor = AppColors.defaultColor;
     }
   }
-
 
   setBidLableColor(double oldRate, double newRate, model) {
     if (oldRate < newRate) {
@@ -2154,6 +2175,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
       model.bidTextColor = AppColors.secondaryTextColor;
     }
   }
+
   void setLabelColorsAskMainProduct(dynamic oldRate, dynamic newRate, model) {
     if (oldRate < newRate) {
       model.askBGColor = AppColors.green;
@@ -2308,8 +2330,6 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                               ? '4'
                               : '';
             });
-
-            // Functions.showToast('Login has been Successfully');
           } else {
             setState(() {
               isBuyLoading = false;
