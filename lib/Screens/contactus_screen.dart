@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -73,15 +74,15 @@ class _ContactUs_ScreenState extends State<ContactUs_Screen> {
     NotifySocketUpdate.controllerClientData!.stream.listen((event) {
       getLiveData();
     });
-
-
   }
+
   @override
   void dispose() {
     NotifySocketUpdate.controllerClientData!.close();
 
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -367,8 +368,7 @@ class _ContactUs_ScreenState extends State<ContactUs_Screen> {
               width: size.width,
               margin: const EdgeInsets.all(10.0),
               padding: const EdgeInsets.all(10.0),
-              decoration:
-              BoxDecoration(
+              decoration: BoxDecoration(
                 border: Border.all(color: AppColors.primaryColor),
                 borderRadius: BorderRadius.circular(5.0),
               ),
@@ -479,8 +479,8 @@ class _ContactUs_ScreenState extends State<ContactUs_Screen> {
                     ),
                     TextFormField(
                       controller: subjectController,
-                      decoration:
-                          getInputBoxDecoration('Please Enter Your Subject'),
+                      decoration: getInputBoxDecoration(
+                          'Please Enter Your Subject(Optional)'),
                       keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
                     ),
@@ -509,12 +509,15 @@ class _ContactUs_ScreenState extends State<ContactUs_Screen> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        if (nameController.text.isEmpty &&
-                            emailController.text.isEmpty &&
-                            phoneController.text.isEmpty &&
-                            subjectController.text.isEmpty &&
+                        if (nameController.text.isEmpty ||
+                            emailController.text.isEmpty ||
+                            phoneController.text.isEmpty ||
+                            // subjectController.text.isEmpty ||
                             messageController.text.isEmpty) {
-                          Functions.showToast('Please fill all fields.');
+                          Platform.isIOS
+                              ? Functions.showSnackBar(
+                                  context, 'Please fill all fields.')
+                              : Functions.showToast('Please fill all fields.');
                         } else {
                           FeedbackRequest feedback = FeedbackRequest(
                             name: nameController.text,
@@ -604,8 +607,12 @@ class _ContactUs_ScreenState extends State<ContactUs_Screen> {
             setState(() {
               isLoading = false;
             });
-            Functions.showToast(
-                'Feedback Sended.\nThank You For Valuable Feedback.');
+            Platform.isIOS
+                ? Functions.showSnackBar(context,
+                    'Feedback Sended.\nThank You For Valuable Feedback.')
+                : Functions.showToast(
+                    'Feedback Sended.\nThank You For Valuable Feedback.');
+
             clearFields();
           } else {
             Functions.showToast(response.errorMessage!);
@@ -624,7 +631,6 @@ class _ContactUs_ScreenState extends State<ContactUs_Screen> {
     setState(() {
       liveData = _liverateProvider.getClientHeaderData();
     });
-
 
     // Check for visiblity of Address Area
     if (liveData.addressClient!.isEmpty &&

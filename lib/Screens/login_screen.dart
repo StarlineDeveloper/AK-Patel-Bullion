@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../Constants/app_colors.dart';
@@ -539,22 +540,46 @@ class _Login_ScreenState extends State<Login_Screen> {
   void registerUser() {
     if (_registerFormKey.currentState!.validate()) {
       if (_nameController.text.isEmpty) {
-        Functions.showToast('Please enter your Name.');
+        Platform.isIOS
+            ? Functions.showSnackBar(context, 'Please enter your Name.')
+            : Functions.showToast('Please enter your name.');
+        // Functions.showToast('Please enter your Name.');
       } else if (_firmNameController.text.isEmpty) {
-        Functions.showToast('Please enter firm Name.');
+        Platform.isIOS
+            ? Functions.showSnackBar(context, 'Please enter firm Name.')
+            : Functions.showToast('Please enter firm name.');
+        // Functions.showToast('Please enter firm Name.');
       } else if (_mobileController.text.isEmpty) {
-        Functions.showToast('Please enter your contact number.');
+        Platform.isIOS
+            ? Functions.showSnackBar(context, 'Please enter contact  number.')
+            : Functions.showToast('Please enter contact number.');
+        // Functions.showToast('Please enter your contact number.');
       } else if (_mobileController.text.length != 10) {
-        Functions.showToast('Enter valid contact number.');
+        Platform.isIOS
+            ? Functions.showSnackBar(context, 'Enter valid contact number.')
+            : Functions.showToast('Enter valid contact number.');
       } else if (_emailController.text.isNotEmpty &&
           !Functions.velidateEmail(_emailController.text)) {
-        Functions.showToast('Please enter your valid Email.');
+        Platform.isIOS
+            ? Functions.showSnackBar(context, 'Please enter your valid Email.')
+            : Functions.showToast('Please enter your valid Email.');
+        // Functions.showToast('Please enter your valid Email.');
       } else if (_cityController.text.isEmpty) {
-        Functions.showToast('Please enter your City.');
+        Platform.isIOS
+            ? Functions.showSnackBar(context, 'Please enter your city.')
+            : Functions.showToast('Please enter your city.');
+        // Functions.showToast('Please enter your City.');
       } else if (_gstController.text.isEmpty) {
-        Functions.showToast('Please enter your gst number.');
+        Platform.isIOS
+            ? Functions.showSnackBar(context, 'Please enter your gst number.')
+            : Functions.showToast('Please enter your gst number.');
+        // Functions.showToast('Please enter your gst number.');
       } else if (_gstController.text.length != 15) {
-        Functions.showToast('GST number cant be less then 15.');
+        Platform.isIOS
+            ? Functions.showSnackBar(
+                context, 'GST number cant be less then 15.')
+            : Functions.showToast('GST number cant be less then 15.');
+        // Functions.showToast('GST number cant be less then 15.');
       } else {
         Functions.checkConnectivity().then((isConnected) {
           if (isConnected) {
@@ -575,7 +600,11 @@ class _Login_ScreenState extends State<Login_Screen> {
                   clientId: Constants.clientId));
               register.registerUser(objVariable).then((response) {
                 if (response.data != '0') {
-                  Functions.showToast('Registration Successful!');
+                  Platform.isIOS
+                      ? Functions.showSnackBar(
+                          context, 'Registration Successful!')
+                      : Functions.showToast('Registration Successful!');
+                  // Functions.showToast('Registration Successful!');
                   setState(() {
                     headerName = 'Login';
                     isRegisterClickable = true;
@@ -591,7 +620,11 @@ class _Login_ScreenState extends State<Login_Screen> {
                     isRegisterClickable = true;
                     isLoadingRegister = false;
                   });
-                  Functions.showToast('Mobile Number Already Exist.');
+                  Platform.isIOS
+                      ? Functions.showSnackBar(
+                          context, 'Mobile Number Already Exist.')
+                      : Functions.showToast('Mobile Number Already Exist.');
+                  // Functions.showToast('Mobile Number Already Exist.');
                 }
               });
             }
@@ -610,9 +643,15 @@ class _Login_ScreenState extends State<Login_Screen> {
   void loginUser() {
     if (_loginFormKey.currentState!.validate()) {
       if (_usernameController.text.isEmpty) {
-        Functions.showToast('Please enter your UserId.');
+        Platform.isIOS
+            ? Functions.showSnackBar(context, 'Please enter your UserId.')
+            : Functions.showToast('Please enter your UserId.');
+        // Functions.showToast('Please enter your UserId.');
       } else if (_passwordController.text.isEmpty) {
-        Functions.showToast('Please enter password.');
+        Platform.isIOS
+            ? Functions.showSnackBar(context, 'Please enter password.')
+            : Functions.showToast('Please enter password.');
+        // Functions.showToast('Please enter password.');
       } else {
         Functions.checkConnectivity().then((isConnected) {
           if (isConnected) {

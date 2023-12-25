@@ -80,8 +80,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      bottom: false,
       child: Scaffold(
-        backgroundColor:  AppColors.bgColor,
+        backgroundColor: AppColors.bgColor,
         appBar: AppBar(
           backgroundColor: AppColors.defaultColor,
           toolbarHeight: 50,

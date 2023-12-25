@@ -273,7 +273,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         // bool isAddVisible
         debugPrint('appLifeCycleState detached');
         break;
-      case AppLifecycleState.hidden:
+      // case AppLifecycleState.hidden:
       // TODO: Handle this case.
     }
   }
@@ -420,8 +420,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               Icon(Icons.contact_phone,
                   size: 24,
                   color: selectedIndex == 4
-                         ? AppColors.primaryColor
-                         : AppColors.textColor),
+                      ? AppColors.primaryColor
+                      : AppColors.textColor),
             ],
             onTap: (index) {
               onItemTapped(index);
@@ -441,7 +441,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     child: Image.network(
                       _liverateProvider.bannerImage!,
                       height: size.height * .7,
-                        fit: BoxFit.contain,
+                      fit: BoxFit.contain,
                     ),
                   ),
                   SafeArea(
@@ -590,6 +590,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   buildAppDrawer() {
     var size = MediaQuery.of(context).size;
     return SafeArea(
+      bottom: false,
       child: Drawer(
         backgroundColor: AppColors.defaultColor,
         child: Column(
@@ -601,8 +602,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               child: const Center(
                 child: Image(
                   image: AssetImage(AppImagePath.drawerLogo),
-                  height: 220.0,
-                  width: 220.0,
+                  height: 120.0,
+                  width: 120.0,
                 ),
               ),
             ),
@@ -630,9 +631,9 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 children: [
                   Container(
                     color: selectedIndex == 0
-                           ? AppColors.primaryColor:AppColors.defaultColor,
+                        ? AppColors.primaryColor
+                        : AppColors.defaultColor,
                     child: ListTile(
-
                       onTap: () {
                         setState(() {
                           selectedIndex = 0;
@@ -653,12 +654,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       //   width: 24,
                       //   color: AppColors.primaryColor,
                       // ),
-                      title:  Text(
+                      title: Text(
                         textScaleFactor: 1.0,
                         'Live Rate',
                         style: TextStyle(
                           color: selectedIndex == 0
-                              ? AppColors.defaultColor:AppColors.primaryColor,
+                              ? AppColors.defaultColor
+                              : AppColors.primaryColor,
                           fontSize: 16.0,
                         ),
                       ),
@@ -666,7 +668,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   ),
                   Container(
                     color: selectedIndex == 1
-                           ? AppColors.primaryColor:AppColors.defaultColor,
+                        ? AppColors.primaryColor
+                        : AppColors.defaultColor,
                     child: ListTile(
                       onTap: () {
                         setState(() {
@@ -688,20 +691,22 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       //   width: 24,
                       //   color: AppColors.primaryColor,
                       // ),
-                      title:  Text(
+                      title: Text(
                         textScaleFactor: 1.0,
                         'Trade',
                         style: TextStyle(
-                          color:  selectedIndex == 1?
-                          AppColors.defaultColor:AppColors.primaryColor,
+                          color: selectedIndex == 1
+                              ? AppColors.defaultColor
+                              : AppColors.primaryColor,
                           fontSize: 16.0,
                         ),
                       ),
                     ),
                   ),
                   Container(
-                     color: selectedIndex == 2
-                          ? AppColors.primaryColor:AppColors.defaultColor,
+                    color: selectedIndex == 2
+                        ? AppColors.primaryColor
+                        : AppColors.defaultColor,
                     child: ListTile(
                       onTap: () {
                         setState(() {
@@ -723,12 +728,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       //   width: 24,
                       //   color: AppColors.primaryColor,
                       // ),
-                      title:  Text(
+                      title: Text(
                         textScaleFactor: 1.0,
                         'Updates',
                         style: TextStyle(
                           color: selectedIndex == 2
-                              ? AppColors.defaultColor:AppColors.primaryColor,
+                              ? AppColors.defaultColor
+                              : AppColors.primaryColor,
                           fontSize: 16.0,
                         ),
                       ),
@@ -736,7 +742,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   ),
                   Container(
                     color: selectedIndex == 3
-                        ? AppColors.primaryColor:AppColors.defaultColor,
+                        ? AppColors.primaryColor
+                        : AppColors.defaultColor,
                     child: ListTile(
                       onTap: () {
                         setState(() {
@@ -757,12 +764,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       //   width: 24,
                       //   color: AppColors.primaryColor,
                       // ),
-                      title:  Text(
+                      title: Text(
                         textScaleFactor: 1.0,
                         'Bank Detail',
                         style: TextStyle(
                           color: selectedIndex == 3
-                              ? AppColors.defaultColor:AppColors.primaryColor,
+                              ? AppColors.defaultColor
+                              : AppColors.primaryColor,
                           fontSize: 16.0,
                         ),
                       ),
@@ -770,7 +778,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   ),
                   Container(
                     color: selectedIndex == 4
-                        ? AppColors.primaryColor:AppColors.defaultColor,
+                        ? AppColors.primaryColor
+                        : AppColors.defaultColor,
                     child: ListTile(
                       onTap: () {
                         setState(() {
@@ -791,12 +800,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       //   width: 24,
                       //   color: AppColors.primaryColor,
                       // ),
-                      title:  Text(
+                      title: Text(
                         textScaleFactor: 1.0,
                         'Contact Us',
                         style: TextStyle(
                           color: selectedIndex == 4
-                              ? AppColors.defaultColor:AppColors.primaryColor,
+                              ? AppColors.defaultColor
+                              : AppColors.primaryColor,
                           fontSize: 16.0,
                         ),
                       ),
@@ -804,7 +814,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   ),
                   Container(
                     color: selectedIndex == 5
-                           ? AppColors.primaryColor:AppColors.defaultColor,
+                        ? AppColors.primaryColor
+                        : AppColors.defaultColor,
                     child: ListTile(
                       onTap: () {
                         Navigator.of(context).pop();
@@ -824,12 +835,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       //   width: 24,
                       //   color: AppColors.primaryColor,
                       // ),
-                      title:  Text(
+                      title: Text(
                         textScaleFactor: 1.0,
                         'Economic Calendar',
                         style: TextStyle(
                           color: selectedIndex == 5
-                              ? AppColors.defaultColor:AppColors.primaryColor,
+                              ? AppColors.defaultColor
+                              : AppColors.primaryColor,
                           fontSize: 16.0,
                         ),
                       ),
