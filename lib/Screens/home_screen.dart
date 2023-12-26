@@ -626,373 +626,263 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               color: AppColors.primaryColor,
               thickness: .8,
             ),
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  Container(
-                    color: selectedIndex == 0
-                        ? AppColors.primaryColor
-                        : AppColors.defaultColor,
-                    child: ListTile(
-                      onTap: () {
-                        setState(() {
-                          selectedIndex = 0;
-                        });
-                        Navigator.of(context).pop();
-                      },
-                      leading: Icon(
-                        Icons.home,
-                        color: selectedIndex == 0
-                            ? AppColors.defaultColor
-                            : AppColors.primaryColor,
-                        size: 24,
-                      ),
-
-                      // SvgPicture.asset(
-                      //   AppImagePath.liveImage,
-                      //   height: 24,
-                      //   width: 24,
-                      //   color: AppColors.primaryColor,
-                      // ),
-                      title: Text(
-                        textScaleFactor: 1.0,
-                        'Live Rate',
-                        style: TextStyle(
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Container(
+                      color: selectedIndex == 0
+                          ? AppColors.primaryColor
+                          : AppColors.defaultColor,
+                      child: ListTile(
+                        onTap: () {
+                          setState(() {
+                            selectedIndex = 0;
+                          });
+                          Navigator.of(context).pop();
+                        },
+                        leading: Icon(
+                          Icons.home,
                           color: selectedIndex == 0
                               ? AppColors.defaultColor
                               : AppColors.primaryColor,
-                          fontSize: 16.0,
+                          size: 24,
+                        ),
+
+                        // SvgPicture.asset(
+                        //   AppImagePath.liveImage,
+                        //   height: 24,
+                        //   width: 24,
+                        //   color: AppColors.primaryColor,
+                        // ),
+                        title: Text(
+                          textScaleFactor: 1.0,
+                          'Live Rate',
+                          style: TextStyle(
+                            color: selectedIndex == 0
+                                ? AppColors.defaultColor
+                                : AppColors.primaryColor,
+                            fontSize: 16.0,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    color: selectedIndex == 1
-                        ? AppColors.primaryColor
-                        : AppColors.defaultColor,
-                    child: ListTile(
-                      onTap: () {
-                        setState(() {
-                          selectedIndex = 1;
-                        });
-                        Navigator.of(context).pop();
-                      },
-                      leading: Icon(
-                        Icons.area_chart,
-                        color: selectedIndex == 1
-                            ? AppColors.defaultColor
-                            : AppColors.primaryColor,
-                        size: 24,
-                      ),
-
-                      // SvgPicture.asset(
-                      //   AppImagePath.liveImage,
-                      //   height: 24,
-                      //   width: 24,
-                      //   color: AppColors.primaryColor,
-                      // ),
-                      title: Text(
-                        textScaleFactor: 1.0,
-                        'Trade',
-                        style: TextStyle(
+                    Container(
+                      color: selectedIndex == 1
+                          ? AppColors.primaryColor
+                          : AppColors.defaultColor,
+                      child: ListTile(
+                        onTap: () {
+                          setState(() {
+                            selectedIndex = 1;
+                          });
+                          Navigator.of(context).pop();
+                        },
+                        leading: Icon(
+                          Icons.area_chart,
                           color: selectedIndex == 1
                               ? AppColors.defaultColor
                               : AppColors.primaryColor,
-                          fontSize: 16.0,
+                          size: 24,
+                        ),
+
+                        // SvgPicture.asset(
+                        //   AppImagePath.liveImage,
+                        //   height: 24,
+                        //   width: 24,
+                        //   color: AppColors.primaryColor,
+                        // ),
+                        title: Text(
+                          textScaleFactor: 1.0,
+                          'Trade',
+                          style: TextStyle(
+                            color: selectedIndex == 1
+                                ? AppColors.defaultColor
+                                : AppColors.primaryColor,
+                            fontSize: 16.0,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    color: selectedIndex == 2
-                        ? AppColors.primaryColor
-                        : AppColors.defaultColor,
-                    child: ListTile(
-                      onTap: () {
-                        setState(() {
-                          selectedIndex = 2;
-                        });
-                        Navigator.of(context).pop();
-                      },
-                      leading: Icon(
-                        Icons.notification_add_sharp,
-                        color: selectedIndex == 2
-                            ? AppColors.defaultColor
-                            : AppColors.primaryColor,
-                        size: 24,
-                      ),
-
-                      // SvgPicture.asset(
-                      //   AppImagePath.updateImage,
-                      //   height: 24,
-                      //   width: 24,
-                      //   color: AppColors.primaryColor,
-                      // ),
-                      title: Text(
-                        textScaleFactor: 1.0,
-                        'Updates',
-                        style: TextStyle(
+                    Container(
+                      color: selectedIndex == 2
+                          ? AppColors.primaryColor
+                          : AppColors.defaultColor,
+                      child: ListTile(
+                        onTap: () {
+                          setState(() {
+                            selectedIndex = 2;
+                          });
+                          Navigator.of(context).pop();
+                        },
+                        leading: Icon(
+                          Icons.notification_add_sharp,
                           color: selectedIndex == 2
                               ? AppColors.defaultColor
                               : AppColors.primaryColor,
-                          fontSize: 16.0,
+                          size: 24,
+                        ),
+
+                        // SvgPicture.asset(
+                        //   AppImagePath.updateImage,
+                        //   height: 24,
+                        //   width: 24,
+                        //   color: AppColors.primaryColor,
+                        // ),
+                        title: Text(
+                          textScaleFactor: 1.0,
+                          'Updates',
+                          style: TextStyle(
+                            color: selectedIndex == 2
+                                ? AppColors.defaultColor
+                                : AppColors.primaryColor,
+                            fontSize: 16.0,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    color: selectedIndex == 3
-                        ? AppColors.primaryColor
-                        : AppColors.defaultColor,
-                    child: ListTile(
-                      onTap: () {
-                        setState(() {
-                          selectedIndex = 3;
-                        });
-                        Navigator.of(context).pop();
-                      },
-                      leading: Icon(
-                        Icons.home_work,
-                        color: selectedIndex == 3
-                            ? AppColors.defaultColor
-                            : AppColors.primaryColor,
-                        size: 24,
-                      ),
-                      // SvgPicture.asset(
-                      //   AppImagePath.bankImage,
-                      //   height: 24,
-                      //   width: 24,
-                      //   color: AppColors.primaryColor,
-                      // ),
-                      title: Text(
-                        textScaleFactor: 1.0,
-                        'Bank Detail',
-                        style: TextStyle(
+                    Container(
+                      color: selectedIndex == 3
+                          ? AppColors.primaryColor
+                          : AppColors.defaultColor,
+                      child: ListTile(
+                        onTap: () {
+                          setState(() {
+                            selectedIndex = 3;
+                          });
+                          Navigator.of(context).pop();
+                        },
+                        leading: Icon(
+                          Icons.home_work,
                           color: selectedIndex == 3
                               ? AppColors.defaultColor
                               : AppColors.primaryColor,
-                          fontSize: 16.0,
+                          size: 24,
+                        ),
+                        // SvgPicture.asset(
+                        //   AppImagePath.bankImage,
+                        //   height: 24,
+                        //   width: 24,
+                        //   color: AppColors.primaryColor,
+                        // ),
+                        title: Text(
+                          textScaleFactor: 1.0,
+                          'Bank Detail',
+                          style: TextStyle(
+                            color: selectedIndex == 3
+                                ? AppColors.defaultColor
+                                : AppColors.primaryColor,
+                            fontSize: 16.0,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    color: selectedIndex == 4
-                        ? AppColors.primaryColor
-                        : AppColors.defaultColor,
-                    child: ListTile(
-                      onTap: () {
-                        setState(() {
-                          selectedIndex = 4;
-                        });
-                        Navigator.of(context).pop();
-                      },
-                      leading: Icon(
-                        Icons.contact_phone,
-                        color: selectedIndex == 4
-                            ? AppColors.defaultColor
-                            : AppColors.primaryColor,
-                        size: 24,
-                      ),
-                      // SvgPicture.asset(
-                      //   AppImagePath.contactImage,
-                      //   height: 24,
-                      //   width: 24,
-                      //   color: AppColors.primaryColor,
-                      // ),
-                      title: Text(
-                        textScaleFactor: 1.0,
-                        'Contact Us',
-                        style: TextStyle(
+                    Container(
+                      color: selectedIndex == 4
+                          ? AppColors.primaryColor
+                          : AppColors.defaultColor,
+                      child: ListTile(
+                        onTap: () {
+                          setState(() {
+                            selectedIndex = 4;
+                          });
+                          Navigator.of(context).pop();
+                        },
+                        leading: Icon(
+                          Icons.contact_phone,
                           color: selectedIndex == 4
                               ? AppColors.defaultColor
                               : AppColors.primaryColor,
-                          fontSize: 16.0,
+                          size: 24,
+                        ),
+                        // SvgPicture.asset(
+                        //   AppImagePath.contactImage,
+                        //   height: 24,
+                        //   width: 24,
+                        //   color: AppColors.primaryColor,
+                        // ),
+                        title: Text(
+                          textScaleFactor: 1.0,
+                          'Contact Us',
+                          style: TextStyle(
+                            color: selectedIndex == 4
+                                ? AppColors.defaultColor
+                                : AppColors.primaryColor,
+                            fontSize: 16.0,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    color: selectedIndex == 5
-                        ? AppColors.primaryColor
-                        : AppColors.defaultColor,
-                    child: ListTile(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                        Navigator.of(context)
-                            .pushNamed(EconomicCalenderScreen.routeName);
-                      },
-                      leading: Icon(
-                        Icons.calendar_month_sharp,
-                        color: selectedIndex == 5
-                            ? AppColors.defaultColor
-                            : AppColors.primaryColor,
-                        size: 24,
-                      ),
-                      // const Image(
-                      //   image: AssetImage(AppImagePath.economicImage),
-                      //   height: 24,
-                      //   width: 24,
-                      //   color: AppColors.primaryColor,
-                      // ),
-                      title: Text(
-                        textScaleFactor: 1.0,
-                        'Economic Calendar',
-                        style: TextStyle(
+                    Container(
+                      color: selectedIndex == 5
+                          ? AppColors.primaryColor
+                          : AppColors.defaultColor,
+                      child: ListTile(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          Navigator.of(context)
+                              .pushNamed(EconomicCalenderScreen.routeName);
+                        },
+                        leading: Icon(
+                          Icons.calendar_month_sharp,
                           color: selectedIndex == 5
                               ? AppColors.defaultColor
                               : AppColors.primaryColor,
-                          fontSize: 16.0,
+                          size: 24,
                         ),
-                      ),
-                    ),
-                  ),
-                  Visibility(
-                    visible: Constants.isLogin,
-                    child: ListTile(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                        Navigator.of(context)
-                            .pushNamed(ProfileScreen.routeName);
-                      },
-                      leading: Icon(
-                        Icons.file_copy_sharp,
-                        color: AppColors.primaryColor,
-                        size: 24,
-                      ),
-                      title: const Text(
-                        textScaleFactor: 1.0,
-                        'Profile',
-                        style: TextStyle(
-                          color: AppColors.primaryColor,
-                          fontSize: 16.0,
-                        ),
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    onTap: () async {
-                      Platform.isIOS
-                          ? Share.share(Constants.iOSAppRedirect)
-                          : Share.share(Constants.androidAppStoreRedirect);
-                    },
-                    leading: Icon(
-                      Icons.share_sharp,
-                      color: AppColors.primaryColor
-
-                      /*selectedIndex == 5
-
-                    ? AppColors.primaryColor
-                    : AppColors.primaryColor*/
-                      ,
-                      size: 24,
-                    ),
-                    // const Image(
-                    //   image: AssetImage(AppImagePath.economicImage),
-                    //   height: 24,
-                    //   width: 24,
-                    //   color: AppColors.primaryColor,
-                    // ),
-                    title: const Text(
-                      textScaleFactor: 1.0,
-                      'Share',
-                      style: TextStyle(
-                        color: AppColors.primaryColor,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    onTap: () {
-                      StoreRedirect.redirect(
-                        androidAppId: Constants.androidAppRateAndUpdate,
-                        iOSAppId: Constants.iOSAppId,
-                      );
-                      Navigator.of(context).pop();
-                    },
-                    leading: Icon(
-                      Icons.star_rate_rounded,
-                      color: AppColors.primaryColor
-
-                      /*selectedIndex == 5
-
-                    ? AppColors.primaryColor
-                    : AppColors.primaryColor*/
-                      ,
-                      size: 24,
-                    ),
-                    // const Image(
-                    //   image: AssetImage(AppImagePath.economicImage),
-                    //   height: 24,
-                    //   width: 24,
-                    //   color: AppColors.primaryColor,
-                    // ),
-                    title: const Text(
-                      textScaleFactor: 1.0,
-                      'Rate App',
-                      style: TextStyle(
-                        color: AppColors.primaryColor,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ),
-                  Visibility(
-                    visible: Constants.isLogin,
-                    child: ListTile(
-                      onTap: () {
-                        openLogoutPopup();
-                        // Dialog_Utils.showConfirmDialog(context,
-                        //     title: 'Mahalaxmi Bullion',
-                        //     content: 'Are you sure you want to logout?',
-                        //     okBtnText: 'Logout',
-                        //     cancelBtnText: 'Cancel',
-                        //     okBtnFunctionConfirm: shared.clear);
-                      },
-                      leading: Icon(
-                        Icons.logout,
-                        color: AppColors.primaryColor
-
-                        /*selectedIndex == 5
-
-                      ? AppColors.primaryColor
-                      : AppColors.primaryColor*/
-                        ,
-                        size: 24,
-                      ),
-                      // const Image(
-                      //   image: AssetImage(AppImagePath.economicImage),
-                      //   height: 24,
-                      //   width: 24,
-                      //   color: AppColors.primaryColor,
-                      // ),
-                      title: const Text(
-                        textScaleFactor: 1.0,
-                        'Logout',
-                        style: TextStyle(
-                          color: AppColors.primaryColor,
-                          fontSize: 16.0,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Visibility(
-                    visible: false,
-                    child: ListTile(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                        Navigator.of(context).pushNamed(
-                          Login_Screen.routeName,
-                          arguments: const Login_Screen(
-                            isFromSplash: false,
+                        // const Image(
+                        //   image: AssetImage(AppImagePath.economicImage),
+                        //   height: 24,
+                        //   width: 24,
+                        //   color: AppColors.primaryColor,
+                        // ),
+                        title: Text(
+                          textScaleFactor: 1.0,
+                          'Economic Calendar',
+                          style: TextStyle(
+                            color: selectedIndex == 5
+                                ? AppColors.defaultColor
+                                : AppColors.primaryColor,
+                            fontSize: 16.0,
                           ),
-                        );
+                        ),
+                      ),
+                    ),
+                    Visibility(
+                      visible: Constants.isLogin,
+                      child: ListTile(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          Navigator.of(context)
+                              .pushNamed(ProfileScreen.routeName);
+                        },
+                        leading: Icon(
+                          Icons.file_copy_sharp,
+                          color: AppColors.primaryColor,
+                          size: 24,
+                        ),
+                        title: const Text(
+                          textScaleFactor: 1.0,
+                          'Profile',
+                          style: TextStyle(
+                            color: AppColors.primaryColor,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () async {
+                        Platform.isIOS
+                            ? Share.share(Constants.iOSAppRedirect)
+                            : Share.share(Constants.androidAppStoreRedirect);
                       },
                       leading: Icon(
-                        Icons.login,
+                        Icons.share_sharp,
                         color: AppColors.primaryColor
 
                         /*selectedIndex == 5
-
+            
                       ? AppColors.primaryColor
                       : AppColors.primaryColor*/
                         ,
@@ -1006,15 +896,127 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       // ),
                       title: const Text(
                         textScaleFactor: 1.0,
-                        'Login',
+                        'Share',
                         style: TextStyle(
                           color: AppColors.primaryColor,
                           fontSize: 16.0,
                         ),
                       ),
                     ),
-                  ),
-                ],
+                    ListTile(
+                      onTap: () {
+                        StoreRedirect.redirect(
+                          androidAppId: Constants.androidAppRateAndUpdate,
+                          iOSAppId: Constants.iOSAppId,
+                        );
+                        Navigator.of(context).pop();
+                      },
+                      leading: Icon(
+                        Icons.star_rate_rounded,
+                        color: AppColors.primaryColor
+
+                        /*selectedIndex == 5
+            
+                      ? AppColors.primaryColor
+                      : AppColors.primaryColor*/
+                        ,
+                        size: 24,
+                      ),
+                      // const Image(
+                      //   image: AssetImage(AppImagePath.economicImage),
+                      //   height: 24,
+                      //   width: 24,
+                      //   color: AppColors.primaryColor,
+                      // ),
+                      title: const Text(
+                        textScaleFactor: 1.0,
+                        'Rate App',
+                        style: TextStyle(
+                          color: AppColors.primaryColor,
+                          fontSize: 16.0,
+                        ),
+                      ),
+                    ),
+                    Visibility(
+                      visible: Constants.isLogin,
+                      child: ListTile(
+                        onTap: () {
+                          openLogoutPopup();
+                          // Dialog_Utils.showConfirmDialog(context,
+                          //     title: 'Mahalaxmi Bullion',
+                          //     content: 'Are you sure you want to logout?',
+                          //     okBtnText: 'Logout',
+                          //     cancelBtnText: 'Cancel',
+                          //     okBtnFunctionConfirm: shared.clear);
+                        },
+                        leading: Icon(
+                          Icons.logout,
+                          color: AppColors.primaryColor
+
+                          /*selectedIndex == 5
+            
+                        ? AppColors.primaryColor
+                        : AppColors.primaryColor*/
+                          ,
+                          size: 24,
+                        ),
+                        // const Image(
+                        //   image: AssetImage(AppImagePath.economicImage),
+                        //   height: 24,
+                        //   width: 24,
+                        //   color: AppColors.primaryColor,
+                        // ),
+                        title: const Text(
+                          textScaleFactor: 1.0,
+                          'Logout',
+                          style: TextStyle(
+                            color: AppColors.primaryColor,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Visibility(
+                      visible: false,
+                      child: ListTile(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          Navigator.of(context).pushNamed(
+                            Login_Screen.routeName,
+                            arguments: const Login_Screen(
+                              isFromSplash: false,
+                            ),
+                          );
+                        },
+                        leading: Icon(
+                          Icons.login,
+                          color: AppColors.primaryColor
+
+                          /*selectedIndex == 5
+            
+                        ? AppColors.primaryColor
+                        : AppColors.primaryColor*/
+                          ,
+                          size: 24,
+                        ),
+                        // const Image(
+                        //   image: AssetImage(AppImagePath.economicImage),
+                        //   height: 24,
+                        //   width: 24,
+                        //   color: AppColors.primaryColor,
+                        // ),
+                        title: const Text(
+                          textScaleFactor: 1.0,
+                          'Login',
+                          style: TextStyle(
+                            color: AppColors.primaryColor,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             )
           ],

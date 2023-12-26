@@ -539,27 +539,6 @@ class _LiveRateScreenState extends State<LiveRateScreen>
               SizedBox(
                 height: size.height * .01,
               ),
-              Flexible(
-                child: GridView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: referenceNextData.isEmpty ||
-                            referenceNextData.length > 3
-                        ? 3
-                        : referenceNextData.length,
-                    crossAxisSpacing: size.width * .01,
-                    mainAxisExtent: size.height * .12,
-                  ),
-                  itemBuilder: (builder, index) {
-                    return buildNextContainers(size, index);
-                  },
-                  itemCount: referenceNextData.length,
-                ),
-              ),
-              SizedBox(
-                height: size.height * .01,
-              ),
               Constants.isLogin
                   ? Container(
                       height: 35.0,
@@ -743,19 +722,40 @@ class _LiveRateScreenState extends State<LiveRateScreen>
               Flexible(
                 child: GridView.builder(
                   shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
+                  physics: const ClampingScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: referenceFutureData.isEmpty ||
                             referenceFutureData.length > 3
                         ? 3
                         : referenceFutureData.length,
                     crossAxisSpacing: size.width * .01,
-                    mainAxisExtent: size.height * .12,
+                    // mainAxisExtent: size.height * .16,
                   ),
                   itemBuilder: (builder, index) {
                     return buildFutureContainers(size, index);
                   },
                   itemCount: referenceFutureData.length,
+                ),
+              ),
+              SizedBox(
+                height: size.height * .01,
+              ),
+              Flexible(
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: referenceNextData.isEmpty ||
+                            referenceNextData.length > 3
+                        ? 3
+                        : referenceNextData.length,
+                    crossAxisSpacing: size.width * .01,
+                    // mainAxisExtent: size.height * .12,
+                  ),
+                  itemBuilder: (builder, index) {
+                    return buildNextContainers(size, index);
+                  },
+                  itemCount: referenceNextData.length,
                 ),
               ),
             ],
@@ -796,10 +796,9 @@ class _LiveRateScreenState extends State<LiveRateScreen>
     return referenceFutureData.isEmpty
         ? Container()
         : Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                // height: size.height * .035,
+                height: size.height * .035,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: AppColors.hintColor,
@@ -820,37 +819,36 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                   textAlign: TextAlign.start,
                 ),
               ),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.primaryColor,
-                    borderRadius: const BorderRadius.only(
-                      bottomRight: Radius.circular(5.0),
-                      bottomLeft: Radius.circular(5.0),
-                    ),
+              Container(
+                decoration: BoxDecoration(
+                  color: AppColors.primaryColor,
+                  borderRadius: const BorderRadius.only(
+                    bottomRight: Radius.circular(5.0),
+                    bottomLeft: Radius.circular(5.0),
                   ),
-                  // color: AppColors.primaryColor,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 25.0, right: 25),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(right: 20.0),
-                              child: Text(
-                                textScaleFactor: 1.0,
-                                'Buy',
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.secondaryTextColor,
-                                ),
+                ),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 25.0, right: 25),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const [
+                          Padding(
+                            padding: EdgeInsets.only(left: 10.0),
+                            child: Text(
+                              textScaleFactor: 1.0,
+                              'Buy',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.secondaryTextColor,
                               ),
                             ),
-                            Text(
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(right: 10.0),
+                            child: Text(
                               textScaleFactor: 1.0,
                               'Sell',
                               style: TextStyle(
@@ -859,86 +857,84 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                 color: AppColors.secondaryTextColor,
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 2.0, right: 2.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              height: 30.0,
-                              width: size.width / 4.5,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: referenceFutureData[index].bidBGColor,
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(7),
-                                ),
-                              ),
-                              child: Text(
-                                textScaleFactor: 1.0,
-                                referenceFutureData[index].bid ?? '',
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.bold,
-                                  color:
-                                      referenceFutureData[index].bidTextColor,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              height: 30.0,
-                              width: size.width / 4.5,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: referenceFutureData[index].askBGColor,
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(7),
-                                ),
-                              ),
-                              child: Text(
-                                textScaleFactor: 1.0,
-                                referenceFutureData[index].ask ?? '',
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.bold,
-                                  color:
-                                      referenceFutureData[index].askTextColor,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            textScaleFactor: 1.0,
-                            'L: ${referenceFutureData[index].low!.isEmpty ? '' : referenceFutureData[index].low!}',
-                            style: const TextStyle(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.secondaryTextColor,
-                            ),
-                            textAlign: TextAlign.start,
-                          ),
-                          Text(
-                            textScaleFactor: 1.0,
-                            ' / H: ${referenceFutureData[index].high!.isEmpty ? '' : referenceFutureData[index].high!} ',
-                            style: const TextStyle(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.secondaryTextColor,
-                            ),
-                            textAlign: TextAlign.start,
                           ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 2.0, right: 2.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 30.0,
+                            width: size.width / 4.5,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: referenceFutureData[index].bidBGColor,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(7),
+                              ),
+                            ),
+                            child: Text(
+                              textScaleFactor: 1.0,
+                              referenceFutureData[index].bid ?? '',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                                color: referenceFutureData[index].bidTextColor,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            height: 30.0,
+                            width: size.width / 4.5,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: referenceFutureData[index].askBGColor,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(7),
+                              ),
+                            ),
+                            child: Text(
+                              textScaleFactor: 1.0,
+                              referenceFutureData[index].ask ?? '',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                                color: referenceFutureData[index].askTextColor,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          textScaleFactor: 1.0,
+                          'L: ${referenceFutureData[index].low!.isEmpty ? '' : referenceFutureData[index].low!}',
+                          style: const TextStyle(
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.secondaryTextColor,
+                          ),
+                          textAlign: TextAlign.start,
+                        ),
+                        Text(
+                          textScaleFactor: 1.0,
+                          ' / H: ${referenceFutureData[index].high!.isEmpty ? '' : referenceFutureData[index].high!} ',
+                          style: const TextStyle(
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.secondaryTextColor,
+                          ),
+                          textAlign: TextAlign.start,
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -1152,8 +1148,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                // height: size.height * .035,
-                // width: double.infinity,
+                alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: AppColors.hintColor,
                   borderRadius: const BorderRadius.only(
@@ -1165,7 +1160,6 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                   //   colors: AppColors.primaryGradientColor,
                   // ),
                 ),
-                alignment: Alignment.center,
                 child: Text(
                   textScaleFactor: 1.0,
                   referenceComexData[index].symbolName ?? '',
