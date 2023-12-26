@@ -1,4 +1,4 @@
-#Mon Dec 25 14:11:39 IST 2023
-base.0=/Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
-renamed.0=classes.dex
+#Mon Dec 25 18:05:10 IST 2023
+base.0=/Users/starline/Desktop/Github/AK-Patel-Bullion/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
 path.0=classes.dex
+renamed.0=classes.dex

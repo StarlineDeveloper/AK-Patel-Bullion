@@ -1,96 +1,96 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.akpatelbullion"
-4    android:versionCode="12"
-5    android:versionName="2.2" >
+4    android:versionCode="13"
+5    android:versionName="2.3" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="19"
-8-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml
+8-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="33" />
-9-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml
+9-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:4:5-67
-11-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:4:22-64
+11-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:4:5-67
+11-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:4:22-64
 12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-12-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:5:5-79
-12-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:5:22-76
+12-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:5:5-79
+12-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:5:22-76
 13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-13-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:6:5-76
-13-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:6:22-73
+13-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:6:5-76
+13-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:6:22-73
 14    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-14-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:7:5-81
-14-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:7:22-78
+14-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:7:5-81
+14-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:7:22-78
 15    <uses-permission android:name="android.permission.VIBRATE" />
-15-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:8:5-66
-15-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:8:22-63
+15-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:8:5-66
+15-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:8:22-63
 16    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-16-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:9:5-78
-16-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:9:22-75
+16-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:9:5-78
+16-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:9:22-75
 17    <uses-permission android:name="android.permission.WAKE_LOCK" />
-17-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:10:5-68
-17-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:10:22-65
+17-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:10:5-68
+17-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:10:22-65
 18    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
-18-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:11:5-85
-18-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:11:22-82
+18-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:11:5-85
+18-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:11:22-82
 19    <!-- Permissions options for the `notification` group -->
 20    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-20-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:13:5-77
-20-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:13:22-74
+20-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:13:5-77
+20-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:13:22-74
 21    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
-21-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:11:5-81
-21-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:11:22-78
+21-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:11:5-81
+21-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:11:22-78
 22    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" /> <!-- Required by older versions of Google Play services to create IID tokens -->
-22-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:12:5-79
-22-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:12:22-76
+22-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:12:5-79
+22-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:12:22-76
 23    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-23-->[com.google.firebase:firebase-messaging:23.2.1] /Users/rohit/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:26:5-82
-23-->[com.google.firebase:firebase-messaging:23.2.1] /Users/rohit/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:26:22-79
+23-->[com.google.firebase:firebase-messaging:23.2.1] /Users/starline/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:26:5-82
+23-->[com.google.firebase:firebase-messaging:23.2.1] /Users/starline/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:26:22-79
 24    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
-24-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/rohit/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:26:5-110
-24-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/rohit/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:26:22-107
+24-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/starline/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:26:5-110
+24-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/starline/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:26:22-107
 25
 26    <permission
-26-->[androidx.core:core:1.10.1] /Users/rohit/.gradle/caches/transforms-3/17c44a9ee9728471e88635da67cac57c/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
+26-->[androidx.core:core:1.10.1] /Users/starline/.gradle/caches/transforms-3/17c44a9ee9728471e88635da67cac57c/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
 27        android:name="com.akpatelbullion.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-27-->[androidx.core:core:1.10.1] /Users/rohit/.gradle/caches/transforms-3/17c44a9ee9728471e88635da67cac57c/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
+27-->[androidx.core:core:1.10.1] /Users/starline/.gradle/caches/transforms-3/17c44a9ee9728471e88635da67cac57c/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
 28        android:protectionLevel="signature" />
-28-->[androidx.core:core:1.10.1] /Users/rohit/.gradle/caches/transforms-3/17c44a9ee9728471e88635da67cac57c/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
+28-->[androidx.core:core:1.10.1] /Users/starline/.gradle/caches/transforms-3/17c44a9ee9728471e88635da67cac57c/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
 29
 30    <uses-permission android:name="com.akpatelbullion.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-30-->[androidx.core:core:1.10.1] /Users/rohit/.gradle/caches/transforms-3/17c44a9ee9728471e88635da67cac57c/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
-30-->[androidx.core:core:1.10.1] /Users/rohit/.gradle/caches/transforms-3/17c44a9ee9728471e88635da67cac57c/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
+30-->[androidx.core:core:1.10.1] /Users/starline/.gradle/caches/transforms-3/17c44a9ee9728471e88635da67cac57c/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
+30-->[androidx.core:core:1.10.1] /Users/starline/.gradle/caches/transforms-3/17c44a9ee9728471e88635da67cac57c/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
 31
 32    <application
 33        android:name="android.app.Application"
-33-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:17:9-42
+33-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:17:9-42
 34        android:allowBackup="false"
-34-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:18:9-36
+34-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:18:9-36
 35        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-35-->[androidx.core:core:1.10.1] /Users/rohit/.gradle/caches/transforms-3/17c44a9ee9728471e88635da67cac57c/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
+35-->[androidx.core:core:1.10.1] /Users/starline/.gradle/caches/transforms-3/17c44a9ee9728471e88635da67cac57c/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
 36        android:icon="@mipmap/ic_launcher"
-36-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:19:9-43
+36-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:19:9-43
 37        android:label="A K Patel"
-37-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:20:9-34
+37-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:20:9-34
 38        android:usesCleartextTraffic="true" >
-38-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:21:9-44
+38-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:21:9-44
 39        <activity
-39-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:22:9-56:20
+39-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:22:9-56:20
 40            android:name="com.akpatelbullion.MainActivity"
-40-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:23:13-41
+40-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:23:13-41
 41            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-41-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:24:13-163
+41-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:24:13-163
 42            android:exported="true"
-42-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:25:13-36
+42-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:25:13-36
 43            android:hardwareAccelerated="true"
-43-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:26:13-47
+43-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:26:13-47
 44            android:launchMode="singleTop"
-44-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:27:13-43
+44-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:27:13-43
 45            android:theme="@style/LaunchTheme"
-45-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:28:13-47
+45-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:28:13-47
 46            android:windowSoftInputMode="adjustResize" >
-46-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:29:13-55
+46-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:29:13-55
 47
 48            <!--
 49                 Specifies an Android theme to apply to this Activity as soon as
@@ -99,53 +99,53 @@
 52                 to determine the Window background behind the Flutter UI.
 53            -->
 54            <meta-data
-54-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:34:13-36:57
+54-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:34:13-36:57
 55                android:name="io.flutter.embedding.android.NormalTheme"
-55-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:35:17-72
+55-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:35:17-72
 56                android:resource="@style/NormalTheme" />
-56-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:36:17-54
+56-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:36:17-54
 57            <!-- <intent-filter> -->
 58            <!-- <action android:name="FLUTTER_NOTIFICATION_CLICK" /> -->
 59            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
 60            <!-- </intent-filter> -->
 61            <intent-filter>
-61-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:41:13-44:29
+61-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:41:13-44:29
 62                <action android:name="android.intent.action.MAIN" />
-62-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:42:17-69
-62-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:42:25-66
+62-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:42:17-69
+62-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:42:25-66
 63
 64                <category android:name="android.intent.category.LAUNCHER" />
-64-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:43:17-77
-64-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:43:27-74
+64-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:43:17-77
+64-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:43:27-74
 65            </intent-filter>
 66            <intent-filter>
-66-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:47:13-50:29
+66-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:47:13-50:29
 67                <action android:name="FLUTTER_NOTIFICATION_CLICK" />
-67-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:48:17-69
-67-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:48:25-66
+67-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:48:17-69
+67-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:48:25-66
 68
 69                <category android:name="android.intent.category.DEFAULT" />
-69-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:49:17-76
-69-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:49:27-73
+69-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:49:17-76
+69-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:49:27-73
 70            </intent-filter>
 71            <intent-filter>
-71-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:41:13-44:29
+71-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:41:13-44:29
 72                <action android:name="android.intent.action.MAIN" />
-72-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:42:17-69
-72-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:42:25-66
+72-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:42:17-69
+72-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:42:25-66
 73
 74                <category android:name="android.intent.category.LAUNCHER" />
-74-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:43:17-77
-74-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:43:27-74
+74-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:43:17-77
+74-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:43:27-74
 75            </intent-filter>
 76        </activity>
 77
 78        <meta-data
-78-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:57:9-59:55
+78-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:57:9-59:55
 79            android:name="com.google.firebase.messaging.default_notification_channel_id"
-79-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:58:13-89
+79-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:58:13-89
 80            android:value="high_importance_channel" />
-80-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:59:13-52
+80-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:59:13-52
 81
 82        <!-- <meta-data -->
 83        <!-- android:name="com.google.firebase.messaging.default_notification_channel_id" -->
@@ -155,233 +155,233 @@
 87             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 88        -->
 89        <meta-data
-89-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:67:9-69:33
+89-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:67:9-69:33
 90            android:name="flutterEmbedding"
-90-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:68:13-44
+90-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:68:13-44
 91            android:value="2" />
-91-->/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app/src/main/AndroidManifest.xml:69:13-30
+91-->/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app/src/main/AndroidManifest.xml:69:13-30
 92
 93        <service
-93-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:16:9-19:72
+93-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:16:9-19:72
 94            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
-94-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-107
+94-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-107
 95            android:exported="false"
-95-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-37
+95-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-37
 96            android:permission="android.permission.BIND_JOB_SERVICE" />
-96-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:19:13-69
+96-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:19:13-69
 97        <service
-97-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:20:9-26:19
+97-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:20:9-26:19
 98            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
-98-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:21:13-97
+98-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:21:13-97
 99            android:exported="false" >
-99-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:22:13-37
+99-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:22:13-37
 100            <intent-filter>
-100-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-25:29
+100-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-25:29
 101                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-101-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:24:17-78
-101-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:24:25-75
+101-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:24:17-78
+101-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:24:25-75
 102            </intent-filter>
 103        </service>
 104
 105        <receiver
-105-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:28:9-35:20
+105-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:28:9-35:20
 106            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
-106-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:29:13-98
+106-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:29:13-98
 107            android:exported="true"
-107-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:30:13-36
+107-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:30:13-36
 108            android:permission="com.google.android.c2dm.permission.SEND" >
-108-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:31:13-73
+108-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:31:13-73
 109            <intent-filter>
-109-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:32:13-34:29
+109-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:32:13-34:29
 110                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-110-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:33:17-81
-110-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:33:25-78
+110-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:33:17-81
+110-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:33:25-78
 111            </intent-filter>
 112        </receiver>
 113
 114        <service
-114-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:37:9-41:19
+114-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:37:9-41:19
 115            android:name="com.google.firebase.components.ComponentDiscoveryService"
-115-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:37:18-89
+115-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:37:18-89
 116            android:directBootAware="true"
-116-->[com.google.firebase:firebase-common:20.3.3] /Users/rohit/.gradle/caches/transforms-3/97ba536cb97715cf3a6afeff735547bd/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:34:13-43
+116-->[com.google.firebase:firebase-common:20.3.3] /Users/starline/.gradle/caches/transforms-3/97ba536cb97715cf3a6afeff735547bd/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:34:13-43
 117            android:exported="false" >
-117-->[com.google.firebase:firebase-analytics-ktx:21.3.0] /Users/rohit/.gradle/caches/transforms-3/0ea85b99a798b95213d2ffb4988fd4b4/transformed/jetified-firebase-analytics-ktx-21.3.0/AndroidManifest.xml:10:13-37
+117-->[com.google.firebase:firebase-analytics-ktx:21.3.0] /Users/starline/.gradle/caches/transforms-3/0ea85b99a798b95213d2ffb4988fd4b4/transformed/jetified-firebase-analytics-ktx-21.3.0/AndroidManifest.xml:10:13-37
 118            <meta-data
-118-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:38:13-40:85
+118-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:38:13-40:85
 119                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
-119-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:39:17-128
+119-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:39:17-128
 120                android:value="com.google.firebase.components.ComponentRegistrar" />
-120-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:40:17-82
+120-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:40:17-82
 121            <meta-data
-121-->[:firebase_core] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-13:85
+121-->[:firebase_core] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-13:85
 122                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
-122-->[:firebase_core] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:12:17-124
+122-->[:firebase_core] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:12:17-124
 123                android:value="com.google.firebase.components.ComponentRegistrar" />
-123-->[:firebase_core] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:13:17-82
+123-->[:firebase_core] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:13:17-82
 124            <meta-data
-124-->[com.google.firebase:firebase-analytics-ktx:21.3.0] /Users/rohit/.gradle/caches/transforms-3/0ea85b99a798b95213d2ffb4988fd4b4/transformed/jetified-firebase-analytics-ktx-21.3.0/AndroidManifest.xml:11:13-13:85
+124-->[com.google.firebase:firebase-analytics-ktx:21.3.0] /Users/starline/.gradle/caches/transforms-3/0ea85b99a798b95213d2ffb4988fd4b4/transformed/jetified-firebase-analytics-ktx-21.3.0/AndroidManifest.xml:11:13-13:85
 125                android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar"
-125-->[com.google.firebase:firebase-analytics-ktx:21.3.0] /Users/rohit/.gradle/caches/transforms-3/0ea85b99a798b95213d2ffb4988fd4b4/transformed/jetified-firebase-analytics-ktx-21.3.0/AndroidManifest.xml:12:17-126
+125-->[com.google.firebase:firebase-analytics-ktx:21.3.0] /Users/starline/.gradle/caches/transforms-3/0ea85b99a798b95213d2ffb4988fd4b4/transformed/jetified-firebase-analytics-ktx-21.3.0/AndroidManifest.xml:12:17-126
 126                android:value="com.google.firebase.components.ComponentRegistrar" />
-126-->[com.google.firebase:firebase-analytics-ktx:21.3.0] /Users/rohit/.gradle/caches/transforms-3/0ea85b99a798b95213d2ffb4988fd4b4/transformed/jetified-firebase-analytics-ktx-21.3.0/AndroidManifest.xml:13:17-82
+126-->[com.google.firebase:firebase-analytics-ktx:21.3.0] /Users/starline/.gradle/caches/transforms-3/0ea85b99a798b95213d2ffb4988fd4b4/transformed/jetified-firebase-analytics-ktx-21.3.0/AndroidManifest.xml:13:17-82
 127            <meta-data
-127-->[com.google.firebase:firebase-common-ktx:20.3.3] /Users/rohit/.gradle/caches/transforms-3/f8c6dbd7258a0e84828989ab0f9c5bd3/transformed/jetified-firebase-common-ktx-20.3.3/AndroidManifest.xml:14:13-16:85
+127-->[com.google.firebase:firebase-common-ktx:20.3.3] /Users/starline/.gradle/caches/transforms-3/f8c6dbd7258a0e84828989ab0f9c5bd3/transformed/jetified-firebase-common-ktx-20.3.3/AndroidManifest.xml:14:13-16:85
 128                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar"
-128-->[com.google.firebase:firebase-common-ktx:20.3.3] /Users/rohit/.gradle/caches/transforms-3/f8c6dbd7258a0e84828989ab0f9c5bd3/transformed/jetified-firebase-common-ktx-20.3.3/AndroidManifest.xml:15:17-113
+128-->[com.google.firebase:firebase-common-ktx:20.3.3] /Users/starline/.gradle/caches/transforms-3/f8c6dbd7258a0e84828989ab0f9c5bd3/transformed/jetified-firebase-common-ktx-20.3.3/AndroidManifest.xml:15:17-113
 129                android:value="com.google.firebase.components.ComponentRegistrar" />
-129-->[com.google.firebase:firebase-common-ktx:20.3.3] /Users/rohit/.gradle/caches/transforms-3/f8c6dbd7258a0e84828989ab0f9c5bd3/transformed/jetified-firebase-common-ktx-20.3.3/AndroidManifest.xml:16:17-82
+129-->[com.google.firebase:firebase-common-ktx:20.3.3] /Users/starline/.gradle/caches/transforms-3/f8c6dbd7258a0e84828989ab0f9c5bd3/transformed/jetified-firebase-common-ktx-20.3.3/AndroidManifest.xml:16:17-82
 130            <meta-data
-130-->[com.google.firebase:firebase-messaging:23.2.1] /Users/rohit/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:53:13-55:85
+130-->[com.google.firebase:firebase-messaging:23.2.1] /Users/starline/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:53:13-55:85
 131                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
-131-->[com.google.firebase:firebase-messaging:23.2.1] /Users/rohit/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:54:17-119
+131-->[com.google.firebase:firebase-messaging:23.2.1] /Users/starline/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:54:17-119
 132                android:value="com.google.firebase.components.ComponentRegistrar" />
-132-->[com.google.firebase:firebase-messaging:23.2.1] /Users/rohit/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:55:17-82
+132-->[com.google.firebase:firebase-messaging:23.2.1] /Users/starline/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:55:17-82
 133            <meta-data
-133-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/rohit/.gradle/caches/transforms-3/b7e8a2b8dfcc6e63342ab44b2dbe8c44/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:27:13-29:85
+133-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/starline/.gradle/caches/transforms-3/b7e8a2b8dfcc6e63342ab44b2dbe8c44/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:27:13-29:85
 134                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
-134-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/rohit/.gradle/caches/transforms-3/b7e8a2b8dfcc6e63342ab44b2dbe8c44/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:28:17-115
+134-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/starline/.gradle/caches/transforms-3/b7e8a2b8dfcc6e63342ab44b2dbe8c44/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:28:17-115
 135                android:value="com.google.firebase.components.ComponentRegistrar" />
-135-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/rohit/.gradle/caches/transforms-3/b7e8a2b8dfcc6e63342ab44b2dbe8c44/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:29:17-82
+135-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/starline/.gradle/caches/transforms-3/b7e8a2b8dfcc6e63342ab44b2dbe8c44/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:29:17-82
 136            <meta-data
-136-->[com.google.firebase:firebase-iid:21.1.0] /Users/rohit/.gradle/caches/transforms-3/7a3c4ebf2397b283885d676a98badbb2/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:32:13-34:85
+136-->[com.google.firebase:firebase-iid:21.1.0] /Users/starline/.gradle/caches/transforms-3/7a3c4ebf2397b283885d676a98badbb2/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:32:13-34:85
 137                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-137-->[com.google.firebase:firebase-iid:21.1.0] /Users/rohit/.gradle/caches/transforms-3/7a3c4ebf2397b283885d676a98badbb2/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:33:17-96
+137-->[com.google.firebase:firebase-iid:21.1.0] /Users/starline/.gradle/caches/transforms-3/7a3c4ebf2397b283885d676a98badbb2/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:33:17-96
 138                android:value="com.google.firebase.components.ComponentRegistrar" />
-138-->[com.google.firebase:firebase-iid:21.1.0] /Users/rohit/.gradle/caches/transforms-3/7a3c4ebf2397b283885d676a98badbb2/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:34:17-82
+138-->[com.google.firebase:firebase-iid:21.1.0] /Users/starline/.gradle/caches/transforms-3/7a3c4ebf2397b283885d676a98badbb2/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:34:17-82
 139            <meta-data
-139-->[com.google.android.gms:play-services-measurement-api:21.3.0] /Users/rohit/.gradle/caches/transforms-3/5a04a59768dbef76c9a94429546de2a1/transformed/jetified-play-services-measurement-api-21.3.0/AndroidManifest.xml:31:13-33:85
+139-->[com.google.android.gms:play-services-measurement-api:21.3.0] /Users/starline/.gradle/caches/transforms-3/5a04a59768dbef76c9a94429546de2a1/transformed/jetified-play-services-measurement-api-21.3.0/AndroidManifest.xml:31:13-33:85
 140                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-140-->[com.google.android.gms:play-services-measurement-api:21.3.0] /Users/rohit/.gradle/caches/transforms-3/5a04a59768dbef76c9a94429546de2a1/transformed/jetified-play-services-measurement-api-21.3.0/AndroidManifest.xml:32:17-139
+140-->[com.google.android.gms:play-services-measurement-api:21.3.0] /Users/starline/.gradle/caches/transforms-3/5a04a59768dbef76c9a94429546de2a1/transformed/jetified-play-services-measurement-api-21.3.0/AndroidManifest.xml:32:17-139
 141                android:value="com.google.firebase.components.ComponentRegistrar" />
-141-->[com.google.android.gms:play-services-measurement-api:21.3.0] /Users/rohit/.gradle/caches/transforms-3/5a04a59768dbef76c9a94429546de2a1/transformed/jetified-play-services-measurement-api-21.3.0/AndroidManifest.xml:33:17-82
+141-->[com.google.android.gms:play-services-measurement-api:21.3.0] /Users/starline/.gradle/caches/transforms-3/5a04a59768dbef76c9a94429546de2a1/transformed/jetified-play-services-measurement-api-21.3.0/AndroidManifest.xml:33:17-82
 142            <meta-data
-142-->[com.google.firebase:firebase-installations:17.1.4] /Users/rohit/.gradle/caches/transforms-3/51961d0f48d06c0a9f8ee9ae13f69c7a/transformed/jetified-firebase-installations-17.1.4/AndroidManifest.xml:15:13-17:85
+142-->[com.google.firebase:firebase-installations:17.1.4] /Users/starline/.gradle/caches/transforms-3/51961d0f48d06c0a9f8ee9ae13f69c7a/transformed/jetified-firebase-installations-17.1.4/AndroidManifest.xml:15:13-17:85
 143                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-143-->[com.google.firebase:firebase-installations:17.1.4] /Users/rohit/.gradle/caches/transforms-3/51961d0f48d06c0a9f8ee9ae13f69c7a/transformed/jetified-firebase-installations-17.1.4/AndroidManifest.xml:16:17-127
+143-->[com.google.firebase:firebase-installations:17.1.4] /Users/starline/.gradle/caches/transforms-3/51961d0f48d06c0a9f8ee9ae13f69c7a/transformed/jetified-firebase-installations-17.1.4/AndroidManifest.xml:16:17-127
 144                android:value="com.google.firebase.components.ComponentRegistrar" />
-144-->[com.google.firebase:firebase-installations:17.1.4] /Users/rohit/.gradle/caches/transforms-3/51961d0f48d06c0a9f8ee9ae13f69c7a/transformed/jetified-firebase-installations-17.1.4/AndroidManifest.xml:17:17-82
+144-->[com.google.firebase:firebase-installations:17.1.4] /Users/starline/.gradle/caches/transforms-3/51961d0f48d06c0a9f8ee9ae13f69c7a/transformed/jetified-firebase-installations-17.1.4/AndroidManifest.xml:17:17-82
 145        </service>
 146
 147        <provider
-147-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:43:9-47:38
+147-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:43:9-47:38
 148            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
-148-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:44:13-102
+148-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:44:13-102
 149            android:authorities="com.akpatelbullion.flutterfirebasemessaginginitprovider"
-149-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:45:13-88
+149-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:45:13-88
 150            android:exported="false"
-150-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:46:13-37
+150-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:46:13-37
 151            android:initOrder="99" />
-151-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:47:13-35
+151-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:47:13-35
 152
 153        <receiver
-153-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:16:9-18:40
+153-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:16:9-18:40
 154            android:name="com.dexterous.flutterlocalnotifications.ActionBroadcastReceiver"
-154-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-91
+154-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-91
 155            android:exported="false" />
-155-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-37
+155-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-37
 156        <receiver
-156-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:19:9-21:40
+156-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:19:9-21:40
 157            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
-157-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-97
+157-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-97
 158            android:exported="false" />
-158-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:21:13-37
+158-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:21:13-37
 159        <receiver
-159-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:22:9-31:20
+159-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:22:9-31:20
 160            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
-160-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-101
+160-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-101
 161            android:exported="false" >
-161-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:24:13-37
+161-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:24:13-37
 162            <intent-filter>
-162-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:25:13-30:29
+162-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:25:13-30:29
 163                <action android:name="android.intent.action.BOOT_COMPLETED" />
-163-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:26:17-79
-163-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:26:25-76
+163-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:26:17-79
+163-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:26:25-76
 164                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
-164-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:27:17-84
-164-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:27:25-81
+164-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:27:17-84
+164-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:27:25-81
 165                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-165-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:28:17-82
-165-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:28:25-79
+165-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:28:17-82
+165-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:28:25-79
 166                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
-166-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:29:17-82
-166-->[:flutter_local_notifications] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:29:25-79
+166-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:29:17-82
+166-->[:flutter_local_notifications] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:29:25-79
 167            </intent-filter>
 168        </receiver>
 169
 170        <activity
-170-->[:url_launcher_android] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:10:9-13:74
+170-->[:url_launcher_android] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:10:9-13:74
 171            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-171-->[:url_launcher_android] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-74
+171-->[:url_launcher_android] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-74
 172            android:exported="false"
-172-->[:url_launcher_android] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-37
+172-->[:url_launcher_android] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-37
 173            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-173-->[:url_launcher_android] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-71
+173-->[:url_launcher_android] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-71
 174        <!--
 175           Declares a provider which allows us to store files to share in
 176           '.../caches/share_plus' and grant the receiving action access
 177        -->
 178        <provider
-178-->[:share_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:15:9-23:20
+178-->[:share_plus] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:15:9-23:20
 179            android:name="dev.fluttercommunity.plus.share.ShareFileProvider"
-179-->[:share_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:16:13-77
+179-->[:share_plus] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:16:13-77
 180            android:authorities="com.akpatelbullion.flutter.share_provider"
-180-->[:share_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-74
+180-->[:share_plus] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-74
 181            android:exported="false"
-181-->[:share_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-37
+181-->[:share_plus] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-37
 182            android:grantUriPermissions="true" >
-182-->[:share_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:19:13-47
+182-->[:share_plus] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:19:13-47
 183            <meta-data
-183-->[:share_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-22:68
+183-->[:share_plus] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-22:68
 184                android:name="android.support.FILE_PROVIDER_PATHS"
-184-->[:share_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:21:17-67
+184-->[:share_plus] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:21:17-67
 185                android:resource="@xml/flutter_share_file_paths" />
-185-->[:share_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:22:17-65
+185-->[:share_plus] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:22:17-65
 186        </provider>
 187        <!--
 188           This manifest declared broadcast receiver allows us to use an explicit
 189           Intent when creating a PendingItent to be informed of the user's choice
 190        -->
 191        <receiver
-191-->[:share_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:28:9-34:20
+191-->[:share_plus] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:28:9-34:20
 192            android:name="dev.fluttercommunity.plus.share.SharePlusPendingIntent"
-192-->[:share_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:29:13-82
+192-->[:share_plus] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:29:13-82
 193            android:exported="false" >
-193-->[:share_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:30:13-37
+193-->[:share_plus] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:30:13-37
 194            <intent-filter>
-194-->[:share_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:31:13-33:29
+194-->[:share_plus] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:31:13-33:29
 195                <action android:name="EXTRA_CHOSEN_COMPONENT" />
-195-->[:share_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:32:17-65
-195-->[:share_plus] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:32:25-62
+195-->[:share_plus] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:32:17-65
+195-->[:share_plus] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/share_plus/intermediates/merged_manifest/release/AndroidManifest.xml:32:25-62
 196            </intent-filter>
 197        </receiver>
 198
 199        <uses-library
-199-->[androidx.window:window:1.0.0-beta04] /Users/rohit/.gradle/caches/transforms-3/003a22a5515e1f77f89701a46efbc2ec/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+199-->[androidx.window:window:1.0.0-beta04] /Users/starline/.gradle/caches/transforms-3/003a22a5515e1f77f89701a46efbc2ec/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
 200            android:name="androidx.window.extensions"
-200-->[androidx.window:window:1.0.0-beta04] /Users/rohit/.gradle/caches/transforms-3/003a22a5515e1f77f89701a46efbc2ec/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+200-->[androidx.window:window:1.0.0-beta04] /Users/starline/.gradle/caches/transforms-3/003a22a5515e1f77f89701a46efbc2ec/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
 201            android:required="false" />
-201-->[androidx.window:window:1.0.0-beta04] /Users/rohit/.gradle/caches/transforms-3/003a22a5515e1f77f89701a46efbc2ec/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+201-->[androidx.window:window:1.0.0-beta04] /Users/starline/.gradle/caches/transforms-3/003a22a5515e1f77f89701a46efbc2ec/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
 202        <uses-library
-202-->[androidx.window:window:1.0.0-beta04] /Users/rohit/.gradle/caches/transforms-3/003a22a5515e1f77f89701a46efbc2ec/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+202-->[androidx.window:window:1.0.0-beta04] /Users/starline/.gradle/caches/transforms-3/003a22a5515e1f77f89701a46efbc2ec/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
 203            android:name="androidx.window.sidecar"
-203-->[androidx.window:window:1.0.0-beta04] /Users/rohit/.gradle/caches/transforms-3/003a22a5515e1f77f89701a46efbc2ec/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+203-->[androidx.window:window:1.0.0-beta04] /Users/starline/.gradle/caches/transforms-3/003a22a5515e1f77f89701a46efbc2ec/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
 204            android:required="false" />
-204-->[androidx.window:window:1.0.0-beta04] /Users/rohit/.gradle/caches/transforms-3/003a22a5515e1f77f89701a46efbc2ec/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+204-->[androidx.window:window:1.0.0-beta04] /Users/starline/.gradle/caches/transforms-3/003a22a5515e1f77f89701a46efbc2ec/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
 205
 206        <receiver
-206-->[com.google.firebase:firebase-messaging:23.2.1] /Users/rohit/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:29:9-36:20
+206-->[com.google.firebase:firebase-messaging:23.2.1] /Users/starline/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:29:9-36:20
 207            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-207-->[com.google.firebase:firebase-messaging:23.2.1] /Users/rohit/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:30:13-78
+207-->[com.google.firebase:firebase-messaging:23.2.1] /Users/starline/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:30:13-78
 208            android:exported="true"
-208-->[com.google.firebase:firebase-messaging:23.2.1] /Users/rohit/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:31:13-36
+208-->[com.google.firebase:firebase-messaging:23.2.1] /Users/starline/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:31:13-36
 209            android:permission="com.google.android.c2dm.permission.SEND" >
-209-->[com.google.firebase:firebase-messaging:23.2.1] /Users/rohit/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:32:13-73
+209-->[com.google.firebase:firebase-messaging:23.2.1] /Users/starline/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:32:13-73
 210            <intent-filter>
-210-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:32:13-34:29
+210-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:32:13-34:29
 211                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-211-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:33:17-81
-211-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:33:25-78
+211-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:33:17-81
+211-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:33:25-78
 212            </intent-filter>
 213        </receiver>
 214        <!--
@@ -389,107 +389,107 @@
 216             but set to not exported to explicitly avoid allowing another app to call it.
 217        -->
 218        <service
-218-->[com.google.firebase:firebase-messaging:23.2.1] /Users/rohit/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:42:9-49:19
+218-->[com.google.firebase:firebase-messaging:23.2.1] /Users/starline/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:42:9-49:19
 219            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-219-->[com.google.firebase:firebase-messaging:23.2.1] /Users/rohit/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:43:13-82
+219-->[com.google.firebase:firebase-messaging:23.2.1] /Users/starline/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:43:13-82
 220            android:directBootAware="true"
-220-->[com.google.firebase:firebase-messaging:23.2.1] /Users/rohit/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:44:13-43
+220-->[com.google.firebase:firebase-messaging:23.2.1] /Users/starline/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:44:13-43
 221            android:exported="false" >
-221-->[com.google.firebase:firebase-messaging:23.2.1] /Users/rohit/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:45:13-37
+221-->[com.google.firebase:firebase-messaging:23.2.1] /Users/starline/.gradle/caches/transforms-3/842d49315d7f9e4a6106246239144de6/transformed/jetified-firebase-messaging-23.2.1/AndroidManifest.xml:45:13-37
 222            <intent-filter android:priority="-500" >
-222-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-25:29
+222-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-25:29
 223                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-223-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:24:17-78
-223-->[:firebase_messaging] /Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:24:25-75
+223-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:24:17-78
+223-->[:firebase_messaging] /Users/starline/Desktop/Github/AK-Patel-Bullion/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:24:25-75
 224            </intent-filter>
 225        </service>
 226        <service
-226-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/rohit/.gradle/caches/transforms-3/caef097eb0c2cd1082e8114d49c41ec0/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:28:9-34:19
+226-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/starline/.gradle/caches/transforms-3/caef097eb0c2cd1082e8114d49c41ec0/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:28:9-34:19
 227            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-227-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/rohit/.gradle/caches/transforms-3/caef097eb0c2cd1082e8114d49c41ec0/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:29:13-103
+227-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/starline/.gradle/caches/transforms-3/caef097eb0c2cd1082e8114d49c41ec0/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:29:13-103
 228            android:exported="false" >
-228-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/rohit/.gradle/caches/transforms-3/caef097eb0c2cd1082e8114d49c41ec0/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:30:13-37
+228-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/starline/.gradle/caches/transforms-3/caef097eb0c2cd1082e8114d49c41ec0/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:30:13-37
 229            <meta-data
-229-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/rohit/.gradle/caches/transforms-3/caef097eb0c2cd1082e8114d49c41ec0/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:31:13-33:39
+229-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/starline/.gradle/caches/transforms-3/caef097eb0c2cd1082e8114d49c41ec0/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:31:13-33:39
 230                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-230-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/rohit/.gradle/caches/transforms-3/caef097eb0c2cd1082e8114d49c41ec0/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:32:17-94
+230-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/starline/.gradle/caches/transforms-3/caef097eb0c2cd1082e8114d49c41ec0/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:32:17-94
 231                android:value="cct" />
-231-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/rohit/.gradle/caches/transforms-3/caef097eb0c2cd1082e8114d49c41ec0/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:33:17-36
+231-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/starline/.gradle/caches/transforms-3/caef097eb0c2cd1082e8114d49c41ec0/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:33:17-36
 232        </service>
 233        <service
-233-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/rohit/.gradle/caches/transforms-3/d97736817588d35e875979bb74338a17/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:26:9-30:19
+233-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/starline/.gradle/caches/transforms-3/d97736817588d35e875979bb74338a17/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:26:9-30:19
 234            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-234-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/rohit/.gradle/caches/transforms-3/d97736817588d35e875979bb74338a17/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:27:13-117
+234-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/starline/.gradle/caches/transforms-3/d97736817588d35e875979bb74338a17/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:27:13-117
 235            android:exported="false"
-235-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/rohit/.gradle/caches/transforms-3/d97736817588d35e875979bb74338a17/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:28:13-37
+235-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/starline/.gradle/caches/transforms-3/d97736817588d35e875979bb74338a17/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:28:13-37
 236            android:permission="android.permission.BIND_JOB_SERVICE" >
-236-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/rohit/.gradle/caches/transforms-3/d97736817588d35e875979bb74338a17/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:29:13-69
+236-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/starline/.gradle/caches/transforms-3/d97736817588d35e875979bb74338a17/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:29:13-69
 237        </service>
 238
 239        <receiver
-239-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/rohit/.gradle/caches/transforms-3/d97736817588d35e875979bb74338a17/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:32:9-34:40
+239-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/starline/.gradle/caches/transforms-3/d97736817588d35e875979bb74338a17/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:32:9-34:40
 240            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-240-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/rohit/.gradle/caches/transforms-3/d97736817588d35e875979bb74338a17/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:33:13-132
+240-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/starline/.gradle/caches/transforms-3/d97736817588d35e875979bb74338a17/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:33:13-132
 241            android:exported="false" />
-241-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/rohit/.gradle/caches/transforms-3/d97736817588d35e875979bb74338a17/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:34:13-37
+241-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/starline/.gradle/caches/transforms-3/d97736817588d35e875979bb74338a17/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:34:13-37
 242
 243        <provider
-243-->[com.google.firebase:firebase-common:20.3.3] /Users/rohit/.gradle/caches/transforms-3/97ba536cb97715cf3a6afeff735547bd/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:25:9-30:39
+243-->[com.google.firebase:firebase-common:20.3.3] /Users/starline/.gradle/caches/transforms-3/97ba536cb97715cf3a6afeff735547bd/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:25:9-30:39
 244            android:name="com.google.firebase.provider.FirebaseInitProvider"
-244-->[com.google.firebase:firebase-common:20.3.3] /Users/rohit/.gradle/caches/transforms-3/97ba536cb97715cf3a6afeff735547bd/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:26:13-77
+244-->[com.google.firebase:firebase-common:20.3.3] /Users/starline/.gradle/caches/transforms-3/97ba536cb97715cf3a6afeff735547bd/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:26:13-77
 245            android:authorities="com.akpatelbullion.firebaseinitprovider"
-245-->[com.google.firebase:firebase-common:20.3.3] /Users/rohit/.gradle/caches/transforms-3/97ba536cb97715cf3a6afeff735547bd/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:27:13-72
+245-->[com.google.firebase:firebase-common:20.3.3] /Users/starline/.gradle/caches/transforms-3/97ba536cb97715cf3a6afeff735547bd/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:27:13-72
 246            android:directBootAware="true"
-246-->[com.google.firebase:firebase-common:20.3.3] /Users/rohit/.gradle/caches/transforms-3/97ba536cb97715cf3a6afeff735547bd/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:28:13-43
+246-->[com.google.firebase:firebase-common:20.3.3] /Users/starline/.gradle/caches/transforms-3/97ba536cb97715cf3a6afeff735547bd/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:28:13-43
 247            android:exported="false"
-247-->[com.google.firebase:firebase-common:20.3.3] /Users/rohit/.gradle/caches/transforms-3/97ba536cb97715cf3a6afeff735547bd/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:29:13-37
+247-->[com.google.firebase:firebase-common:20.3.3] /Users/starline/.gradle/caches/transforms-3/97ba536cb97715cf3a6afeff735547bd/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:29:13-37
 248            android:initOrder="100" />
-248-->[com.google.firebase:firebase-common:20.3.3] /Users/rohit/.gradle/caches/transforms-3/97ba536cb97715cf3a6afeff735547bd/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:30:13-36
+248-->[com.google.firebase:firebase-common:20.3.3] /Users/starline/.gradle/caches/transforms-3/97ba536cb97715cf3a6afeff735547bd/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:30:13-36
 249
 250        <activity
-250-->[com.google.android.gms:play-services-base:18.0.1] /Users/rohit/.gradle/caches/transforms-3/f253648b0be692c533908993735bbd2e/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+250-->[com.google.android.gms:play-services-base:18.0.1] /Users/starline/.gradle/caches/transforms-3/f253648b0be692c533908993735bbd2e/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
 251            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-251-->[com.google.android.gms:play-services-base:18.0.1] /Users/rohit/.gradle/caches/transforms-3/f253648b0be692c533908993735bbd2e/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+251-->[com.google.android.gms:play-services-base:18.0.1] /Users/starline/.gradle/caches/transforms-3/f253648b0be692c533908993735bbd2e/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
 252            android:exported="false"
-252-->[com.google.android.gms:play-services-base:18.0.1] /Users/rohit/.gradle/caches/transforms-3/f253648b0be692c533908993735bbd2e/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+252-->[com.google.android.gms:play-services-base:18.0.1] /Users/starline/.gradle/caches/transforms-3/f253648b0be692c533908993735bbd2e/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
 253            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-253-->[com.google.android.gms:play-services-base:18.0.1] /Users/rohit/.gradle/caches/transforms-3/f253648b0be692c533908993735bbd2e/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+253-->[com.google.android.gms:play-services-base:18.0.1] /Users/starline/.gradle/caches/transforms-3/f253648b0be692c533908993735bbd2e/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
 254
 255        <receiver
-255-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/rohit/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:29:9-33:20
+255-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/starline/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:29:9-33:20
 256            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-256-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/rohit/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:30:13-85
+256-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/starline/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:30:13-85
 257            android:enabled="true"
-257-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/rohit/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:31:13-35
+257-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/starline/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:31:13-35
 258            android:exported="false" >
-258-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/rohit/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:32:13-37
+258-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/starline/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:32:13-37
 259        </receiver>
 260
 261        <service
-261-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/rohit/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:35:9-38:40
+261-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/starline/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:35:9-38:40
 262            android:name="com.google.android.gms.measurement.AppMeasurementService"
-262-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/rohit/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:36:13-84
+262-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/starline/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:36:13-84
 263            android:enabled="true"
-263-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/rohit/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:37:13-35
+263-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/starline/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:37:13-35
 264            android:exported="false" />
-264-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/rohit/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:38:13-37
+264-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/starline/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:38:13-37
 265        <service
-265-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/rohit/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:39:9-43:72
+265-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/starline/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:39:9-43:72
 266            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-266-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/rohit/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:40:13-87
+266-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/starline/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:40:13-87
 267            android:enabled="true"
-267-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/rohit/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:41:13-35
+267-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/starline/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:41:13-35
 268            android:exported="false"
-268-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/rohit/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:42:13-37
+268-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/starline/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:42:13-37
 269            android:permission="android.permission.BIND_JOB_SERVICE" />
-269-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/rohit/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:43:13-69
+269-->[com.google.android.gms:play-services-measurement:21.3.0] /Users/starline/.gradle/caches/transforms-3/b00981f9f6519a10f9b5d1ffa94b525e/transformed/jetified-play-services-measurement-21.3.0/AndroidManifest.xml:43:13-69
 270
 271        <meta-data
-271-->[com.google.android.gms:play-services-basement:18.1.0] /Users/rohit/.gradle/caches/transforms-3/5eaba1f028ac62aaabee71faac8d9308/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+271-->[com.google.android.gms:play-services-basement:18.1.0] /Users/starline/.gradle/caches/transforms-3/5eaba1f028ac62aaabee71faac8d9308/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
 272            android:name="com.google.android.gms.version"
-272-->[com.google.android.gms:play-services-basement:18.1.0] /Users/rohit/.gradle/caches/transforms-3/5eaba1f028ac62aaabee71faac8d9308/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+272-->[com.google.android.gms:play-services-basement:18.1.0] /Users/starline/.gradle/caches/transforms-3/5eaba1f028ac62aaabee71faac8d9308/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
 273            android:value="@integer/google_play_services_version" />
-273-->[com.google.android.gms:play-services-basement:18.1.0] /Users/rohit/.gradle/caches/transforms-3/5eaba1f028ac62aaabee71faac8d9308/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+273-->[com.google.android.gms:play-services-basement:18.1.0] /Users/starline/.gradle/caches/transforms-3/5eaba1f028ac62aaabee71faac8d9308/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
 274    </application>
 275
 276</manifest>

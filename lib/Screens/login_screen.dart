@@ -611,8 +611,8 @@ class _Login_ScreenState extends State<Login_Screen> {
                     isLoadingRegister = false;
                     // isLoginSelected = true;
                     // shared.setIsFirstTimeRegister(true);
-                    Navigator.of(context)
-                        .pushReplacementNamed(HomeScreen.routeName);
+                    Navigator.of(context).pop();
+                    // Navigator.of(context) .pushReplacementNamed(HomeScreen.routeName);
                     clearFields();
                   });
                 } else {

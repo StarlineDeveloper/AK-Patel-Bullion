@@ -185,7 +185,7 @@
     },
     {
         "merged": "com.akpatelbullion.app-merged_res-21:/drawable_corner.xml.flat",
-        "source": "com.akpatelbullion.app-packaged_res-27:/drawable/corner.xml"
+        "source": "com.akpatelbullion.app-packaged_res-26:/drawable/corner.xml"
     },
     {
         "merged": "com.akpatelbullion.app-merged_res-21:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
@@ -229,7 +229,7 @@
     },
     {
         "merged": "com.akpatelbullion.app-merged_res-21:/drawable_toast_bg.xml.flat",
-        "source": "com.akpatelbullion.app-packaged_res-27:/drawable/toast_bg.xml"
+        "source": "com.akpatelbullion.app-packaged_res-26:/drawable/toast_bg.xml"
     },
     {
         "merged": "com.akpatelbullion.app-merged_res-21:/drawable-mdpi-v4_ic_call_decline_low.png.flat",
@@ -257,7 +257,7 @@
     },
     {
         "merged": "com.akpatelbullion.app-merged_res-21:/layout_toast_custom.xml.flat",
-        "source": "com.akpatelbullion.app-packaged_res-27:/layout/toast_custom.xml"
+        "source": "com.akpatelbullion.app-packaged_res-26:/layout/toast_custom.xml"
     },
     {
         "merged": "com.akpatelbullion.app-merged_res-21:/drawable-v21_launch_background.xml.flat",
@@ -453,7 +453,7 @@
     },
     {
         "merged": "com.akpatelbullion.app-merged_res-21:/xml_flutter_share_file_paths.xml.flat",
-        "source": "com.akpatelbullion.app-packaged_res-31:/xml/flutter_share_file_paths.xml"
+        "source": "com.akpatelbullion.app-packaged_res-30:/xml/flutter_share_file_paths.xml"
     },
     {
         "merged": "com.akpatelbullion.app-merged_res-21:/drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",

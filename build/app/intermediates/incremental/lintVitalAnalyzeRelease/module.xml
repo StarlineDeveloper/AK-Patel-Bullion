@@ -1,12 +1,12 @@
 <lint-module
     format="1"
-    dir="/Users/rohit/Desktop/Dhruv_Projects/AK Patel/android/app"
+    dir="/Users/starline/Desktop/Github/AK-Patel-Bullion/android/app"
     name=":app"
     type="APP"
     maven="android:app:"
     gradle="7.3.0"
-    buildFolder="/Users/rohit/Desktop/Dhruv_Projects/AK Patel/build/app"
-    bootClassPath="/Users/rohit/Library/Android/sdk/platforms/android-33/android.jar:/Users/rohit/Library/Android/sdk/build-tools/30.0.3/core-lambda-stubs.jar"
+    buildFolder="/Users/starline/Desktop/Github/AK-Patel-Bullion/build/app"
+    bootClassPath="/Users/starline/Library/Android/sdk/platforms/android-33/android.jar:/Users/starline/Library/Android/sdk/build-tools/30.0.3/core-lambda-stubs.jar"
     javaSourceLevel="1.8"
     compileTarget="android-33">
   <lintOptions
