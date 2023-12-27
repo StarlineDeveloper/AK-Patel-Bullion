@@ -4,7 +4,7 @@
             "outputFile": "com.akpatelbullion.app-mergeDebugResources-19:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/rohit/.gradle/caches/transforms-3/69268b5e3785bd8f6c072469c189ef19/transformed/media-1.1.0/res/values-v24/values-v24.xml",
+                    "source": "/Users/starline/.gradle/caches/transforms-3/69268b5e3785bd8f6c072469c189ef19/transformed/media-1.1.0/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

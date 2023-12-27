@@ -107,18 +107,31 @@ class SocketService {
             for (var items in groupSymbolId) {
               if (items.symbolId == int.parse(item['SymbolId'])) {
                 if (premiData.isNotEmpty) {
-
                   final source = item['Source'].toLowerCase();
                   dynamic goldBuyPremium = premiData[0].goldBuyPremium ?? 0;
                   dynamic goldSellPremium = premiData[0].goldSellPremium ?? 0;
                   dynamic silverBuyPremium = premiData[0].silverBuyPremium ?? 0;
-                  dynamic silverSellPremium = premiData[0].silverSellPremium ?? 0;
+                  dynamic silverSellPremium =
+                      premiData[0].silverSellPremium ?? 0;
                   //group filter premium buy sell
                   dynamic buyPremium = items.buyPremium;
                   dynamic sellPremium = items.sellPremium;
+                  // dynamic premSell = !Functions.isNumeric(item['Premium'])
+                  //          ? '--'
+                  //          : (Functions.isDecimal(item['Premium'])
+                  //             ? double.parse(item['Premium'])
+                  //             : int.parse(item['Premium'])) +
+                  //             sellPremium +
+                  //             goldSellPremium;
+                  // dynamic premBuy = !Functions.isNumeric(item['PremiumBuy'])
+                  //     ? '--'
+                  //     : (Functions.isDecimal(item['PremiumBuy'])
+                  //             ? double.parse(item['PremiumBuy'])
+                  //             : int.parse(item['PremiumBuy'])) +
+                  //         buyPremium +
+                  //         goldBuyPremium;
 
-
-                  dynamic bid, ask, high, low;
+                  dynamic bid, ask, high, low, premSell, premBuy;
 
                   if (source == 'gold' || source == 'goldnext') {
                     bid = !Functions.isNumeric(item['Bid'])
@@ -126,50 +139,87 @@ class SocketService {
                         : (Functions.isDecimal(item['Bid'])
                                 ? double.parse(item['Bid'])
                                 : int.parse(item['Bid'])) +
-                            goldBuyPremium+buyPremium;
+                            goldBuyPremium +
+                            buyPremium;
                     ask = !Functions.isNumeric(item['Ask'])
                         ? '--'
                         : (Functions.isDecimal(item['Ask'])
                                 ? double.parse(item['Ask'])
                                 : int.parse(item['Ask'])) +
-                            goldSellPremium+sellPremium;
+                            goldSellPremium +
+                            sellPremium;
                     high = !Functions.isNumeric(item['High'])
                         ? '--'
                         : (Functions.isDecimal(item['High'])
                                 ? double.parse(item['High'])
                                 : int.parse(item['High'])) +
-                            goldSellPremium+sellPremium;
+                            goldSellPremium +
+                            sellPremium;
                     low = !Functions.isNumeric(item['Low'])
                         ? '--'
                         : (Functions.isDecimal(item['Low'])
                                 ? double.parse(item['Low'])
                                 : int.parse(item['Low'])) +
-                            goldSellPremium+sellPremium;
+                            goldBuyPremium +
+                            buyPremium;
+
+                    premSell = !Functions.isNumeric(item['Premium'])
+                        ? '--'
+                        : (Functions.isDecimal(item['Premium'])
+                                ? double.parse(item['Premium'])
+                                : int.parse(item['Premium'])) +
+                            sellPremium +
+                            goldSellPremium;
+                    premBuy = !Functions.isNumeric(item['PremiumBuy'])
+                        ? '--'
+                        : (Functions.isDecimal(item['PremiumBuy'])
+                                ? double.parse(item['PremiumBuy'])
+                                : int.parse(item['PremiumBuy'])) +
+                            buyPremium +
+                            goldBuyPremium;
                   } else {
                     bid = !Functions.isNumeric(item['Bid'])
                         ? '--'
                         : (Functions.isDecimal(item['Bid'])
                                 ? double.parse(item['Bid'])
                                 : int.parse(item['Bid'])) +
-                            silverBuyPremium+buyPremium;
+                            silverBuyPremium +
+                            buyPremium;
                     ask = !Functions.isNumeric(item['Ask'])
                         ? '--'
                         : (Functions.isDecimal(item['Ask'])
                                 ? double.parse(item['Ask'])
                                 : int.parse(item['Ask'])) +
-                            silverSellPremium+sellPremium;
+                            silverSellPremium +
+                            sellPremium;
                     high = !Functions.isNumeric(item['High'])
                         ? '--'
                         : (Functions.isDecimal(item['High'])
                                 ? double.parse(item['High'])
                                 : int.parse(item['High'])) +
-                            silverSellPremium+sellPremium;
+                            silverSellPremium +
+                            sellPremium;
                     low = !Functions.isNumeric(item['Low'])
                         ? '--'
                         : (Functions.isDecimal(item['Low'])
                                 ? double.parse(item['Low'])
                                 : int.parse(item['Low'])) +
-                            silverSellPremium+sellPremium;
+                            silverBuyPremium +
+                            sellPremium;
+                    premSell = !Functions.isNumeric(item['Premium'])
+                        ? '--'
+                        : (Functions.isDecimal(item['Premium'])
+                                ? double.parse(item['Premium'])
+                                : int.parse(item['Premium'])) +
+                            sellPremium +
+                            silverSellPremium;
+                    premBuy = !Functions.isNumeric(item['PremiumBuy'])
+                        ? '--'
+                        : (Functions.isDecimal(item['PremiumBuy'])
+                                ? double.parse(item['PremiumBuy'])
+                                : int.parse(item['PremiumBuy'])) +
+                            buyPremium +
+                            silverBuyPremium;
                   }
                   liveRate.add(Liverate(
                     symbolId: item['SymbolId'],
@@ -186,8 +236,8 @@ class SocketService {
                     description: item["Description"],
                     displayRateType: item["DisplayRateType"],
                     symbolType: item["SymbolType"],
-                    premium: item["Premium"],
-                    premiumBuy: item["PremiumBuy"],
+                    premium: premSell.toString(),
+                    premiumBuy: premBuy.toString(),
                     time: item["Time"],
                     mcxBid: item["McxBid"],
                     mcxAsk: item["McxAsk"],

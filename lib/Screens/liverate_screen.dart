@@ -34,8 +34,8 @@ class LiveRateScreen extends StatefulWidget {
   State<LiveRateScreen> createState() => _LiveRateScreenState();
 }
 
-class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStateMixin {
-
+class _LiveRateScreenState extends State<LiveRateScreen>
+    with TickerProviderStateMixin {
   late LiverateProvider _liverateProvider;
   late TabController _tabController;
   late TabController _tabGoldSilverController;
@@ -469,29 +469,25 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
                 decoration: BoxDecoration(
                   color: AppColors.primaryColor.withOpacity(0.6),
                   image: DecorationImage(
-
                     image: AssetImage(
-                      AppImagePath.liveratelogo,),
+                      AppImagePath.liveratelogo,
+                    ),
                     fit: BoxFit.fill,
                   ),
                   // shape: BoxShape.circle,
                 ),
-
-
-
                 child: Visibility(
                   visible: Constants.isLogin
                       ? true
-                      : clientHeadersDetail.rateDisplay != null && clientHeadersDetail.rateDisplay!,
-                  child: Flexible(
-                    child: ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: liveRatesDetailMaster.length,
-                      itemBuilder: (context, index) => buildProductContainer(
-                        size,
-                        index,
-                      ),
+                      : clientHeadersDetail.rateDisplay != null &&
+                          clientHeadersDetail.rateDisplay!,
+                  child: ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: liveRatesDetailMaster.length,
+                    itemBuilder: (context, index) => buildProductContainer(
+                      size,
+                      index,
                     ),
                   ),
                 ),
@@ -509,7 +505,7 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
                         ? 3
                         : referenceFutureData.length,
                     crossAxisSpacing: size.width * .01,
-                    // mainAxisExtent: size.height * .16,
+                    mainAxisExtent: size.height * .13,
                   ),
                   itemBuilder: (builder, index) {
                     return buildFutureContainers(size, index);
@@ -530,7 +526,7 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
                         ? 3
                         : referenceNextData.length,
                     crossAxisSpacing: size.width * .01,
-                    // mainAxisExtent: size.height * .12,
+                    mainAxisExtent: size.height * .13,
                   ),
                   itemBuilder: (builder, index) {
                     return buildNextContainers(size, index);
@@ -1017,44 +1013,46 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
   }
 
   Widget buildProductContainer(Size size, int index) {
-    if (liveRatesDetailOldChange.isNotEmpty) {
-      if (liveRatesDetailOldChange.length == liveRatesDetailMaster.length) {
-        if (liveRatesDetailOldChange[index].ask == '-' ||
-            liveRatesDetailOldChange[index].ask == '--') {
-          liveRatesDetailOldChange[index].askBGColor = AppColors.primaryColor;
-          liveRatesDetailOldChange[index].askTextColor =
-              AppColors.secondaryTextColor;
-        } else {
-          dynamic oldAskRate = liveRatesDetailOldChange[index].ask!.isEmpty
-              ? 0.0
-              : double.parse(liveRatesDetailOldChange[index].ask!);
-          dynamic newAskRate = liveRatesDetailMaster[index].ask!.isEmpty
-              ? 0.0
-              : double.parse(liveRatesDetailMaster[index].ask!);
+    try {
+      if (liveRatesDetailOldChange.isNotEmpty) {
+        if (liveRatesDetailOldChange.length == liveRatesDetailMaster.length) {
+          if (liveRatesDetailOldChange[index].ask == '-' ||
+              liveRatesDetailOldChange[index].ask == '--') {
+            liveRatesDetailOldChange[index].askBGColor = AppColors.primaryColor;
+            liveRatesDetailOldChange[index].askTextColor =
+                AppColors.secondaryTextColor;
+          } else {
+            dynamic oldAskRate = liveRatesDetailOldChange[index].ask!.isEmpty
+                ? 0.0
+                : double.parse(liveRatesDetailOldChange[index].ask!);
+            dynamic newAskRate = liveRatesDetailMaster[index].ask!.isEmpty
+                ? 0.0
+                : double.parse(liveRatesDetailMaster[index].ask!);
 
-          setLabelColorsAskMainProduct(
-              oldAskRate, newAskRate, liveRatesDetailMaster[index]);
-        }
+            setLabelColorsAskMainProduct(
+                oldAskRate, newAskRate, liveRatesDetailMaster[index]);
+          }
 
-        if (liveRatesDetailOldChange[index].bid == '-' ||
-            liveRatesDetailOldChange[index].bid == '--') {
-          liveRatesDetailOldChange[index].bidBGColor = AppColors.primaryColor;
-          liveRatesDetailOldChange[index].bidTextColor =
-              AppColors.secondaryTextColor;
-          // setLabelColorsMainProduct('--', '--', liveRatesDetailMaster[index]);
-        } else {
-          dynamic oldBidRate = liveRatesDetailOldChange[index].bid!.isEmpty
-              ? 0.0
-              : double.parse(liveRatesDetailOldChange[index].bid!);
-          dynamic newBidRate = liveRatesDetailMaster[index].bid!.isEmpty
-              ? 0.0
-              : double.parse(liveRatesDetailMaster[index].bid!);
+          if (liveRatesDetailOldChange[index].bid == '-' ||
+              liveRatesDetailOldChange[index].bid == '--') {
+            liveRatesDetailOldChange[index].bidBGColor = AppColors.primaryColor;
+            liveRatesDetailOldChange[index].bidTextColor =
+                AppColors.secondaryTextColor;
+            // setLabelColorsMainProduct('--', '--', liveRatesDetailMaster[index]);
+          } else {
+            dynamic oldBidRate = liveRatesDetailOldChange[index].bid!.isEmpty
+                ? 0.0
+                : double.parse(liveRatesDetailOldChange[index].bid!);
+            dynamic newBidRate = liveRatesDetailMaster[index].bid!.isEmpty
+                ? 0.0
+                : double.parse(liveRatesDetailMaster[index].bid!);
 
-          setLabelColorsBidMainProduct(
-              oldBidRate, newBidRate, liveRatesDetailMaster[index]);
+            setLabelColorsBidMainProduct(
+                oldBidRate, newBidRate, liveRatesDetailMaster[index]);
+          }
         }
       }
-    }
+    } catch (e) {}
 
     if (liveRatesDetailMaster.length - 1 == index) {
       liveRatesDetailOldChange = liveRatesDetailMaster;
@@ -1075,11 +1073,10 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
                   child: Container(
                     // height: 50.0,
                     decoration: BoxDecoration(
-                      border: Border.all(width: 0.8, color: AppColors.primaryColor),
+                      border:
+                          Border.all(width: 0.8, color: AppColors.primaryColor),
                       borderRadius: BorderRadius.circular(0.0),
                       color: AppColors.primaryColor.withOpacity(0.7),
-
-                      
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -1135,28 +1132,35 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
                                       visible:
                                           clientHeadersDetail.buyRate != null &&
                                               clientHeadersDetail.buyRate!,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(3),
-                                            color: liveRatesDetailMaster[index]
-                                                            .bid ==
-                                                        '-' ||
-                                                    liveRatesDetailMaster[index]
-                                                            .bid ==
-                                                        '--'
-                                                ? AppColors.primaryColorOpacity
-                                                : liveRatesDetailMaster[index]
-                                                    .bidBGColor),
-                                        padding: const EdgeInsets.all(3.0),
-                                        child: CustomText(
-                                            text:
-                                                '${liveRatesDetailMaster[index].bid}',
-                                            size: 12.0,
-                                            fontWeight: FontWeight.bold,
-                                            textColor:
-                                                liveRatesDetailMaster[index]
-                                                    .bidTextColor),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 10.0, right: 10.0),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(3),
+                                              color: liveRatesDetailMaster[
+                                                                  index]
+                                                              .bid ==
+                                                          '-' ||
+                                                      liveRatesDetailMaster[
+                                                                  index]
+                                                              .bid ==
+                                                          '--'
+                                                  ? AppColors
+                                                      .primaryColorOpacity
+                                                  : liveRatesDetailMaster[index]
+                                                      .bidBGColor),
+                                          padding: const EdgeInsets.all(3.0),
+                                          child: CustomText(
+                                              text:
+                                                  '${liveRatesDetailMaster[index].bid}',
+                                              size: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                              textColor:
+                                                  liveRatesDetailMaster[index]
+                                                      .bidTextColor),
+                                        ),
                                       ),
                                     ),
                                     Visibility(
@@ -1184,30 +1188,34 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
                                       visible: clientHeadersDetail.sellRate !=
                                               null &&
                                           clientHeadersDetail.sellRate!,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(3),
-                                          color: liveRatesDetailMaster[index]
-                                                          .ask ==
-                                                      '-' ||
-                                                  liveRatesDetailMaster[index]
-                                                          .ask ==
-                                                      '--'
-                                              ? AppColors.primaryColorOpacity
-                                              : liveRatesDetailMaster[index]
-                                                  .askBGColor,
-                                        ),
-                                        padding: const EdgeInsets.all(3.0),
-                                        child: CustomText(
-                                          text:
-                                              '${liveRatesDetailMaster[index].ask}',
-                                          size: 12.0,
-                                          fontWeight: FontWeight.bold,
-                                          textColor:
-                                              liveRatesDetailMaster[index]
-                                                  .askTextColor,
-                                          align: TextAlign.start,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 10.0, right: 10.0),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(3),
+                                            color: liveRatesDetailMaster[index]
+                                                            .ask ==
+                                                        '-' ||
+                                                    liveRatesDetailMaster[index]
+                                                            .ask ==
+                                                        '--'
+                                                ? AppColors.primaryColorOpacity
+                                                : liveRatesDetailMaster[index]
+                                                    .askBGColor,
+                                          ),
+                                          padding: const EdgeInsets.all(3.0),
+                                          child: CustomText(
+                                            text:
+                                                '${liveRatesDetailMaster[index].ask}',
+                                            size: 12.0,
+                                            fontWeight: FontWeight.bold,
+                                            textColor:
+                                                liveRatesDetailMaster[index]
+                                                    .askTextColor,
+                                            align: TextAlign.start,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -1310,28 +1318,35 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
                                       visible:
                                           clientHeadersDetail.buyRate != null &&
                                               clientHeadersDetail.buyRate!,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(3),
-                                            color: liveRatesDetailMaster[index]
-                                                            .bid ==
-                                                        '-' ||
-                                                    liveRatesDetailMaster[index]
-                                                            .bid ==
-                                                        '--'
-                                                ? AppColors.primaryColorOpacity
-                                                : liveRatesDetailMaster[index]
-                                                    .bidBGColor),
-                                        padding: const EdgeInsets.all(3.0),
-                                        child: CustomText(
-                                            text:
-                                                '${liveRatesDetailMaster[index].bid}',
-                                            size: 12.0,
-                                            fontWeight: FontWeight.bold,
-                                            textColor:
-                                                liveRatesDetailMaster[index]
-                                                    .bidTextColor),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 10.0, right: 10.0),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(3),
+                                              color: liveRatesDetailMaster[
+                                                                  index]
+                                                              .bid ==
+                                                          '-' ||
+                                                      liveRatesDetailMaster[
+                                                                  index]
+                                                              .bid ==
+                                                          '--'
+                                                  ? AppColors
+                                                      .primaryColorOpacity
+                                                  : liveRatesDetailMaster[index]
+                                                      .bidBGColor),
+                                          padding: const EdgeInsets.all(3.0),
+                                          child: CustomText(
+                                              text:
+                                                  '${liveRatesDetailMaster[index].bid}',
+                                              size: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                              textColor:
+                                                  liveRatesDetailMaster[index]
+                                                      .bidTextColor),
+                                        ),
                                       ),
                                     ),
                                     Visibility(
@@ -1359,30 +1374,34 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
                                       visible: clientHeadersDetail.sellRate !=
                                               null &&
                                           clientHeadersDetail.sellRate!,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(3),
-                                          color: liveRatesDetailMaster[index]
-                                                          .ask ==
-                                                      '-' ||
-                                                  liveRatesDetailMaster[index]
-                                                          .ask ==
-                                                      '--'
-                                              ? AppColors.primaryColorOpacity
-                                              : liveRatesDetailMaster[index]
-                                                  .askBGColor,
-                                        ),
-                                        padding: const EdgeInsets.all(3.0),
-                                        child: CustomText(
-                                          text:
-                                              '${liveRatesDetailMaster[index].ask}',
-                                          size: 12.0,
-                                          fontWeight: FontWeight.bold,
-                                          textColor:
-                                              liveRatesDetailMaster[index]
-                                                  .askTextColor,
-                                          align: TextAlign.start,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 10.0, right: 10.0),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(3),
+                                            color: liveRatesDetailMaster[index]
+                                                            .ask ==
+                                                        '-' ||
+                                                    liveRatesDetailMaster[index]
+                                                            .ask ==
+                                                        '--'
+                                                ? AppColors.primaryColorOpacity
+                                                : liveRatesDetailMaster[index]
+                                                    .askBGColor,
+                                          ),
+                                          padding: const EdgeInsets.all(3.0),
+                                          child: CustomText(
+                                            text:
+                                                '${liveRatesDetailMaster[index].ask}',
+                                            size: 12.0,
+                                            fontWeight: FontWeight.bold,
+                                            textColor:
+                                                liveRatesDetailMaster[index]
+                                                    .askTextColor,
+                                            align: TextAlign.start,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -1411,41 +1430,44 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
               );
   }
 
-  Widget buildSellTradeContainer(Size size, int index, AsyncSnapshot<List<Liverate>> snapshot) {
-    if (liveRatesDetailOldChange.isNotEmpty) {
-      if (liveRatesDetailOldChange.length == liveRatesDetailMaster.length) {
-        if (liveRatesDetailOldChange[index].bid == '-' ||
-            liveRatesDetailOldChange[index].bid == '--') {
-          // var oldAskRate = liveRatesDetailOldChange[index].ask!.isEmpty
+  Widget buildSellTradeContainer(
+      Size size, int index, AsyncSnapshot<List<Liverate>> snapshot) {
+    try {
+      if (liveRatesDetailOldChange.isNotEmpty) {
+        if (liveRatesDetailOldChange.length == liveRatesDetailMaster.length) {
+          if (liveRatesDetailOldChange[index].bid == '-' ||
+              liveRatesDetailOldChange[index].bid == '--') {
+            // var oldAskRate = liveRatesDetailOldChange[index].ask!.isEmpty
+            //     ? 0.0
+            //     : double.parse(liveRatesDetailOldChange[index].ask!);
+            // var newAskRate = liveRatesDetailMaster[index].ask!.isEmpty
+            //     ? 0.0
+            //     : double.parse(liveRatesDetailMaster[index].ask!);
+            //
+            // setLabelColors(oldAskRate, newAskRate, liveRatesDetailMaster[index]);
+          } else {
+            var oldBidRate = liveRatesDetailOldChange[index].bid!.isEmpty
+                ? 0.0
+                : double.parse(liveRatesDetailOldChange[index].bid!);
+            var newBidRate = liveRatesDetailMaster[index].bid!.isEmpty
+                ? 0.0
+                : double.parse(liveRatesDetailMaster[index].bid!);
+
+            setLabelTradeColors(
+                oldBidRate, newBidRate, liveRatesDetailMaster[index]);
+          }
+
+          // var oldBidRate = liveRatesDetailOldChange[index].bid!.isEmpty
           //     ? 0.0
-          //     : double.parse(liveRatesDetailOldChange[index].ask!);
-          // var newAskRate = liveRatesDetailMaster[index].ask!.isEmpty
+          //     : double.parse(liveRatesDetailOldChange[index].bid!);
+          // var newBidRate = liveRatesDetail[index].bid!.isEmpty
           //     ? 0.0
-          //     : double.parse(liveRatesDetailMaster[index].ask!);
+          //     : double.parse(liveRatesDetail[index].bid!);
           //
-          // setLabelColors(oldAskRate, newAskRate, liveRatesDetailMaster[index]);
-        } else {
-          var oldBidRate = liveRatesDetailOldChange[index].bid!.isEmpty
-              ? 0.0
-              : double.parse(liveRatesDetailOldChange[index].bid!);
-          var newBidRate = liveRatesDetailMaster[index].bid!.isEmpty
-              ? 0.0
-              : double.parse(liveRatesDetailMaster[index].bid!);
-
-          setLabelTradeColors(
-              oldBidRate, newBidRate, liveRatesDetailMaster[index]);
+          // setMainBidTradeLableColor(oldBidRate, newBidRate, liveRatesDetail[index]);
         }
-
-        // var oldBidRate = liveRatesDetailOldChange[index].bid!.isEmpty
-        //     ? 0.0
-        //     : double.parse(liveRatesDetailOldChange[index].bid!);
-        // var newBidRate = liveRatesDetail[index].bid!.isEmpty
-        //     ? 0.0
-        //     : double.parse(liveRatesDetail[index].bid!);
-        //
-        // setMainBidTradeLableColor(oldBidRate, newBidRate, liveRatesDetail[index]);
       }
-    }
+    } catch (e) {}
     liveRatesDetailOldChange = liveRatesDetailMaster;
     //  if (liveRatesDetail.length - 1 == index) {
     //   liveRatesDetailOldChange = liveRatesDetail;
@@ -1468,12 +1490,20 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
                 text: 'SELL',
                 size: 16.0,
                 fontWeight: FontWeight.bold,
-                textColor: liveRatesDetailMaster[index].bidTradeBGColor),
+                textColor: liveRatesDetailMaster[index].bid == '-' ||
+                        liveRatesDetailMaster[index].bid == '--'
+                    ? AppColors.primaryColor
+                    : liveRatesDetailMaster[index].bidTradeBGColor),
             CustomText(
               text: '${liveRatesDetailMaster[index].bid} ',
               size: 16.0,
               fontWeight: FontWeight.bold,
-              textColor: liveRatesDetailMaster[index].bidTradeBGColor,
+              textColor: liveRatesDetailMaster[index].bid == '-' ||
+                      liveRatesDetailMaster[index].bid == '--'
+                  ? AppColors.primaryColor
+                  : liveRatesDetailMaster[index].bidTradeBGColor,
+
+              // textColor: liveRatesDetailMaster[index].bidTradeBGColor,
             ),
           ],
         ),
@@ -1481,32 +1511,35 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
     );
   }
 
-  Widget buildBuyTradeContainer(Size size, int index, AsyncSnapshot<List<Liverate>> snapshot) {
-    if (liveRatesDetailOldChange.isNotEmpty) {
-      if (liveRatesDetailOldChange.length == liveRatesDetailMaster.length) {
-        if (liveRatesDetailOldChange[index].ask == '-' ||
-            liveRatesDetailOldChange[index].ask == '--') {
-          // var oldAskRate = liveRatesDetailOldChange[index].ask!.isEmpty
-          //     ? 0.0
-          //     : double.parse(liveRatesDetailOldChange[index].ask!);
-          // var newAskRate = liveRatesDetailMaster[index].ask!.isEmpty
-          //     ? 0.0
-          //     : double.parse(liveRatesDetailMaster[index].ask!);
-          //
-          // setLabelColors(oldAskRate, newAskRate, liveRatesDetailMaster[index]);
-        } else {
-          var oldAskRate = liveRatesDetailOldChange[index].ask!.isEmpty
-              ? 0.0
-              : double.parse(liveRatesDetailOldChange[index].ask!);
-          var newAskRate = liveRatesDetailMaster[index].ask!.isEmpty
-              ? 0.0
-              : double.parse(liveRatesDetailMaster[index].ask!);
+  Widget buildBuyTradeContainer(
+      Size size, int index, AsyncSnapshot<List<Liverate>> snapshot) {
+    try {
+      if (liveRatesDetailOldChange.isNotEmpty) {
+        if (liveRatesDetailOldChange.length == liveRatesDetailMaster.length) {
+          if (liveRatesDetailOldChange[index].ask == '-' ||
+              liveRatesDetailOldChange[index].ask == '--') {
+            // var oldAskRate = liveRatesDetailOldChange[index].ask!.isEmpty
+            //     ? 0.0
+            //     : double.parse(liveRatesDetailOldChange[index].ask!);
+            // var newAskRate = liveRatesDetailMaster[index].ask!.isEmpty
+            //     ? 0.0
+            //     : double.parse(liveRatesDetailMaster[index].ask!);
+            //
+            // setLabelColors(oldAskRate, newAskRate, liveRatesDetailMaster[index]);
+          } else {
+            var oldAskRate = liveRatesDetailOldChange[index].ask!.isEmpty
+                ? 0.0
+                : double.parse(liveRatesDetailOldChange[index].ask!);
+            var newAskRate = liveRatesDetailMaster[index].ask!.isEmpty
+                ? 0.0
+                : double.parse(liveRatesDetailMaster[index].ask!);
 
-          setLabelTradeColors(
-              oldAskRate, newAskRate, liveRatesDetailMaster[index]);
+            setLabelTradeColors(
+                oldAskRate, newAskRate, liveRatesDetailMaster[index]);
+          }
         }
       }
-    }
+    } catch (e) {}
     liveRatesDetailOldChange = liveRatesDetailMaster;
     //  if (liveRatesDetail.length - 1 == index) {
     //   liveRatesDetailOldChange = liveRatesDetail;
@@ -1529,12 +1562,20 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
                 text: 'BUY',
                 size: 16.0,
                 fontWeight: FontWeight.bold,
-                textColor: liveRatesDetailMaster[index].bidTradeBGColor),
+                textColor: liveRatesDetailMaster[index].ask == '-' ||
+                        liveRatesDetailMaster[index].ask == '--'
+                    ? AppColors.primaryColor
+                    : liveRatesDetailMaster[index].askTradeBGColor),
             CustomText(
               text: '${liveRatesDetailMaster[index].ask} ',
               size: 16.0,
               fontWeight: FontWeight.bold,
-              textColor: liveRatesDetailMaster[index].bidTradeBGColor,
+              textColor: liveRatesDetailMaster[index].ask == '-' ||
+                      liveRatesDetailMaster[index].ask == '--'
+                  ? AppColors.primaryColor
+                  : liveRatesDetailMaster[index].askTradeBGColor,
+
+              // textColor: liveRatesDetailMaster[index].bidTradeBGColor,
             ),
           ],
         ),
@@ -1985,7 +2026,7 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
     return streamController.stream;
   }
 
-  setAskLableColor(double oldRate, double newRate, model) {
+  setAskLableColor(dynamic oldRate, dynamic newRate, model) {
     if (oldRate < newRate) {
       model.askBGColor = AppColors.green;
       model.askTextColor = AppColors.defaultColor;
@@ -2003,7 +2044,7 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
     }
   }
 
-  setFutureAskLableColor(double oldRate, double newRate, model) {
+  setFutureAskLableColor(dynamic oldRate, dynamic newRate, model) {
     if (oldRate < newRate) {
       model.askBGColor = AppColors.green;
       model.askTextColor = AppColors.defaultColor;
@@ -2021,7 +2062,7 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
     }
   }
 
-  setBidLableColor(double oldRate, double newRate, model) {
+  setBidLableColor(dynamic oldRate, dynamic newRate, model) {
     if (oldRate < newRate) {
       model.bidBGColor = AppColors.green;
       model.bidTextColor = AppColors.defaultColor;
@@ -2039,7 +2080,7 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
     }
   }
 
-  setFutureBidLableColor(double oldRate, double newRate, model) {
+  setFutureBidLableColor(dynamic oldRate, dynamic newRate, model) {
     if (oldRate < newRate) {
       model.bidBGColor = AppColors.green;
       model.bidTextColor = AppColors.defaultColor;
@@ -2332,8 +2373,10 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
                     source?.toLowerCase() == 'goldnext')
                 ? 'gm'
                 : 'Kg';
-            items = List.generate(((inTotal - oneClick) ~/ step) + 1,
-                (index) => '${oneClick + index * step} $gmkg');
+            items = List.generate(
+                ((inTotal - oneClick) ~/ step) + 1,
+                (index) =>
+                    '${(oneClick + index * step).toStringAsFixed(1)} $gmkg');
             quantity = (items.isNotEmpty ? items[0] : null)!;
           });
         } else {
@@ -2391,5 +2434,4 @@ class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStat
       }
     }
   }
-
 }

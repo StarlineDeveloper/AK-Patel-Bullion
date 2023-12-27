@@ -265,7 +265,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         // bool isAddVisible
         debugPrint('appLifeCycleState detached');
         break;
-      case AppLifecycleState.hidden:
+      // case AppLifecycleState.hidden:
       // TODO: Handle this case.
     }
   }
@@ -384,7 +384,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           bottomNavigationBar: CurvedNavigationBar(
             index: selectedIndex,
             height: 60,
-
             backgroundColor: AppColors.defaultColor,
             animationCurve: Curves.fastEaseInToSlowEaseOut,
             items: <Widget>[
@@ -1195,8 +1194,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       context: context,
       builder: (_) {
         var size = MediaQuery.of(context).size;
-        return
-            Dialog(
+        return Dialog(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0)), //this right here
           child: Container(
@@ -1379,7 +1377,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 launchUrl(
                                   Uri(
                                       scheme: 'tel',
-                                      path: '' /*liveData.bookingNo1*/),
+                                      path: Functions.alphaNum(
+                                          clientHeaderData.bookingNo1!)),
                                 );
                               },
                               child: Container(
@@ -1408,7 +1407,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 launchUrl(
                                   Uri(
                                       scheme: 'tel',
-                                      path: clientHeaderData.bookingNo2),
+                                      path: Functions.alphaNum(
+                                          clientHeaderData.bookingNo2!)),
                                 );
                               },
                               child: Container(
@@ -1437,7 +1437,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 launchUrl(
                                   Uri(
                                       scheme: 'tel',
-                                      path: clientHeaderData.bookingNo3),
+                                      path: Functions.alphaNum(
+                                          clientHeaderData.bookingNo3!)),
                                 );
                               },
                               child: Container(
@@ -1466,7 +1467,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 launchUrl(
                                   Uri(
                                       scheme: 'tel',
-                                      path: clientHeaderData.bookingNo4),
+                                      path: Functions.alphaNum(
+                                          clientHeaderData.bookingNo4!)),
                                 );
                               },
                               child: Container(
@@ -1495,7 +1497,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 launchUrl(
                                   Uri(
                                       scheme: 'tel',
-                                      path: clientHeaderData.bookingNo5),
+                                      path: Functions.alphaNum(
+                                          clientHeaderData.bookingNo5!)),
                                 );
                               },
                               child: Container(
@@ -1524,7 +1527,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 launchUrl(
                                   Uri(
                                       scheme: 'tel',
-                                      path: clientHeaderData.bookingNo6),
+                                      path: Functions.alphaNum(
+                                          clientHeaderData.bookingNo6!)),
                                 );
                               },
                               child: Container(
@@ -1553,7 +1557,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 launchUrl(
                                   Uri(
                                       scheme: 'tel',
-                                      path: clientHeaderData.bookingNo7),
+                                      path: Functions.alphaNum(
+                                          clientHeaderData.bookingNo7!)),
                                 );
                               },
                               child: Container(

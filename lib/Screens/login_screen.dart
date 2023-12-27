@@ -421,7 +421,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                                     LengthLimitingTextInputFormatter(100),
                                   ],
                                   keyboardType: TextInputType.text,
-                                  textInputAction: TextInputAction.done,
+                                  textInputAction: TextInputAction.next,
                                   maxLines: 1,
                                   cursorColor: AppColors.primaryColor,
                                 ),
