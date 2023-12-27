@@ -13,8 +13,8 @@ import 'package:notification_permissions/notification_permissions.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:store_redirect/store_redirect.dart';
-import 'package:stylish_bottom_bar/model/bar_items.dart';
-import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
+// import 'package:stylish_bottom_bar/model/bar_items.dart';
+// import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
 import 'package:terminal_demo/Screens/bankdetails_screen.dart';
 import 'package:terminal_demo/Screens/contactus_screen.dart';
 import 'package:terminal_demo/Screens/liverate_screen.dart';
@@ -39,7 +39,6 @@ import '../Services/openorder_service.dart';
 import '../Services/socket_service.dart';
 import '../Utils/shared.dart';
 import '../Widgets/custom_text.dart';
-import 'coin_screen.dart';
 import 'economiccalender_scree.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -78,7 +77,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   ];
   DateTime? currentBackPressTime;
   DateTime now = DateTime.now();
-
   List<String> booking = [];
   bool isLoading = false;
   bool isDiscoveredOverlay = false;
@@ -197,13 +195,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     NotifySocketUpdate.controllerHome = StreamController.broadcast();
     NotifySocketUpdate.controllerOrderDetails = StreamController.broadcast();
     NotifySocketUpdate.controllerAccountDetails = StreamController();
-    // NotifySocketUpdate.controllerAccountDetails!.stream
-    //     .asBroadcastStream()
-    //     .listen(
-    //   (event) {
-    //     loadProfileData();
-    //   },
-    // );
+
     NotifySocketUpdate.controllerHome!.stream.listen((event) {
       loadLiveData();
     });
@@ -273,7 +265,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         // bool isAddVisible
         debugPrint('appLifeCycleState detached');
         break;
-      // case AppLifecycleState.hidden:
+      case AppLifecycleState.hidden:
       // TODO: Handle this case.
     }
   }
@@ -392,6 +384,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           bottomNavigationBar: CurvedNavigationBar(
             index: selectedIndex,
             height: 60,
+
             backgroundColor: AppColors.defaultColor,
             animationCurve: Curves.fastEaseInToSlowEaseOut,
             items: <Widget>[
@@ -1203,58 +1196,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       builder: (_) {
         var size = MediaQuery.of(context).size;
         return
-            //   AlertDialog(
-            //   title:
-            //   Row(
-            //     // crossAxisAlignment: CrossAxisAlignment.start,
-            //     children: [
-            //       const Image(
-            //         image: AssetImage(AppImagePath.header_logo),
-            //         height: 50.0,
-            //         width: 50.0,
-            //       ),
-            //       Expanded(
-            //         child: Text(
-            //           title,
-            //           style: const TextStyle(
-            //             color: AppColors.primaryColor,
-            //             fontSize: 18.0,
-            //             fontWeight: FontWeight.bold,
-            //           ),
-            //           textAlign: TextAlign.start,
-            //           overflow: TextOverflow.clip,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            //   content: CustomText(
-            //     text: body,
-            //     textColor: AppColors.textColor,
-            //     size: 16.0,
-            //     fontWeight: FontWeight.normal,
-            //     align: TextAlign.start,
-            //   ),
-            //   actions: [
-            //     Center(
-            //       child: ElevatedButton(
-            //         style: ButtonStyle(
-            //           backgroundColor:
-            //           MaterialStateProperty.all(AppColors.primaryColor),
-            //         ),
-            //         onPressed: () {
-            //           // Navigator.of(context).pop();
-            //           onNotificationClick(bit);
-            //         },
-            //         child: const CustomText(
-            //           text: 'Okay',
-            //           textColor: AppColors.defaultColor,
-            //           size: 14.0,
-            //           fontWeight: FontWeight.normal,
-            //         ),
-            //       ),
-            //     ),
-            //   ],
-            // );
             Dialog(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0)), //this right here
@@ -1275,13 +1216,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 Container(
                   height: size.width * 0.15,
                   width: size.width,
-                  // decoration:  BoxDecoration(
-                  //     border: Border.all(color: AppColors.primaryColor),
-                  //   // color: AppColors.primaryColor,
-                  //   // borderRadius: BorderRadius.only(
-                  //   //     topLeft: Radius.circular(10),
-                  //   //     topRight: Radius.circular(10)),
-                  // ),
                   alignment: Alignment.center,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -1735,7 +1669,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           .then((_) {
         checkIsLogin();
       });
-      print("Triple click!");
+      debugPrint("Triple click!");
       // Reset tap count after performing the task
       tapCount = 0;
     }

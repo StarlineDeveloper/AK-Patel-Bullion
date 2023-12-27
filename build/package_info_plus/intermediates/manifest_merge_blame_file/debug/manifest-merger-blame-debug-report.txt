@@ -4,8 +4,8 @@
 4
 5    <uses-sdk
 6        android:minSdkVersion="19"
-6-->/Users/starline/.pub-cache/hosted/pub.dev/package_info_plus-4.2.0/android/src/main/AndroidManifest.xml
+6-->/Users/rohit/.pub-cache/hosted/pub.dev/package_info_plus-4.2.0/android/src/main/AndroidManifest.xml
 7        android:targetSdkVersion="19" />
-7-->/Users/starline/.pub-cache/hosted/pub.dev/package_info_plus-4.2.0/android/src/main/AndroidManifest.xml
+7-->/Users/rohit/.pub-cache/hosted/pub.dev/package_info_plus-4.2.0/android/src/main/AndroidManifest.xml
 8
 9</manifest>

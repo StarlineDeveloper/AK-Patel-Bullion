@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color primaryColor = Color(0xFF10304c);
+  static const Color primaryColorOpacity = Color(0xff00FFFFFF);
   static const Color botomNavColor = Color(0xFF231f20);
   static const Color defaultColor = Colors.white;
   static const Color selectedItemColor = Color(0xFFF9D24C);

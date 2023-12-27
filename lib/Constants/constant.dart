@@ -4,6 +4,17 @@ class Constants {
   //Add clientId from web(custom.js)
   static const String clientId = "4";
 
+  //Add baseUrl from web(custom.js)
+  static const baseUrl =
+      'https://starlinesolutions.in/WebService/WebService.asmx';
+
+  //Add baseUrlTerminal from web(custom.js)
+  static const baseUrlTerminal =
+      'https://starlinesolutions.in/WebService/Terminal.asmx';
+
+  //Add socketUrl from web(custom.js)
+  static const socketUrl = 'https://starlinesolutions.in:10001';
+
   //Add playstore link
   static const String androidAppStoreRedirect =
       "https://play.google.com/store/apps/details?id=com.akpatelbullion&pli=1";
@@ -23,17 +34,6 @@ class Constants {
 
   //same as project name
   static const String subscriberTopic = 'akpatel';
-
-  //Add baseUrl from web(custom.js)
-  static const baseUrl =
-      'https://starlinesolutions.in/WebService/WebService.asmx';
-
-  //Add baseUrlTerminal from web(custom.js)
-  static const baseUrlTerminal =
-      'https://starlinesolutions.in/WebService/Terminal.asmx';
-
-  //Add socketUrl from web(custom.js)
-  static const socketUrl = 'https://starlinesolutions.in:10001';
 
   // Add static
   static String alertAndCnfTitle = 'Ak Patel';

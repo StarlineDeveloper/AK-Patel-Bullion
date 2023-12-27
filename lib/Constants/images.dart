@@ -7,4 +7,5 @@ class AppImagePath {
   static const String edit = 'assets/images/edit.png';
   static const String greencolum = 'assets/images/greencolum.png';
   static const String coin = 'assets/images/coin.png';
+  static const String liveratelogo = 'assets/images/liveratelogo.png';
 }

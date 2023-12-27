@@ -21,7 +21,11 @@ class BankDetail_Screen extends StatefulWidget {
   State<BankDetail_Screen> createState() => _BankDetail_ScreenState();
 }
 
-class _BankDetail_ScreenState extends State<BankDetail_Screen> {
+class _BankDetail_ScreenState extends State<BankDetail_Screen> with AutomaticKeepAliveClientMixin<BankDetail_Screen>{
+
+  @override
+  bool get wantKeepAlive => true;
+
   bool isLoading = true;
   late List<BankList> bankList = [];
   BankService bankService = BankService();
@@ -39,6 +43,7 @@ class _BankDetail_ScreenState extends State<BankDetail_Screen> {
   @override
   void dispose() {
     _isMounted = false;
+
     super.dispose();
   }
 
@@ -204,6 +209,7 @@ class _BankDetail_ScreenState extends State<BankDetail_Screen> {
       ),
     );
   }
+
   void callBankDetailsApi() {
     Functions.checkConnectivity().then((isConnected) {
       if (isConnected) {

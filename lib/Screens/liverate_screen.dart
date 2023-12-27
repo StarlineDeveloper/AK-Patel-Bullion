@@ -34,8 +34,8 @@ class LiveRateScreen extends StatefulWidget {
   State<LiveRateScreen> createState() => _LiveRateScreenState();
 }
 
-class _LiveRateScreenState extends State<LiveRateScreen>
-    with TickerProviderStateMixin {
+class _LiveRateScreenState extends State<LiveRateScreen> with TickerProviderStateMixin {
+
   late LiverateProvider _liverateProvider;
   late TabController _tabController;
   late TabController _tabGoldSilverController;
@@ -135,10 +135,6 @@ class _LiveRateScreenState extends State<LiveRateScreen>
       (event) {
         liveRateReferenceDetail = [];
         referenceData = _liverateProvider.getReferenceData();
-        // for (var item in event) {
-        //   liveRateReferenceDetail.add(ReferenceDataRate.fromJson(item));
-        // }
-
         liveRateReferenceDetail = _liverateProvider.getReferenceDataRate();
         liveRateReferenceDetailOld = liveRateReferenceDetail;
 
@@ -205,60 +201,6 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             _liverateProvider.addFutureData(futureData);
             _liverateProvider.addComexData(comexData);
             _liverateProvider.addNextData(nextData);
-
-            // Set Comex list based on Liverates and Reference
-            // for (var data in referenceData) {
-            //   for (var rate in liveRateReferenceDetail) {
-            //     if (rate.symbol.toLowerCase() == data.source!.toLowerCase()) {
-            //       bid = rate.bid.toString();
-            //       ask = rate.ask.toString();
-            //       high = rate.high.toString();
-            //       low = rate.low.toString();
-            //     } // Set bid, ask, high and low which matches the symbol of rate and source of data.
-            //   }
-            //   if (data.isDisplay! &&
-            //       (data.source == 'XAGUSD' ||
-            //           data.source == 'XAUUSD' ||
-            //           data.source == 'INRSpot')) {
-            //     comexData.add(
-            //       ComexDataModel(
-            //         symbolName: data.symbolName,
-            //         bid: bid.toString(),
-            //         ask: ask.toString(),
-            //         high: high.toString(),
-            //         low: low.toString(),
-            //         isDisplay: data.isDisplay,
-            //       ),
-            //     );
-            //   }
-            // }
-            // _liverateProvider.addComexData(comexData);
-
-            // Set Next list based on Liverates and Reference
-            // for (var data in referenceData) {
-            //   for (var rate in liveRateReferenceDetail) {
-            //     if (rate.symbol.toLowerCase() == data.source!.toLowerCase()) {
-            //       bid = rate.bid;
-            //       ask = rate.ask;
-            //       high = rate.high;
-            //       low = rate.low;
-            //     } // Set bid, ask, high and low which matches the symbol of rate and source of data.
-            //   }
-            //   if (data.isDisplay! &&
-            //       (data.source == 'goldnext' || data.source == 'silvernext')) {
-            //     nextData.add(
-            //       ComexDataModel(
-            //         symbolName: data.symbolName,
-            //         bid: bid,
-            //         ask: ask,
-            //         high: high,
-            //         low: low,
-            //         isDisplay: data.isDisplay,
-            //       ),
-            //     );
-            //   }
-            // }
-            // _liverateProvider.addNextData(nextData);
           } else {
             setState(() {
               referenceFutureData = _liverateProvider.getFutureData();
@@ -266,184 +208,9 @@ class _LiveRateScreenState extends State<LiveRateScreen>
               referenceNextData = _liverateProvider.getNextData();
             });
           }
-
-          // if (isConnected) {
-          //   setState(() {
-          //     referenceFutureData = _liverateProvider.getFutureData();
-          //     // referenceComexDataGold = [];
-          //     // referenceComexDataSilver = [];
-          //     referenceComexData = _liverateProvider.getComexData();
-          //
-          //
-          //   });
-          //   for (var data in referenceData) {
-          //     var rate = liveRateReferenceDetail.firstWhere((rate) =>
-          //         rate.symbol!.toLowerCase() == data.source!.toLowerCase());
-          //
-          //     if (rate != null) {
-          //       var bid = rate.bid!.toString();
-          //       var ask = rate.ask!.toString();
-          //       var high = rate.high!.toString();
-          //       var low = rate.low!.toString();
-          //
-          //       var comexModel = ComexDataModel(
-          //         symbolName: data.symbolName,
-          //         bid: bid,
-          //         ask: ask,
-          //         high: high,
-          //         low: low,
-          //         source: data.source,
-          //         isDisplay: data.isDisplay,
-          //       );
-          //
-          //       if (data.isDisplay! &&
-          //           (data.source == 'XAUUSD' ||
-          //               data.source == 'XAGUSD' ||
-          //               data.source == 'INRSpot')) {
-          //         comexData.add(comexModel);
-          //       }
-          //
-          //       if (data.isDisplay! &&
-          //           (data.source == 'gold' ||
-          //               data.source == 'silver' ||
-          //               data.source == 'silvernext' ||
-          //               data.source == 'goldnext')) {
-          //         futureData.add(comexModel);
-          //       }
-          //     }
-          //   }
-          //
-          //   _liverateProvider.addComexData(comexData);
-          //   _liverateProvider.addFutureData(futureData);
-          //   // for (var data in referenceData) {
-          //   //   for (var rate in liveRateReferenceDetail) {
-          //   //     if (rate.symbol!.toLowerCase() == data.source!.toLowerCase()) {
-          //   //       bid = rate.bid!.toString();
-          //   //       ask = rate.ask!.toString();
-          //   //       high = rate.high!.toString();
-          //   //       low = rate.low!.toString();
-          //   //     } // Set bid, ask, high and low which matches the symbol of rate and source of data.
-          //   //   }
-          //   //
-          //   //   if (data.isDisplay! &&
-          //   //       (data.source == 'XAUUSD' ||
-          //   //           data.source == 'XAGUSD' ||
-          //   //           // data.source == 'gold' ||
-          //   //           // data.source == 'silver' ||
-          //   //           // data.source == 'silvernext' ||
-          //   //           // data.source == 'goldnext' ||
-          //   //           data.source == 'INRSpot')) {
-          //   //     comexData.add(
-          //   //       ComexDataModel(
-          //   //         symbolName: data.symbolName,
-          //   //         bid: bid,
-          //   //         ask: ask,
-          //   //         high: high,
-          //   //         low: low,
-          //   //         source: data.source,
-          //   //         isDisplay: data.isDisplay,
-          //   //       ),
-          //   //     );
-          //   //   }
-          //   // }
-          //   // _liverateProvider.addComexData(comexData);
-          //   // for (var data in referenceData) {
-          //   //   for (var rate in liveRateReferenceDetail) {
-          //   //     if (rate.symbol!.toLowerCase() == data.source!.toLowerCase()) {
-          //   //       bid = rate.bid!.toString();
-          //   //       ask = rate.ask!.toString();
-          //   //       high = rate.high!.toString();
-          //   //       low = rate.low!.toString();
-          //   //     } // Set bid, ask, high and low which matches the symbol of rate and source of data.
-          //   //   }
-          //   //   if (data.isDisplay! &&
-          //   //       (data.source == 'gold' ||
-          //   //           data.source == 'silver' ||
-          //   //           data.source == 'silvernext' ||
-          //   //           data.source == 'goldnext')) {
-          //   //     futureData.add(
-          //   //       ComexDataModel(
-          //   //         symbolName: data.symbolName,
-          //   //         bid: bid,
-          //   //         ask: ask,
-          //   //         high: high,
-          //   //         low: low,
-          //   //         isDisplay: data.isDisplay,
-          //   //       ),
-          //   //     );
-          //   //   }
-          //   // }
-          //   // _liverateProvider.addFutureData(futureData);
-          //
-          //   // Set Future and Next list based on Liverates and Reference
-          //   // for (var data in referenceData) {
-          //   //   for (var rate in liveRateReferenceDetail) {
-          //   //     if (rate.symbol!.toLowerCase() == data.source!.toLowerCase()) {
-          //   //       bid = rate.bid!.toString();
-          //   //       ask = rate.ask!.toString();
-          //   //       high = rate.high!.toString();
-          //   //       low = rate.low!.toString();
-          //   //     } // Set bid, ask, high and low which matches the symbol of rate and source of data.
-          //   //   }
-          //   //   if (data.isDisplay! &&
-          //   //       (   data.source == 'gold' ||
-          //   //           data.source == 'silver' ||
-          //   //           data.source == 'silvernext' ||
-          //   //           data.source == 'goldnext')) {
-          //   //     futureData.add(
-          //   //       ComexDataModel(
-          //   //         symbolName: data.symbolName,
-          //   //         bid: bid,
-          //   //         ask: ask,
-          //   //         high: high,
-          //   //         low: low,
-          //   //         isDisplay: data.isDisplay,
-          //   //       ),
-          //   //     );
-          //   //   }
-          //   // }
-          //   // _liverateProvider.addFutureData(futureData);
-          //
-          //   // Set Next & Future list based on Liverates and Reference
-          //   // for (var data in referenceData) {
-          //   //   for (var rate in liveRateReferenceDetail) {
-          //   //     if (rate.symbol!.toLowerCase() == data.source!.toLowerCase()) {
-          //   //       bid = rate.bid!.toString();
-          //   //       ask = rate.ask!.toString();
-          //   //       high = rate.high!.toString();
-          //   //       low = rate.low!.toString();
-          //   //     } // Set bid, ask, high and low which matches the symbol of rate and source of data.
-          //   //   }
-          //   //   if (data.isDisplay! &&
-          //   //       (data.source == 'goldnext' || data.source == 'silvernext')) {
-          //   //     nextData.add(
-          //   //       ComexDataModel(
-          //   //         symbolName: data.symbolName,
-          //   //         bid: bid,
-          //   //         ask: ask,
-          //   //         high: high,
-          //   //         low: low,
-          //   //         isDisplay: data.isDisplay,
-          //   //       ),
-          //   //     );
-          //   //   }
-          //   // }
-          //   // _liverateProvider.addNextData(nextData);
-          // } else {
-          //   setState(() {
-          //     referenceComexData = _liverateProvider.getComexData();
-          //     referenceFutureData = _liverateProvider.getFutureData();
-          //   });
-          // }
         });
 
         clientHeadersDetail = _liverateProvider.getClientHeaderData();
-
-        // // Asign Live Rate to Live Rate Old
-        // liveRatesDetailOldMaster = liveRatesDetailMaster;
-        // liveRatesDetailOldTrade = liveRatesDetailTrade;
-
-        // loadData();
       },
     );
     NotifySocketUpdate.controllerMainData!.stream.asBroadcastStream().listen(
@@ -698,20 +465,33 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                               ),
                       ],
                     ),
-              Visibility(
-                visible: Constants.isLogin
-                    ? true
-                    : clientHeadersDetail.rateDisplay != null &&
-                        clientHeadersDetail.rateDisplay!,
-                // visible: afterLoginView,
-                child: Flexible(
-                  child: ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: liveRatesDetailMaster.length,
-                    itemBuilder: (context, index) => buildProductContainer(
-                      size,
-                      index,
+              Container(
+                decoration: BoxDecoration(
+                  color: AppColors.primaryColor.withOpacity(0.6),
+                  image: DecorationImage(
+
+                    image: AssetImage(
+                      AppImagePath.liveratelogo,),
+                    fit: BoxFit.fill,
+                  ),
+                  // shape: BoxShape.circle,
+                ),
+
+
+
+                child: Visibility(
+                  visible: Constants.isLogin
+                      ? true
+                      : clientHeadersDetail.rateDisplay != null && clientHeadersDetail.rateDisplay!,
+                  child: Flexible(
+                    child: ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: liveRatesDetailMaster.length,
+                      itemBuilder: (context, index) => buildProductContainer(
+                        size,
+                        index,
+                      ),
                     ),
                   ),
                 ),
@@ -1284,7 +1064,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
         ? Container()
         : Constants.isLogin
             ? Padding(
-                padding: const EdgeInsets.only(top: 2.0),
+                padding: const EdgeInsets.only(top: 0.0),
                 child: GestureDetector(
                   onTap: () {
                     // globalIndex = index;
@@ -1295,10 +1075,11 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                   child: Container(
                     // height: 50.0,
                     decoration: BoxDecoration(
-                      border:
-                          Border.all(width: 0.8, color: AppColors.primaryColor),
-                      borderRadius: BorderRadius.circular(5.0),
-                      color: AppColors.primaryColor,
+                      border: Border.all(width: 0.8, color: AppColors.primaryColor),
+                      borderRadius: BorderRadius.circular(0.0),
+                      color: AppColors.primaryColor.withOpacity(0.7),
+
+                      
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -1364,7 +1145,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                                     liveRatesDetailMaster[index]
                                                             .bid ==
                                                         '--'
-                                                ? AppColors.primaryColor
+                                                ? AppColors.primaryColorOpacity
                                                 : liveRatesDetailMaster[index]
                                                     .bidBGColor),
                                         padding: const EdgeInsets.all(3.0),
@@ -1413,7 +1194,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                                   liveRatesDetailMaster[index]
                                                           .ask ==
                                                       '--'
-                                              ? AppColors.primaryColor
+                                              ? AppColors.primaryColorOpacity
                                               : liveRatesDetailMaster[index]
                                                   .askBGColor,
                                         ),
@@ -1454,7 +1235,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                 ),
               )
             : Padding(
-                padding: const EdgeInsets.only(top: 2.0),
+                padding: const EdgeInsets.only(top: 0.0),
                 child: GestureDetector(
                   onTap: () {
                     // Navigator.of(context).pushNamed(
@@ -1472,8 +1253,8 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                     decoration: BoxDecoration(
                       border:
                           Border.all(width: 0.8, color: AppColors.primaryColor),
-                      color: AppColors.primaryColor,
-                      borderRadius: BorderRadius.circular(5.0),
+                      color: AppColors.primaryColor.withOpacity(0.7),
+                      borderRadius: BorderRadius.circular(0.0),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -1539,7 +1320,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                                     liveRatesDetailMaster[index]
                                                             .bid ==
                                                         '--'
-                                                ? AppColors.primaryColor
+                                                ? AppColors.primaryColorOpacity
                                                 : liveRatesDetailMaster[index]
                                                     .bidBGColor),
                                         padding: const EdgeInsets.all(3.0),
@@ -1588,7 +1369,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                                   liveRatesDetailMaster[index]
                                                           .ask ==
                                                       '--'
-                                              ? AppColors.primaryColor
+                                              ? AppColors.primaryColorOpacity
                                               : liveRatesDetailMaster[index]
                                                   .askBGColor,
                                         ),
@@ -1630,8 +1411,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
               );
   }
 
-  Widget buildSellTradeContainer(
-      Size size, int index, AsyncSnapshot<List<Liverate>> snapshot) {
+  Widget buildSellTradeContainer(Size size, int index, AsyncSnapshot<List<Liverate>> snapshot) {
     if (liveRatesDetailOldChange.isNotEmpty) {
       if (liveRatesDetailOldChange.length == liveRatesDetailMaster.length) {
         if (liveRatesDetailOldChange[index].bid == '-' ||
@@ -1701,8 +1481,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
     );
   }
 
-  Widget buildBuyTradeContainer(
-      Size size, int index, AsyncSnapshot<List<Liverate>> snapshot) {
+  Widget buildBuyTradeContainer(Size size, int index, AsyncSnapshot<List<Liverate>> snapshot) {
     if (liveRatesDetailOldChange.isNotEmpty) {
       if (liveRatesDetailOldChange.length == liveRatesDetailMaster.length) {
         if (liveRatesDetailOldChange[index].ask == '-' ||
@@ -2351,7 +2130,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
     else {
       // model.askBGColor = AppColors.primaryColor;
       // model.askTextColor = AppColors.secondaryTextColor;
-      model.bidBGColor = AppColors.primaryColor;
+      model.bidBGColor = AppColors.primaryColorOpacity;
       model.bidTextColor = AppColors.secondaryTextColor;
     }
   }
@@ -2375,7 +2154,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
       model.bidTextColor = AppColors.secondaryTextColor;
     } */
     else {
-      model.askBGColor = AppColors.primaryColor;
+      model.askBGColor = AppColors.primaryColorOpacity;
       model.askTextColor = AppColors.secondaryTextColor;
       // model.bidBGColor = AppColors.primaryColor;
       // model.bidTextColor = AppColors.secondaryTextColor;
@@ -2612,4 +2391,5 @@ class _LiveRateScreenState extends State<LiveRateScreen>
       }
     }
   }
+
 }

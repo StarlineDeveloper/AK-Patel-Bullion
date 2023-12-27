@@ -62,7 +62,6 @@ dependencies:
   share_plus: ^7.2.1
   notification_permissions: ^0.6.1
   curved_navigation_bar: ^1.0.3
-  stylish_bottom_bar: ^1.0.3
 
 
 
