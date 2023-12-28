@@ -310,7 +310,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                   ? Container(
                       height: 35.0,
                       color: AppColors.hintColor,
-                      padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                      padding: const EdgeInsets.only(left: 12.0, right: 0.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -326,44 +326,38 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                           ),
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 15.0),
+                              padding: const EdgeInsets.only(left: 0.0),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 12.0),
-                                    child: Visibility(
-                                      visible:
-                                          clientHeadersDetail.buyRate != null &&
-                                              clientHeadersDetail.buyRate!,
-                                      child: SizedBox(
-                                        width: size.width / 6,
-                                        child: const CustomText(
-                                          text: 'BUY',
-                                          size: 15.0,
-                                          fontWeight: FontWeight.bold,
-                                          textColor: AppColors.textColor,
-                                          align: TextAlign.center,
-                                        ),
+                                  Visibility(
+                                    visible:
+                                        clientHeadersDetail.buyRate != null &&
+                                            clientHeadersDetail.buyRate!,
+                                    child: SizedBox(
+                                      width: size.width / 5,
+                                      child: const CustomText(
+                                        text: 'BUY',
+                                        size: 15.0,
+                                        fontWeight: FontWeight.bold,
+                                        textColor: AppColors.textColor,
+                                        align: TextAlign.center,
                                       ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 12.0),
-                                    child: Visibility(
-                                      visible: clientHeadersDetail.sellRate !=
-                                              null &&
-                                          clientHeadersDetail.sellRate!,
-                                      child: SizedBox(
-                                        width: size.width / 6,
-                                        child: const CustomText(
-                                          text: 'SELL',
-                                          size: 15.0,
-                                          fontWeight: FontWeight.bold,
-                                          textColor: AppColors.textColor,
-                                          align: TextAlign.center,
-                                        ),
+                                  Visibility(
+                                    visible: clientHeadersDetail.sellRate !=
+                                            null &&
+                                        clientHeadersDetail.sellRate!,
+                                    child: SizedBox(
+                                      width: size.width / 5,
+                                      child: const CustomText(
+                                        text: 'SELL',
+                                        size: 15.0,
+                                        fontWeight: FontWeight.bold,
+                                        textColor: AppColors.textColor,
+                                        align: TextAlign.center,
                                       ),
                                     ),
                                   ),
@@ -382,7 +376,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                 height: 35.0,
                                 color: AppColors.hintColor,
                                 padding: const EdgeInsets.only(
-                                    left: 10.0, right: 10.0),
+                                    left: 12.0, right: 0.0),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
@@ -400,14 +394,14 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                     Expanded(
                                       child: Padding(
                                         padding:
-                                            const EdgeInsets.only(left: 15.0),
+                                            const EdgeInsets.only(left: 0.0),
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
                                           children: [
                                             Padding(
                                               padding: const EdgeInsets.only(
-                                                  left: 12.0),
+                                                  left: 0.0),
                                               child: Visibility(
                                                 visible: clientHeadersDetail
                                                             .buyRate !=
@@ -415,7 +409,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                                     clientHeadersDetail
                                                         .buyRate!,
                                                 child: SizedBox(
-                                                  width: size.width / 6,
+                                                  width: size.width / 5,
                                                   child: const CustomText(
                                                     text: 'BUY',
                                                     size: 15.0,
@@ -429,7 +423,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                             ),
                                             Padding(
                                               padding: const EdgeInsets.only(
-                                                  right: 12.0),
+                                                  right: 0.0),
                                               child: Visibility(
                                                 visible: clientHeadersDetail
                                                             .sellRate !=
@@ -437,7 +431,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                                     clientHeadersDetail
                                                         .sellRate!,
                                                 child: SizedBox(
-                                                  width: size.width / 6,
+                                                  width: size.width / 5,
                                                   child: const CustomText(
                                                     text: 'SELL',
                                                     size: 15.0,
@@ -1052,7 +1046,9 @@ class _LiveRateScreenState extends State<LiveRateScreen>
           }
         }
       }
-    } catch (e) {}
+    } catch (e) {
+      debugPrint(e.toString());
+    }
 
     if (liveRatesDetailMaster.length - 1 == index) {
       liveRatesDetailOldChange = liveRatesDetailMaster;
@@ -1098,7 +1094,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                 child: CustomText(
                                   text:
                                       '${liveRatesDetailMaster[index].symbol} ',
-                                  size: 12.0,
+                                  size: 13.0,
                                   fontWeight: FontWeight.bold,
                                   textColor: AppColors.secondaryTextColor,
                                   align: TextAlign.start,
@@ -1109,9 +1105,9 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                 child: CustomText(
                                   text:
                                       'Time-${liveRatesDetailMaster[index].time}',
-                                  size: 9.0,
+                                  size: 11.0,
                                   fontWeight: FontWeight.bold,
-                                  textColor: AppColors.hintColor,
+                                  textColor: AppColors.defaultColor,
                                   align: TextAlign.start,
                                 ),
                               ),
@@ -1123,7 +1119,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               SizedBox(
-                                // width: size.width / 7,
+                                width: size.width / 5,
                                 child: Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
@@ -1155,7 +1151,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                           child: CustomText(
                                               text:
                                                   '${liveRatesDetailMaster[index].bid}',
-                                              size: 12.0,
+                                              size: 14.0,
                                               fontWeight: FontWeight.bold,
                                               textColor:
                                                   liveRatesDetailMaster[index]
@@ -1170,7 +1166,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                       child: CustomText(
                                         text:
                                             '${liveRatesDetailMaster[index].premiumBuy}',
-                                        size: 10.0,
+                                        size: 13.0,
                                         fontWeight: FontWeight.normal,
                                         textColor: AppColors.defaultColor,
                                       ),
@@ -1179,7 +1175,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                 ),
                               ),
                               SizedBox(
-                                // width: size.width / 7,
+                                width: size.width / 5,
                                 child: Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
@@ -1209,7 +1205,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                           child: CustomText(
                                             text:
                                                 '${liveRatesDetailMaster[index].ask}',
-                                            size: 12.0,
+                                            size: 14.0,
                                             fontWeight: FontWeight.bold,
                                             textColor:
                                                 liveRatesDetailMaster[index]
@@ -1226,7 +1222,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                       child: CustomText(
                                         text:
                                             '${liveRatesDetailMaster[index].premium}',
-                                        size: 10.0,
+                                        size: 13.0,
                                         textColor: AppColors.defaultColor,
                                         fontWeight: FontWeight.normal,
                                       ),
@@ -1284,7 +1280,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                 child: CustomText(
                                   text:
                                       '${liveRatesDetailMaster[index].symbol} ',
-                                  size: 12.0,
+                                  size: 13.0,
                                   fontWeight: FontWeight.bold,
                                   textColor: AppColors.secondaryTextColor,
                                   align: TextAlign.start,
@@ -1293,11 +1289,10 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                               SizedBox(
                                 width: size.width * .3,
                                 child: CustomText(
-                                  text:
-                                      'Time-${liveRatesDetailMaster[index].time}',
-                                  size: 9.0,
+                                  text:'Time-${liveRatesDetailMaster[index].time}',
+                                  size: 10.0,
                                   fontWeight: FontWeight.bold,
-                                  textColor: AppColors.hintColor,
+                                  textColor: AppColors.defaultColor,
                                   align: TextAlign.start,
                                 ),
                               ),
@@ -1309,7 +1304,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               SizedBox(
-                                // width: size.width / 7,
+                                width: size.width / 5,
                                 child: Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
@@ -1322,6 +1317,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                         padding: const EdgeInsets.only(
                                             left: 10.0, right: 10.0),
                                         child: Container(
+
                                           decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(3),
@@ -1341,7 +1337,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                           child: CustomText(
                                               text:
                                                   '${liveRatesDetailMaster[index].bid}',
-                                              size: 12.0,
+                                              size: 14.0,
                                               fontWeight: FontWeight.bold,
                                               textColor:
                                                   liveRatesDetailMaster[index]
@@ -1356,7 +1352,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                       child: CustomText(
                                         text:
                                             '${liveRatesDetailMaster[index].premiumBuy}',
-                                        size: 10.0,
+                                        size: 13.0,
                                         fontWeight: FontWeight.normal,
                                         textColor: AppColors.defaultColor,
                                       ),
@@ -1365,7 +1361,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                 ),
                               ),
                               SizedBox(
-                                // width: size.width / 7,
+                                width: size.width / 5,
                                 child: Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
@@ -1395,7 +1391,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                           child: CustomText(
                                             text:
                                                 '${liveRatesDetailMaster[index].ask}',
-                                            size: 12.0,
+                                            size: 14.0,
                                             fontWeight: FontWeight.bold,
                                             textColor:
                                                 liveRatesDetailMaster[index]
@@ -1412,7 +1408,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                       child: CustomText(
                                         text:
                                             '${liveRatesDetailMaster[index].premium}',
-                                        size: 10.0,
+                                        size: 13.0,
                                         textColor: AppColors.defaultColor,
                                         fontWeight: FontWeight.normal,
                                       ),

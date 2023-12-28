@@ -221,274 +221,221 @@ class _ProfileScreenState extends State<ProfileScreen> {
             children: [
               // Row(
               //   children: [
-              //     Flexible(
-              //       flex: 1,
-              //       child: CustomText(
-              //         text: 'USER ID',
-              //         textColor: AppColors.defaultColor,
-              //         size: 14.0,
-              //         fontWeight: FontWeight.bold,
-              //       ),
-              //     ),
-              //     Flexible(
-              //       flex: 2,
+              //     Padding(
+              //       padding: EdgeInsets.only(top: size.height * 0.01, left: 10),
               //       child: Row(
-              //         mainAxisAlignment: MainAxisAlignment.center,
+              //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               //         children: [
-              //           CustomText(
-              //             text: accountDetails.loginId == null
-              //                 ? ' : '
-              //                 : ' :  ${accountDetails.loginId!}',
-              //             textColor: AppColors.defaultColor,
-              //             size: 14.0,
-              //             fontWeight: FontWeight.bold,
+              //           Column(
+              //             crossAxisAlignment: CrossAxisAlignment.start,
+              //             children: [
+              //               CustomText(
+              //                 text: 'USER ID',
+              //                 textColor: AppColors.defaultColor,
+              //                 size: 14.0,
+              //                 fontWeight: FontWeight.bold,
+              //               ),
+              //               SizedBox(
+              //                 height: size.height * 0.01,
+              //               ),
+              //               CustomText(
+              //                 text: 'AUTHORISED PERSON NAME',
+              //                 textColor: AppColors.defaultColor,
+              //                 size: 14.0,
+              //                 fontWeight: FontWeight.bold,
+              //               ),
+              //               SizedBox(
+              //                 height: size.height * 0.01,
+              //               ),
+              //               CustomText(
+              //                 text: 'FIRM NAME',
+              //                 textColor: AppColors.defaultColor,
+              //                 size: 14.0,
+              //                 fontWeight: FontWeight.bold,
+              //               ),
+              //               SizedBox(
+              //                 height: size.height * 0.01,
+              //               ),
+              //               CustomText(
+              //                 text: 'CONTACT NO',
+              //                 textColor: AppColors.defaultColor,
+              //                 size: 14.0,
+              //                 fontWeight: FontWeight.bold,
+              //               ),
+              //               SizedBox(
+              //                 height: size.height * 0.01,
+              //               ),
+              //               CustomText(
+              //                 text: 'EMAIL ID',
+              //                 textColor: AppColors.defaultColor,
+              //                 size: 14.0,
+              //                 fontWeight: FontWeight.bold,
+              //               ),
+              //               SizedBox(
+              //                 height: size.height * 0.01,
+              //               ),
+              //               CustomText(
+              //                 text: 'ADDRESS',
+              //                 textColor: AppColors.defaultColor,
+              //                 size: 14.0,
+              //                 fontWeight: FontWeight.bold,
+              //               ),
+              //             ],
               //           ),
               //         ],
               //       ),
-              //     )
-              //   ],
-              // ),
-              // SizedBox(
-              //   height: size.height * 0.01,
-              // ),
-              // Row(
-              //   children: [
-              //     Flexible(
-              //       fit: FlexFit.tight,
-              //       // flex: 2,
-              //       child: CustomText(
-              //         text: 'AUTHORISED PERSON NAME',
-              //         textColor: AppColors.defaultColor,
-              //         size: 14.0,
-              //         fontWeight: FontWeight.bold,
+              //     ),
+              //     Expanded(
+              //       child: Padding(
+              //         padding: EdgeInsets.only(top: size.height * 0.01),
+              //         child: Column(
+              //           crossAxisAlignment: CrossAxisAlignment.start,
+              //           children: [
+              //             CustomText(
+              //               text: accountDetails.loginId == null
+              //                   ? ' : '
+              //                   : ' : ${accountDetails.loginId!}',
+              //               textColor: AppColors.defaultColor,
+              //               size: 14.0,
+              //               fontWeight: FontWeight.bold,
+              //             ),
+              //             SizedBox(
+              //               height: size.height * 0.01,
+              //             ),
+              //             CustomText(
+              //               text: accountDetails.name == null
+              //                   ? ' : '
+              //                   : ' : ${accountDetails.name!}',
+              //               textColor: AppColors.defaultColor,
+              //               size: 14.0,
+              //               fontWeight: FontWeight.bold,
+              //             ),
+              //             SizedBox(
+              //               height: size.height * 0.01,
+              //             ),
+              //             CustomText(
+              //               text: accountDetails.firmname == null
+              //                   ? ' : '
+              //                   : ' : ${accountDetails.firmname!}',
+              //               textColor: AppColors.defaultColor,
+              //               size: 14.0,
+              //               fontWeight: FontWeight.bold,
+              //             ),
+              //             SizedBox(
+              //               height: size.height * 0.01,
+              //             ),
+              //             CustomText(
+              //               text: accountDetails.number == null
+              //                   ? ' : '
+              //                   : ' : ${accountDetails.number!}',
+              //               textColor: AppColors.defaultColor,
+              //               size: 14.0,
+              //               fontWeight: FontWeight.bold,
+              //             ),
+              //             SizedBox(
+              //               height: size.height * 0.01,
+              //             ),
+              //             CustomText(
+              //               text: accountDetails.email == null
+              //                   ? ' : '
+              //                   : ' : ${accountDetails.email!}',
+              //               textColor: AppColors.defaultColor,
+              //               size: 14.0,
+              //               fontWeight: FontWeight.bold,
+              //             ),
+              //             SizedBox(
+              //               height: size.height * 0.01,
+              //             ),
+              //             CustomText(
+              //               text: accountDetails.city == null
+              //                   ? ' : '
+              //                   : ' : ${accountDetails.city!}',
+              //               textColor: AppColors.defaultColor,
+              //               size: 14.0,
+              //               fontWeight: FontWeight.bold,
+              //             ),
+              //           ],
+              //         ),
               //       ),
               //     ),
-              //     Flexible(
-              //       fit: FlexFit.loose,
-              //       child: CustomText(
-              //         text: accountDetails.name == null
-              //             ? ' : '
-              //             : ' :  ${accountDetails.name!}',
-              //         textColor: AppColors.defaultColor,
-              //         size: 14.0,
-              //         fontWeight: FontWeight.bold,
-              //       ),
-              //     )
               //   ],
               // ),
-              // SizedBox(
-              //   height: size.height * 0.01,
-              // ),
-              // Row(
-              //   children: [
-              //     Flexible(
-              //       flex: 1,
-              //       child: CustomText(
-              //         text: 'FIRM NAME',
-              //         textColor: AppColors.defaultColor,
-              //         size: 14.0,
-              //         fontWeight: FontWeight.bold,
-              //       ),
-              //     ),
-              //     Flexible(
-              //       flex: 2,
-              //       child: Row(
-              //         mainAxisAlignment: MainAxisAlignment.center,
-              //         children: [
-              //           CustomText(
-              //             text: accountDetails.firmname == null
-              //                 ? ' : '
-              //                 : ' :  ${accountDetails.firmname!}',
-              //             textColor: AppColors.defaultColor,
-              //             size: 14.0,
-              //             fontWeight: FontWeight.bold,
-              //           ),
-              //         ],
-              //       ),
-              //     )
-              //   ],
-              // ),
-
-              // SizedBox(
-              //   height: size.height * 0.01,
-              // ),
-              // Row(
-              //   children: [
-              //     Flexible(
-              //       flex: 1,
-              //       child: CustomText(
-              //         text: 'CONTACT NO',
-              //         textColor: AppColors.defaultColor,
-              //         size: 14.0,
-              //         fontWeight: FontWeight.bold,
-              //       ),
-              //     ),
-              //     Flexible(
-              //       flex: 2,
-              //       child: Row(
-              //         mainAxisAlignment: MainAxisAlignment.center,
-              //         children: [
-              //           CustomText(
-              //             text: accountDetails.number == null
-              //                 ? ' : '
-              //                 : ' :  ${accountDetails.number!}',
-              //             textColor: AppColors.defaultColor,
-              //             size: 14.0,
-              //             fontWeight: FontWeight.bold,
-              //           ),
-              //         ],
-              //       ),
-              //     )
-              //   ],
-              // ),
-
-              // SizedBox(
-              //   height: size.height * 0.01,
-              // ),
-              // Row(
-              //   children: [
-              //     Flexible(
-              //       flex: 1,
-              //       child: CustomText(
-              //         text: 'EMAIL ID',
-              //         textColor: AppColors.defaultColor,
-              //         size: 14.0,
-              //         fontWeight: FontWeight.bold,
-              //       ),
-              //     ),
-              //     Flexible(
-              //       flex: 2,
-              //       child: Row(
-              //         mainAxisAlignment: MainAxisAlignment.center,
-              //         children: [
-              //           CustomText(
-              //             text: accountDetails.email == null
-              //                 ? ' : '
-              //                 : ' :  ${accountDetails.email!}',
-              //             textColor: AppColors.defaultColor,
-              //             size: 14.0,
-              //             fontWeight: FontWeight.bold,
-              //           ),
-              //         ],
-              //       ),
-              //     )
-              //   ],
-              // ),
-
-              // SizedBox(
-              //   height: size.height * 0.01,
-              // ),
-              // Row(
-              //   children: [
-              //     Flexible(
-              //       flex: 1,
-              //       child: CustomText(
-              //         text: 'ADDRESS',
-              //         textColor: AppColors.defaultColor,
-              //         size: 14.0,
-              //         fontWeight: FontWeight.bold,
-              //       ),
-              //     ),
-              //     Flexible(
-              //       flex: 2,
-              //       child: Row(
-              //         mainAxisAlignment: MainAxisAlignment.center,
-              //         children: [
-              //           CustomText(
-              //             text: accountDetails.city == null
-              //                 ? ' : '
-              //                 : ' :  ${accountDetails.city!}',
-              //             textColor: AppColors.defaultColor,
-              //             size: 14.0,
-              //             fontWeight: FontWeight.bold,
-              //           ),
-              //         ],
-              //       ),
-              //     )
-              //   ],
-              // ),
-
-              // SizedBox(
-              // height: size.height * 0.01,
-              // ),
-              Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: size.height * 0.01, left: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CustomText(
-                              text: 'USER ID',
-                              textColor: AppColors.defaultColor,
-                              size: 14.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            SizedBox(
-                              height: size.height * 0.01,
-                            ),
-                            CustomText(
-                              text: 'AUTHORISED PERSON NAME',
-                              textColor: AppColors.defaultColor,
-                              size: 14.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            SizedBox(
-                              height: size.height * 0.01,
-                            ),
-                            CustomText(
-                              text: 'FIRM NAME',
-                              textColor: AppColors.defaultColor,
-                              size: 14.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            SizedBox(
-                              height: size.height * 0.01,
-                            ),
-                            CustomText(
-                              text: 'CONTACT NO',
-                              textColor: AppColors.defaultColor,
-                              size: 14.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            SizedBox(
-                              height: size.height * 0.01,
-                            ),
-                            CustomText(
-                              text: 'EMAIL ID',
-                              textColor: AppColors.defaultColor,
-                              size: 14.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            SizedBox(
-                              height: size.height * 0.01,
-                            ),
-                            CustomText(
-                              text: 'ADDRESS',
-                              textColor: AppColors.defaultColor,
-                              size: 14.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.only(top: size.height * 0.01),
+              Padding(
+                padding:  EdgeInsets.only(left: 10.0,top: size.height * 0.01),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomText(
+                            text: 'USER ID',
+                            textColor: AppColors.defaultColor,
+                            size: 13.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          SizedBox(
+                            height: size.height * 0.01,
+                          ),
+                          CustomText(
+                            text: 'AUTHORISED PERSON NAME',
+                            textColor: AppColors.defaultColor,
+                            size: 13.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          SizedBox(
+                            height: size.height * 0.01,
+                          ),
+                          CustomText(
+                            text: 'FIRM NAME',
+                            textColor: AppColors.defaultColor,
+                            size: 13.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          SizedBox(
+                            height: size.height * 0.01,
+                          ),
+                          CustomText(
+                            text: 'CONTACT NO',
+                            textColor: AppColors.defaultColor,
+                           size:13,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          SizedBox(
+                            height: size.height * 0.01,
+                          ),
+                          CustomText(
+                            text: 'EMAIL ID',
+                            textColor: AppColors.defaultColor,
+                           size:13,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          SizedBox(
+                            height: size.height * 0.01,
+                          ),
+                          CustomText(
+                            text: 'ADDRESS',
+                            textColor: AppColors.defaultColor,
+                           size:13,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+
+
                         children: [
                           CustomText(
                             text: accountDetails.loginId == null
                                 ? ' : '
                                 : ' : ${accountDetails.loginId!}',
                             textColor: AppColors.defaultColor,
-                            size: 14.0,
+                           size:13,
                             fontWeight: FontWeight.bold,
                           ),
                           SizedBox(
@@ -499,7 +446,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ? ' : '
                                 : ' : ${accountDetails.name!}',
                             textColor: AppColors.defaultColor,
-                            size: 14.0,
+                           size:13,
                             fontWeight: FontWeight.bold,
                           ),
                           SizedBox(
@@ -510,7 +457,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ? ' : '
                                 : ' : ${accountDetails.firmname!}',
                             textColor: AppColors.defaultColor,
-                            size: 14.0,
+                           size:13,
                             fontWeight: FontWeight.bold,
                           ),
                           SizedBox(
@@ -521,7 +468,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ? ' : '
                                 : ' : ${accountDetails.number!}',
                             textColor: AppColors.defaultColor,
-                            size: 14.0,
+                           size:13,
                             fontWeight: FontWeight.bold,
                           ),
                           SizedBox(
@@ -532,7 +479,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ? ' : '
                                 : ' : ${accountDetails.email!}',
                             textColor: AppColors.defaultColor,
-                            size: 14.0,
+                           size:13,
                             fontWeight: FontWeight.bold,
                           ),
                           SizedBox(
@@ -543,15 +490,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ? ' : '
                                 : ' : ${accountDetails.city!}',
                             textColor: AppColors.defaultColor,
-                            size: 14.0,
+                           size:13,
                             fontWeight: FontWeight.bold,
                           ),
                         ],
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
+
               SizedBox(
                 height: size.height * 0.01,
               ),
@@ -563,7 +511,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     CustomText(
                       text: 'PASSWORD',
                       textColor: AppColors.defaultColor,
-                      size: 14.0,
+                     size:13,
                       fontWeight: FontWeight.bold,
                     ),
                     SizedBox(
@@ -606,7 +554,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   child: CustomText(
                                     text: 'Update',
                                     textColor: AppColors.primaryColor,
-                                    size: 16,
+                                    size: 15,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -678,7 +626,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     child: CustomText(
                                       text: 'Delete',
                                       textColor: AppColors.primaryColor,
-                                      size: 16,
+                                      size: 15,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -751,19 +699,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     CustomText(
                       text: 'Symbol',
                       textColor: AppColors.defaultColor,
-                      size: 14.0,
+                      size: 13.0,
                       fontWeight: FontWeight.bold,
                     ),
                     CustomText(
                       text: 'One Click',
                       textColor: AppColors.defaultColor,
-                      size: 14.0,
+                      size: 13.0,
                       fontWeight: FontWeight.bold,
                     ),
                     CustomText(
                       text: 'In Total',
                       textColor: AppColors.defaultColor,
-                      size: 14.0,
+                      size: 13.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ],

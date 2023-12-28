@@ -201,7 +201,15 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     });
     NotifySocketUpdate.controllerOrderDetails!.stream.listen((event) {
       setState(() {
-        onItemTapped(1);
+        if(Constants.isLogin){
+          if(Constants.tradeType.isNotEmpty){
+            if(Constants.tradeType=='1'||Constants.tradeType=='2'){
+              onItemTapped(1);
+              Constants.tradeType='';
+            }
+          }
+        }
+        // onItemTapped(1);
       });
     });
   }
@@ -265,7 +273,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         // bool isAddVisible
         debugPrint('appLifeCycleState detached');
         break;
-      // case AppLifecycleState.hidden:
+      case AppLifecycleState.hidden:
       // TODO: Handle this case.
     }
   }

@@ -51,5 +51,5 @@ class Constants {
   static String token = '';
   static String? fcmToken = '';
   static String loginName = '';
-  static String tradeType = '';
+  static  String tradeType = '';
 }
