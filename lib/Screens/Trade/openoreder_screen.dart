@@ -59,7 +59,10 @@ class _OpenOrder_ScreenState extends State<OpenOrder_Screen> {
             itemCount: openOrdList.length,
             itemBuilder: (builder, index) {
               return OrderStatus_Widget(
-                  isEdit: false, dataList: openOrdList[index],openOrder: null,update: null);
+                  isEdit: false,
+                  dataList: openOrdList[index],
+                  openOrder: null,
+                  update: null);
             },
           );
   }

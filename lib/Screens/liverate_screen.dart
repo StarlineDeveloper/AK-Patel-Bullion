@@ -2297,7 +2297,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
             InsertOpenOrderDetailRequest(
                 symbolId: symbolId,
                 token: Constants.token,
-                quantity: Functions.alphaNum(quantity),
+                quantity: Functions.extractNumber(quantity),
                 tradeFrom: Platform.isIOS ? 'Ios' : 'Android',
                 tradeType: isMarketSelected && isBuySellSelected
                     ? '1'

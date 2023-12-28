@@ -21,7 +21,6 @@ class Functions {
 
   static showToast(String message) {
     Fluttertoast.showToast(
-
         msg: message,
         toastLength: Toast.LENGTH_LONG,
         timeInSecForIosWeb: 4,
@@ -38,7 +37,6 @@ class Functions {
         duration: const Duration(seconds: 3),
         content: Text(
           textScaleFactor: 1.0,
-
           content,
           textAlign: TextAlign.center,
           style: const TextStyle(
@@ -88,23 +86,46 @@ class Functions {
   }
 
   //format number
-  static String formatNum(int num) {
-    return  num==0?'0':NumberFormat('#,##,000').format(num);
+  static String formatNum(var num) {
+    return num == 0 ? '0' : NumberFormat('#,##,000').format(num);
   }
+
   //format dynamic
- static bool isDecimal(String input) {
+  static bool isDecimal(String input) {
     final RegExp decimalRegExp = RegExp(r'^\d+\.\d+$');
     return decimalRegExp.hasMatch(input);
   }
+
   //format dynamic
   static bool isNumeric(String s) {
-    if (s.isEmpty||s=='--'||s=='-') {
+    if (s.isEmpty || s == '--' || s == '-') {
       return false;
     }
     return true;
   }
+
   //replace alpha with number
   static String alphaNum(String num) {
-    return  num.replaceAll(RegExp(r'[^0-9]'),'');
+    return num.replaceAll(RegExp(r'[^0-9]'), '');
+  }
+
+  static extractNumber(String inputString) {
+    // Define a regular expression to match numeric values (including decimal points)
+    RegExp regExp = RegExp(r"(\d+\.\d+|\d+)");
+
+    // Extract the first match from the input string
+    Match match = regExp.firstMatch(inputString) as Match;
+
+    // Check if a match is found and extract the matched value
+    if (match != null) {
+      String? matchedValue = match.group(0);
+
+      // Parse the matched value to a double
+      try {
+        return matchedValue!;
+      } catch (e) {
+        print("Error parsing double: $e");
+      }
+    }
   }
 }
