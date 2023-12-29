@@ -47,7 +47,7 @@ class SocketService {
           }
         }
       });
-      debugPrint('onConnect------------------------------------------------');
+      debugPrint('onConnect-----------------------------------------------------');
     });
 
     socket.on('ClientHeaderDetails', (response) {

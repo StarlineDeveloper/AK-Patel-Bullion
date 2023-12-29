@@ -1151,7 +1151,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                           child: CustomText(
                                               text:
                                                   '${liveRatesDetailMaster[index].bid}',
-                                              size: 14.0,
+                                              size: 14.5,
                                               fontWeight: FontWeight.bold,
                                               textColor:
                                                   liveRatesDetailMaster[index]
@@ -1205,7 +1205,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                           child: CustomText(
                                             text:
                                                 '${liveRatesDetailMaster[index].ask}',
-                                            size: 14.0,
+                                            size: 14.5,
                                             fontWeight: FontWeight.bold,
                                             textColor:
                                                 liveRatesDetailMaster[index]
@@ -1337,7 +1337,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                           child: CustomText(
                                               text:
                                                   '${liveRatesDetailMaster[index].bid}',
-                                              size: 14.0,
+                                              size: 14.5,
                                               fontWeight: FontWeight.bold,
                                               textColor:
                                                   liveRatesDetailMaster[index]
@@ -1391,7 +1391,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                           child: CustomText(
                                             text:
                                                 '${liveRatesDetailMaster[index].ask}',
-                                            size: 14.0,
+                                            size: 14.5,
                                             fontWeight: FontWeight.bold,
                                             textColor:
                                                 liveRatesDetailMaster[index]
