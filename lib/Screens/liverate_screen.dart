@@ -1094,7 +1094,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                 child: CustomText(
                                   text:
                                       '${liveRatesDetailMaster[index].symbol} ',
-                                  size: 13.0,
+                                  size: 13.5,
                                   fontWeight: FontWeight.bold,
                                   textColor: AppColors.secondaryTextColor,
                                   align: TextAlign.start,
@@ -1280,7 +1280,7 @@ class _LiveRateScreenState extends State<LiveRateScreen>
                                 child: CustomText(
                                   text:
                                       '${liveRatesDetailMaster[index].symbol} ',
-                                  size: 13.0,
+                                  size: 13.5,
                                   fontWeight: FontWeight.bold,
                                   textColor: AppColors.secondaryTextColor,
                                   align: TextAlign.start,
