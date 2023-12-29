@@ -43,6 +43,7 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode 14
         versionName "2.4"
+        archivesBaseName = "Ak_Patel_bullion"
     }
 
     buildTypes {
